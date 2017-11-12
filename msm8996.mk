@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
+    init.safailnet.rc \
     ueventd.qcom.rc
 
 # Display
