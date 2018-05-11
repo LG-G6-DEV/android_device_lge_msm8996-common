@@ -59,5 +59,8 @@ inline const char* BtmGetDefaultName()
 // More BT calling fixes
 #define BTHW_FW_EXTENDED_CONFIGURATION TRUE
 
+// Disable sco enhanced commands
+#define BTM_SCO_ENHANCED_SYNC_ENABLED  FALSE
+
 #pragma pop_macro("PROPERTY_VALUE_MAX")
 #endif
