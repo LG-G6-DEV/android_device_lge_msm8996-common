@@ -152,7 +152,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    LGDoze
+    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
