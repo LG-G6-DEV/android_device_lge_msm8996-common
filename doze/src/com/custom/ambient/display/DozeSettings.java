@@ -40,7 +40,6 @@ public class DozeSettings extends PreferenceActivity implements OnPreferenceChan
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.doze_settings);
         mContext = getApplicationContext();
@@ -105,5 +104,4 @@ public class DozeSettings extends PreferenceActivity implements OnPreferenceChan
         }
         return false;
     }
-
 }
