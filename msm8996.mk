@@ -156,7 +156,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    OneplusThreeDoze
 
 # DRM
 PRODUCT_PACKAGES += \
