@@ -283,6 +283,10 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libstagefright_soft_flacdec
 
+# Pocket Mode
+PRODUCT_PACKAGES += \
+    OneplusPocketMode
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service-qti \

@@ -66,6 +66,19 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
+    # Create Pocket Mode log
+    mkdir -p /sys/devices/soc/soc:fpc_fpc1020
+    mkdir -p /sys/devices/soc/soc:goodix_fp/proximity_state
+
+    touch /sys/devices/soc/soc:fpc_fpc1020/proximity_state
+    touch /sys/devices/soc/soc:goodix_fp/proximity_state
+    
+    chmod 770 /sys/devices/soc/soc:fpc_fpc1020/proximity_state
+    chmod 770 /sys/devices/soc/soc:goodix_fp/proximity_state
+
+    chown system system /sys/devices/soc/soc:fpc_fpc1020/proximity_state
+    chown system system /sys/devices/soc/soc:goodix_fp/proximity_stat
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
