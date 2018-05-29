@@ -13,3 +13,4 @@ type hal_livedisplay_default, sysfs_type, fs_type;
 type perfd_data_file, file_type, data_file_type;
 type perfd, file_type, data_file_type;
 type proc_sensordata, fs_type;
+type proc_touchpanel, fs_type;
