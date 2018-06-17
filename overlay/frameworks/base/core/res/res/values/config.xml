@@ -24,7 +24,7 @@
     <bool name="config_showNavigationBar">true</bool>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">6</integer>
+    <integer name="config_screenBrightnessDim">1</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -32,7 +32,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">85</integer>
+    <integer name="config_screenBrightnessSettingDefault">8</integer>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
@@ -301,6 +301,15 @@
         <item>255</item>
     </integer-array>
 
+    <!-- Minimum allowable screen brightness to use in a very dark room.
+         This value sets the floor for the darkest possible auto-brightness
+         adjustment.  It is expected to be somewhat less than the first entry in
+         config_autoBrightnessLcdBacklightValues so as to allow the user to have
+         some range of adjustment to dim the screen further than usual in very
+         dark rooms. The contents of the screen must still be clearly visible
+         in darkness (although they may not be visible in a bright room). -->
+    <integer name="config_screenBrightnessDark">5</integer>
+
     <string-array name="config_mobile_tcp_buffers">
         <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
         <item>lte_ca:2097152,4194304,8388608,4096,1048576,2097152</item>
@@ -366,4 +375,16 @@
     <!-- Should the pinner service pin the Camera application? -->
     <bool name="config_pinnerCameraApp">true</bool>
 
+    <!-- When the screen is turned on, the previous estimate of the ambient light level at the time
+         the screen was turned off is restored and is used to determine the initial screen
+         brightness.
+
+         If this flag is true, then the ambient light level estimate will be promptly recomputed
+         after the warm-up interface and the screen brightness will be adjusted immediately.
+
+         If this flag is false, then the ambient light level estimate will be adjusted more
+         gradually in the same manner that normally happens when the screen is on according to the
+         brightening or dimming debounce thresholds.  As a result, it may take somewhat longer to
+         adapt to the environment.  This mode may be better suited for watches. -->
+    <bool name="config_autoBrightnessResetAmbientLuxAfterWarmUp">true</bool>
 </resources>
