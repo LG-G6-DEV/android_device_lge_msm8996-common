@@ -15,3 +15,7 @@ genfscon proc /sys/kernel/sched_small_task           u:object_r:proc_kernel_sche
 genfscon proc /sys/kernel/sched_spill_nr_run         u:object_r:proc_kernel_sched:s0
 genfscon proc /sys/kernel/sched_upmigrate            u:object_r:proc_kernel_sched:s0
 genfscon proc /irq                                   u:object_r:proc_irq:s0
+
+# Power
+genfscon debugfs /p2p0/power_stats     u:object_r:debugfs_power_stats:s0
+genfscon debugfs /wlan0/power_stats    u:object_r:debugfs_power_stats:s0
