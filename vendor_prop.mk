@@ -44,6 +44,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.camera.aux.packagelist=all \
+    persist.camera.camera2=true \
+    persist.camera.expose.aux=1 \
     ro.camera.notify_nfc=1 \
     vidc.debug.perf.mode=2 \
     vidc.enc.dcvs.extra-buff-count=2 \
