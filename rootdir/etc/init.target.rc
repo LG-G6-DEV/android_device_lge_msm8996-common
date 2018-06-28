@@ -118,12 +118,6 @@ service energy-awareness /vendor/bin/energy-awareness
     group system
     oneshot
 
-service perfd /vendor/bin/perfd
-    class main
-    user root
-    group root system
-    writepid /dev/cpuset/system-background/tasks
-
 service mpdecision /system/bin/mpdecision --avg_comp
     user root
     disabled
