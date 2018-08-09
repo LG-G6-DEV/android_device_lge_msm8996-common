@@ -10,15 +10,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     vendor.audio_hal.period_size=192 \
-    ro.vendor.audio.sdk.fluencetype=fluence \
+    ro.vendor.audio.sdk.fluencetype=fluencepro \
     persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.fluence.voicerec=true \
     persist.vendor.audio.fluence.speaker=true \
     vendor.audio.tunnel.encode=false \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.pcm.16bit.enable=true \
     vendor.audio.offload.pcm.24bit.enable=true \
-    audio.offload.video=false \
+    audio.offload.video=true \
     vendor.audio.offload.track.enable=true \
     audio.deep_buffer.media=true \
     vendor.voice.path.for.pcm.voip=true \
@@ -36,7 +36,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.flac.sw.decoder.24bit=true \
     persist.vendor.bt.enable.splita2dp=false \
     persist.vendor.audio.speaker.prot.enable=true \
-    persist.vendor.audio.spkr.cal.duration=5
+    persist.vendor.audio.spkr.cal.duration=5 \
+    ro.config.media_vol_steps=25 \
+    audio.heap.size.multiplier=7
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -88,9 +90,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Fluence
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluence \
+    ro.qc.sdk.audio.fluencetype=fluencepro \
     persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.voicerec=true \
     persist.audio.fluence.speaker=true
 
 # GPS
@@ -211,10 +213,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
 
-# Display power reduction (FOSS) 
+#enable Apical AD
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qcom.dpps.sensortype=3 \
-    ro.qualcomm.display.paneltype=1 \
-    ro.qualcomm.foss=1 \
-    config.foss.xml=1 \
-    config.foss.path=/vendor/etc/FOSSConfig.xml
+    ro.qcom.ad=1 \
+    ro.qcom.ad.sensortype=3
