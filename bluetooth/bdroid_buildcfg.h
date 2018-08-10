@@ -41,4 +41,5 @@ inline const char* BtmGetDefaultName()
 
 #define BLE_VND_INCLUDED  TRUE
 
+#undef PROPERTY_VALUE_MAX
 #endif
