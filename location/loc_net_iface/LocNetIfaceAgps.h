@@ -31,6 +31,7 @@
 #include <LocNetIface.h>
 #include <gps_extended_c.h>
 
+
 /* these declarations will be moved inside api file */
 /* Constructs for interaction with loc_net_iface library */
 typedef void (*LocAgpsOpenResultCb)(
@@ -39,6 +40,17 @@ typedef void (*LocAgpsOpenResultCb)(
 
 typedef void (*LocAgpsCloseResultCb)(
         bool isSuccess, AGpsExtType agpsType, void* userDataPtr);
+
+/* AGPS state Enum */
+typedef enum {
+    LOC_NET_AGPS_STATE_INVALID,
+    LOC_NET_AGPS_STATE_OPEN_PENDING,
+    LOC_NET_AGPS_STATE_OPENED,
+    LOC_NET_AGPS_STATE_CLOSE_PENDING,
+    LOC_NET_AGPS_STATE_CLOSED,
+    LOC_NET_AGPS_STATE_MAX
+} LocNetAgpsState;
+
 
 /*--------------------------------------------------------------------
  * CLASS LocNetIfaceAgps
@@ -50,7 +62,11 @@ class LocNetIfaceAgps {
 
 public:
     /* status method registered as part of AGPS Extended callbacks */
+
     static void agpsStatusCb(AGpsExtStatus* status);
+
+    static void agpsStatusCb(AGnssExtStatusIpV4 status);
+
 
     /* Callbacks registered with Internet and SUPL LocNetIface instances */
     static void wwanStatusCallback(
@@ -61,14 +77,29 @@ public:
     static LocNetIface* sLocNetIfaceAgpsInternet;
     static LocNetIface* sLocNetIfaceAgpsSupl;
 
+
+
+    /* AGPS states */
+    static LocNetAgpsState sAgpsStateInternet;
+    static LocNetAgpsState sAgpsStateSupl;
+
+
     /* AGPS interface methods to be invoked on call setup/failure */
     static LocAgpsOpenResultCb sAgpsOpenResultCb;
     static LocAgpsCloseResultCb sAgpsCloseResultCb;
     static void* sUserDataPtr;
+
 };
 
 /* Global method accessed from HAL to fetch AGPS status cb */
 extern "C" agps_status_extended LocNetIfaceAgps_getStatusCb(
+
+    static AgpsCbInfo sAgpsCbInfo;
+};
+
+/* Global method accessed from HAL to fetch AGPS status cb */
+extern "C" AgpsCbInfo& LocNetIfaceAgps_getAgpsCbInfo(
+
         LocAgpsOpenResultCb openResultCb,
         LocAgpsCloseResultCb closeResultCb, void* userDataPtr);
 
