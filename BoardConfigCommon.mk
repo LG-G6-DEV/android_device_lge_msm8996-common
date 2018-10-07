@@ -205,7 +205,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := firmware mpt persist persist-lg sns
+BOARD_ROOT_EXTRA_FOLDERS := firmware persist persist-lg sns mpt
 
 # pdfium
 TARGET_NEEDS_PDFIUM_BIGINT := true
