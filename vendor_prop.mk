@@ -49,7 +49,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr
+    ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
+    vendor.audio_hal.force_voice_config
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
