@@ -19,3 +19,5 @@ genfscon proc /irq                                   u:object_r:proc_irq:s0
 # Power
 genfscon debugfs /p2p0/power_stats     u:object_r:debugfs_power_stats:s0
 genfscon debugfs /wlan0/power_stats    u:object_r:debugfs_power_stats:s0
+genfscon sysfs /devices/soc/qpnp-rtc-8/rtc           u:object_r:sysfs_rtc:s0
+
