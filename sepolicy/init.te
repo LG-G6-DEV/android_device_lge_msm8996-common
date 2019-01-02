@@ -6,3 +6,4 @@ allow init vendor_file:file { execute };
 
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
+allow init sysfs_mmc_host:file { setattr w_file_perms };
