@@ -356,6 +356,12 @@ on boot
     chown system input /sys/bus/spi/devices/spi8.1/regulator_enable
     chown system input /sys/bus/spi/devices/spi8.1/wakeup_enable
 
+    # Bluetooth and Wifi
+    chmod 0644 /data/misc/wifi/config
+    chown system wifi /data/misc/wifi/config
+    chmod 0644 /data/misc/bluetooth/bdaddr
+    chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
+
     write /proc/sys/net/core/netdev_max_backlog 5000
 
 service vendor.conn_init /vendor/bin/hwaddrs
@@ -630,10 +636,6 @@ on post-fs-data
     chmod 0644 /sys/class/leds/lcd-backlight/thermald_status
     
     start vendor.conn_init
-    chmod 0644 /data/misc/wifi/config
-    chown system wifi /data/misc/wifi/config
-    chmod 0644 /data/misc/bluetooth/bdaddr
-    chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
