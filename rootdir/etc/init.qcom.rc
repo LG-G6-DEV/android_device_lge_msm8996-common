@@ -112,6 +112,8 @@ on init
     write /dev/stune/rt/schedtune.boost 30
     write /dev/stune/rt/schedtune.prefer_idle 1
 
+    start config_bt_addr
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
@@ -667,7 +669,6 @@ on property:persist.debug.trace=1
 
 on property:vold.decrypt=trigger_restart_framework
     start vendor.qcom-c_main-sh
-    start config_bt_addr
     start config_bluetooth
 
 on property:persist.env.fastdorm.enabled=true
@@ -716,6 +717,12 @@ service vendor.imsrcsservice /vendor/bin/imsrcsd
 on property:vendor.ims.DATA_DAEMON_STATUS=1
    start vendor.ims_rtp_daemon
    start vendor.imsrcsservice
+
+service config_bt_addr /vendor/bin/init.program_bdaddr.sh
+    user bluetooth
+    group bluetooth
+    disabled
+    oneshot
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
