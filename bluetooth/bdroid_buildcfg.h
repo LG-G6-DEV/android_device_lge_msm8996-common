@@ -41,5 +41,9 @@ inline const char* BtmGetDefaultName()
 
 #define BLE_VND_INCLUDED  TRUE
 
+#define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
+// Some rom invert the logic
+#define BTM_SCO_ENHANCED_SYNC_DISABLED TRUE
+
 #undef PROPERTY_VALUE_MAX
 #endif
