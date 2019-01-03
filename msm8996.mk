@@ -121,6 +121,10 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     Snap
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -139,7 +143,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.usb.rc \
     init.target.rc \
-    init.program_bdaddr.sh \
     ueventd.qcom.rc
 
 # Display
@@ -365,6 +368,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
 
 # Vibrator
 PRODUCT_PACKAGES += \
