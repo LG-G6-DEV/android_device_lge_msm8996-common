@@ -79,12 +79,6 @@ user:  AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE BLOCK_SUSPEND
 
-[vendor/bin/btnvtool]
-mode: 0755
-user: AID_BLUETOOTH
-group: AID_BLUETOOTH
-caps: 0
-
 [firmware/]
 mode: 0771
 user: AID_SYSTEM
