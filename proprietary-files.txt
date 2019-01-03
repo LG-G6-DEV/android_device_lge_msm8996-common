@@ -8,6 +8,7 @@ vendor/lib/liboptizoom.so
 vendor/lib/libseemore.so
 vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
+vendor/lib/libSJFingerDetect.so
 vendor/lib64/libseemore.so
 
 # Camera postprocessing - mmcamera
