@@ -108,6 +108,10 @@ AUDIO_FEATURE_ENABLED_RAS := true
 AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+	/system/vendor/lib/libmmcamera_ppeiscore.so|libshim_camera.so \
+	/system/lib64/lib-imsvt.so|libshim_ims.so
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
