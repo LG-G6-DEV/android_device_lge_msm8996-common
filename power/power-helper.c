@@ -32,13 +32,13 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <dlfcn.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <log/log.h>
@@ -59,6 +59,11 @@
 #define RPM_SYSTEM_STAT "/d/system_stats"
 #endif
 
+#ifndef WLAN_POWER_STAT
+#define WLAN_POWER_STAT "/d/wlan0/power_stats"
+#endif
+
+#define ARRAY_SIZE(x) (sizeof((x))/sizeof((x)[0]))
 #define LINE_SIZE 128
 
 const char *rpm_stat_params[MAX_RPM_PARAMS] = {
@@ -78,10 +83,18 @@ struct stat_pair rpm_stat_map[] = {
     { VOTER_MPSS,    "MPSS",    master_stat_params, ARRAY_SIZE(master_stat_params) },
     { VOTER_ADSP,    "ADSP",    master_stat_params, ARRAY_SIZE(master_stat_params) },
     { VOTER_SLPI,    "SLPI",    master_stat_params, ARRAY_SIZE(master_stat_params) },
-    { VOTER_PRONTO,  "PRONTO",  master_stat_params, ARRAY_SIZE(master_stat_params) },
-    { VOTER_TZ,      "TZ",      master_stat_params, ARRAY_SIZE(master_stat_params) },
-    { VOTER_LPASS,   "LPASS",   master_stat_params, ARRAY_SIZE(master_stat_params) },
-    { VOTER_SPSS,    "SPSS",    master_stat_params, ARRAY_SIZE(master_stat_params) },
+};
+
+
+const char *wlan_power_stat_params[] = {
+    "cumulative_sleep_time_ms",
+    "cumulative_total_on_time_ms",
+    "deep_sleep_enter_counter",
+    "last_deep_sleep_enter_tstamp_ms"
+};
+
+struct stat_pair wlan_stat_map[] = {
+    { WLAN_POWER_DEBUG_STATS, "POWER DEBUG STATS", wlan_power_stat_params, ARRAY_SIZE(wlan_power_stat_params) },
 };
 
 static int saved_dcvs_cpu0_slack_max = -1;
@@ -119,112 +132,6 @@ void power_init(void)
             }
         }
         close(fd);
-    }
-}
-
-static void process_video_decode_hint(void *metadata)
-{
-    char governor[80];
-    struct video_decode_metadata_t video_decode_metadata;
-
-    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
-        ALOGE("Can't obtain scaling governor.");
-
-        return;
-    }
-
-    if (metadata) {
-        ALOGV("Processing video decode hint. Metadata: %s", (char *)metadata);
-    }
-
-    /* Initialize encode metadata struct fields. */
-    memset(&video_decode_metadata, 0, sizeof(struct video_decode_metadata_t));
-    video_decode_metadata.state = -1;
-    video_decode_metadata.hint_id = DEFAULT_VIDEO_DECODE_HINT_ID;
-
-    if (metadata) {
-        if (parse_video_decode_metadata((char *)metadata, &video_decode_metadata) ==
-            -1) {
-            ALOGE("Error occurred while parsing metadata.");
-            return;
-        }
-    } else {
-        return;
-    }
-
-    if (video_decode_metadata.state == 1) {
-        if ((strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(ONDEMAND_GOVERNOR))) {
-            int resource_values[] = {THREAD_MIGRATION_SYNC_OFF};
-
-            perform_hint_action(video_decode_metadata.hint_id,
-                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-        } else if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            int resource_values[] = {TR_MS_30, HISPEED_LOAD_90, HS_FREQ_1026, THREAD_MIGRATION_SYNC_OFF};
-
-            perform_hint_action(video_decode_metadata.hint_id,
-                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-        }
-    } else if (video_decode_metadata.state == 0) {
-        if ((strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(ONDEMAND_GOVERNOR))) {
-        } else if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            undo_hint_action(video_decode_metadata.hint_id);
-        }
-    }
-}
-
-static void process_video_encode_hint(void *metadata)
-{
-    char governor[80];
-    struct video_encode_metadata_t video_encode_metadata;
-
-    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
-        ALOGE("Can't obtain scaling governor.");
-
-        return;
-    }
-
-    /* Initialize encode metadata struct fields. */
-    memset(&video_encode_metadata, 0, sizeof(struct video_encode_metadata_t));
-    video_encode_metadata.state = -1;
-    video_encode_metadata.hint_id = DEFAULT_VIDEO_ENCODE_HINT_ID;
-
-    if (metadata) {
-        if (parse_video_encode_metadata((char *)metadata, &video_encode_metadata) ==
-            -1) {
-            ALOGE("Error occurred while parsing metadata.");
-            return;
-        }
-    } else {
-        return;
-    }
-
-    if (video_encode_metadata.state == 1) {
-        if ((strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(ONDEMAND_GOVERNOR))) {
-            int resource_values[] = {IO_BUSY_OFF, SAMPLING_DOWN_FACTOR_1, THREAD_MIGRATION_SYNC_OFF};
-
-            perform_hint_action(video_encode_metadata.hint_id,
-                resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-        } else if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            int resource_values[] = {TR_MS_30, HISPEED_LOAD_90, HS_FREQ_1026, THREAD_MIGRATION_SYNC_OFF,
-                INTERACTIVE_IO_BUSY_OFF};
-
-            perform_hint_action(video_encode_metadata.hint_id,
-                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-        }
-    } else if (video_encode_metadata.state == 0) {
-        if ((strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(ONDEMAND_GOVERNOR))) {
-            undo_hint_action(video_encode_metadata.hint_id);
-        } else if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            undo_hint_action(video_encode_metadata.hint_id);
-        }
     }
 }
 
@@ -410,12 +317,19 @@ void power_hint(power_hint_t hint, void *data)
                 return;
             }
 
-            int duration = 1500; // 1.5s by default
+            // Default boost duration for taps
+            int min_duration = 350; // 0.350s by default
+            int duration = min_duration;
+            bool isFling = false;
+
+            // Boost duration for scrolls/flings
+            // Minimum boost duration for flings is equal to the minimum duration for taps
             if (data) {
-                int input_duration = *((int*)data) + 750;
-                if (input_duration > duration) {
+                int input_duration = *((int*)data) + 200;
+                if (input_duration > min_duration) {
                     duration = (input_duration > 5750) ? 5750 : input_duration;
                 }
+				isFling = true;
             }
 
             struct timespec cur_boost_timespec;
@@ -430,22 +344,32 @@ void power_hint(power_hint_t hint, void *data)
             s_previous_duration = duration;
 
             // Scheduler is EAS.
-            if (true || strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
+            if (strncmp(governor, SCHED_GOVERNOR, strlen(SCHED_GOVERNOR)) == 0) {
                 // Setting the value of foreground schedtune boost to 50 and
-                // scaling_min_freq to 1100MHz.
-                int resources[] = {0x40800000, 1100, 0x40800100, 1100, 0x42C0C000, 0x32, 0x41800000, 0x33};
-                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
+                // Scrolls/flings
+                if (isFling) {
+                    int eas_interaction_resources[] = { MIN_FREQ_BIG_CORE_0, 1113, 
+                                                        MIN_FREQ_LITTLE_CORE_0, 1113, 
+                                                        STORAGE_CLK_SCALING, 0x32, // For changing top-app boost to 10
+                                                        CPUBW_HWMON_MIN_FREQ, 0x33};
+                    interaction(duration, sizeof(eas_interaction_resources)/sizeof(eas_interaction_resources[0]), eas_interaction_resources);
+                }
+                // Taps
+                else {
+                    int eas_interaction_resources[] = { MIN_FREQ_BIG_CORE_0, 729, 
+                                                        MIN_FREQ_LITTLE_CORE_0, 729, 
+                                                        //STOR_CLK_SCALE_DIS, 0x32, // For changing top-app boost to 50
+                                                        CPUBW_HWMON_MIN_FREQ, 0x33};
+                    interaction(duration, sizeof(eas_interaction_resources)/sizeof(eas_interaction_resources[0]), eas_interaction_resources);
+                }
             } else { // Scheduler is HMP.
-                int resources[] = {0x41800000, 0x33, 0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0x1};
-                interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
+                int hmp_interaction_resources[] = { CPUBW_HWMON_MIN_FREQ, 0x33, 
+                                                    MIN_FREQ_BIG_CORE_0, 1000, 
+                                                    MIN_FREQ_LITTLE_CORE_0, 1000, 
+                                                    SCHED_BOOST_ON_V3, 0x1};
+                interaction(duration, sizeof(hmp_interaction_resources)/sizeof(hmp_interaction_resources[0]), hmp_interaction_resources);
             }
         }
-        break;
-        case POWER_HINT_VIDEO_ENCODE:
-            process_video_encode_hint(data);
-        break;
-        case POWER_HINT_VIDEO_DECODE:
-            process_video_decode_hint(data);
         break;
         default:
         break;
@@ -698,6 +622,7 @@ static int parse_stats(const char **params, size_t params_size,
     return 0;
 }
 
+
 static int extract_stats(uint64_t *list, char *file,
                          struct stat_pair *map, size_t map_size) {
     FILE *fp;
@@ -746,4 +671,8 @@ static int extract_stats(uint64_t *list, char *file,
 
 int extract_platform_stats(uint64_t *list) {
     return extract_stats(list, RPM_SYSTEM_STAT, rpm_stat_map, ARRAY_SIZE(rpm_stat_map));
+}
+
+int extract_wlan_stats(uint64_t *list) {
+    return extract_stats(list, WLAN_POWER_STAT, wlan_stat_map, ARRAY_SIZE(wlan_stat_map));
 }
