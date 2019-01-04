@@ -37,4 +37,5 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ims_shim.cpp
 LOCAL_MODULE := libshim_ims
 LOCAL_MODULE_TAGS := optional
+LOCAL_MULTILIB := 64
 include $(BUILD_SHARED_LIBRARY)
