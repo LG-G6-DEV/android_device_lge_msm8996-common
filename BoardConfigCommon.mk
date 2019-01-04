@@ -122,9 +122,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := false
 BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # Camera
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/hw/camera.msm8996.so|/system/vendor/lib/libshim_camera.so \
-    /system/vendor/lib/libmmcamera_ppeiscore.so|/system/vendor/lib/libshim_camera.so
 USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
