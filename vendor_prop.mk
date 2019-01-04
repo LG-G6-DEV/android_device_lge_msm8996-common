@@ -16,36 +16,34 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
-    vendor.audio_hal.period_size=192 \
-    ro.vendor.audio.sdk.fluencetype=fluence \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=true \
-    persist.vendor.audio.fluence.speaker=true \
-    vendor.audio.tunnel.encode=false \
-    vendor.audio.offload.buffer.size.kb=64 \
-    vendor.audio.offload.pcm.16bit.enable=true \
-    vendor.audio.offload.pcm.24bit.enable=true \
-    audio.offload.video=true \
-    vendor.audio.offload.track.enable=true \
     audio.deep_buffer.media=true \
-    vendor.voice.path.for.pcm.voip=true \
+    audio.offload.video=true \
+    persist.vendor.audio.fluence.speaker=true \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.ras.enabled=false \
+    ro.vendor.audio.sdk.fluencetype=fluencepro \
+    ro.vendor.audio.sdk.ssr=false \
+    vendor.audio_hal.period_size=192 \
+    vendor.audio.dolby.ds2.enabled=false \
+    vendor.audio.dolby.ds2.hardbypass=false \
+    vendor.audio.flac.sw.decoder.24bit=true \
+    vendor.audio.hw.aac.encoder=true \
+    vendor.audio.noisy.broadcast.delay=600 \
+    vendor.audio.offload.buffer.size.kb=32 \
+    vendor.audio.offload.gapless.enabled=true \
     vendor.audio.offload.multiaac.enable=true \
     vendor.audio.offload.multiple.enabled=false \
-    vendor.audio.offload.min.duration.secs=30 \
     vendor.audio.offload.passthrough=false \
-    ro.vendor.audio.sdk.ssr=false \
-    vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.safx.pbe.enabled=true \
+    vendor.audio.offload.pstimeout.secs=3 \
+    vendor.audio.offload.track.enable=true \
     vendor.audio.parser.ip.buffer.size=262144 \
-    vendor.audio.hw.aac.encoder=false \
+    vendor.audio.safx.pbe.enabled=true \
+    vendor.audio.tunnel.encode=false \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
-    vendor.audio.flac.sw.decoder.24bit=true \
-    persist.vendor.bt.enable.splita2dp=false \
-    persist.vendor.audio.speaker.prot.enable=true \
-    persist.vendor.audio.spkr.cal.duration=5 \
-    ro.config.media_vol_steps=25 \
-    audio.heap.size.multiplier=7
+    vendor.fm.a2dp.conc.disabled=true \
+
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -95,13 +93,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Factory Reset Protection (FRP)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/persistent
-
-# Fluence
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=true \
-    persist.audio.fluence.speaker=true
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \

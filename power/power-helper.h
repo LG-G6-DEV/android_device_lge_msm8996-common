@@ -26,6 +26,7 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
 #ifndef __POWER_HELPER_H__
 #define __POWER_HELPER_H__
 
@@ -33,7 +34,8 @@
 extern "C" {
 #endif
 
-#include <hardware/power.h>
+#include "hardware/power.h"
+
 
 enum stats_type {
     //Platform Stats
@@ -45,17 +47,38 @@ enum stats_type {
     VOTER_MPSS,
     VOTER_ADSP,
     VOTER_SLPI,
-    VOTER_PRONTO,
-    VOTER_TZ,
-    VOTER_LPASS,
-    VOTER_SPSS,
     MAX_PLATFORM_STATS,
+
+    //WLAN Stats
+    WLAN_POWER_DEBUG_STATS = 0,
+    MAX_WLAN_STATS,
 };
 
 enum subsystem_type {
+    SUBSYSTEM_WLAN = 0,
+
     //Don't add any lines after this line
     SUBSYSTEM_COUNT
 };
+
+enum wlan_sleep_states {
+    WLAN_STATE_ACTIVE = 0,
+    WLAN_STATE_DEEP_SLEEP,
+
+    //Don't add any lines after this line
+    WLAN_STATES_COUNT
+};
+
+enum wlan_power_params {
+    CUMULATIVE_SLEEP_TIME_MS = 0,
+    CUMULATIVE_TOTAL_ON_TIME_MS,
+    DEEP_SLEEP_ENTER_COUNTER,
+    LAST_DEEP_SLEEP_ENTER_TSTAMP_MS,
+
+    //Don't add any lines after this line
+    WLAN_POWER_PARAMS_COUNT
+};
+
 
 #define PLATFORM_SLEEP_MODES_COUNT RPM_MODE_MAX
 
@@ -75,6 +98,7 @@ void power_init(void);
 void power_hint(power_hint_t hint, void *data);
 void power_set_interactive(int on);
 int extract_platform_stats(uint64_t *list);
+int extract_wlan_stats(uint64_t *list);
 
 #ifdef __cplusplus
 }

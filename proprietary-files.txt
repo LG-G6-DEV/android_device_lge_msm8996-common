@@ -10,6 +10,11 @@ vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
 vendor/lib/libSJFingerDetect.so
 vendor/lib64/libseemore.so
+vendor/lib/libsymphony-1.1.2.so
+vendor/lib/libsymphonypower-1.1.2.so
+vendor/lib64/libsdsprpc.so
+vendor/lib64/libsymphony-1.1.2.so
+vendor/lib64/libsymphonypower-1.1.2.so
 
 # Camera postprocessing - mmcamera
 vendor/lib/libmmcamera_chromaflash_lib.so
