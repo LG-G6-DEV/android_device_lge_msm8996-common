@@ -118,6 +118,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     camera.msm8996 \
     libmm-qcamera \
+    libshim_camera \
     Snap
 
 # Charger
@@ -224,7 +225,8 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common
+    ims-ext-common \
+    libshim_ims
 
 # IRQ
 PRODUCT_COPY_FILES += \
