@@ -41,6 +41,7 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 19000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 79000
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 0
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/enable_prediction 1
 
 # EAS: Capping the max frequency of silver core to 1.6GHz
 if [ "$soc_id" == "246" ]; then
@@ -64,6 +65,7 @@ write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 19000
 write /sys/devices/system/cpu/cpu2/cpufreq/interactive/max_freq_hysteresis 39000
 write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
 write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
+write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 1
 
 # if EAS is present, switch to schedutil governor (no effect if not EAS)
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
@@ -83,7 +85,6 @@ write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
 write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
 # Setting b.L scheduler parameters
-write /proc/sys/kernel/sched_migration_fixup 1
 write /proc/sys/kernel/sched_upmigrate 95
 write /proc/sys/kernel/sched_downmigrate 90
 write /proc/sys/kernel/sched_freq_inc_notify 400000

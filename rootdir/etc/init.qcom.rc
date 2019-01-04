@@ -441,10 +441,6 @@ on post-fs-data
     mkdir /data/misc/wide-dhcpv6 0770 dhcp dhcp
     chown dhcp system /data/misc/wide-dhcpv6
 
-    # Create port-bridge log dir
-    mkdir /data/vendor/port_bridge 0770 radio radio
-    chmod 0770 /data/vendor/port_bridge
-
     # Create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
@@ -752,12 +748,6 @@ service ftmd /system/bin/ftmdaemon
     disabled
     oneshot
 
-service port-bridge /system/bin/port-bridge
-    class main
-    user radio system
-    group radio system inet
-    oneshot
-
 service qmiproxy /system/bin/qmiproxy
     class main
     user radio
@@ -962,7 +952,6 @@ service fpc_early_loader /vendor/bin/fpc_early_loader
 on configure-cpuset
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-2
-    write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
     write /dev/cpuset/top-app/cpus 0-3
