@@ -120,10 +120,6 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     Snap
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
