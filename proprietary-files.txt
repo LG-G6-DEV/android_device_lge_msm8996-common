@@ -68,7 +68,10 @@ etc/firmware/leia_pfp_470.fw:vendor/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw:vendor/firmware/leia_pm4_470.fw
 
 # Fingerprint Sensors
-lib64/hw/fingerprint.msm8996.so
+lib64/hw/fingerprint.msm8996.so:vendor/lib64/hw/fingerprint.msm8998.so
+framework/vendor.qti.hardware.fingerprint-V1.0-java.jar:vendor/framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/qfp.wakeup.so
 
 # NFC firmware
