@@ -155,7 +155,6 @@ on boot
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
     start vendor.rmt_storage
-    start vendor.rfs_access
     # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
@@ -730,12 +729,6 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     user root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.rfs_access /vendor/bin/rfs_access
-    class core
-    user root
-    group system net_raw
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.tftp_server /vendor/bin/tftp_server
     class main
     user root
@@ -943,11 +936,11 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     writepid /dev/cpuset/system-background/tasks
 
 # oneshot service that loads fpc tz app in early phase.
-service fpc_early_loader /vendor/bin/fpc_early_loader
-    class late_start
-    user system
-    group system
-    oneshot
+#service fpc_early_loader /vendor/bin/fpc_early_loader
+#    class late_start
+#    user system
+#    group system
+#    oneshot
 
 on configure-cpuset
     # Update foreground and background cpusets
