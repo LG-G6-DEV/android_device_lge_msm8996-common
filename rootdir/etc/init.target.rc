@@ -149,11 +149,6 @@ service vendor.adsprpcd /vendor/bin/adsprpcd
     user media
     group media
 
-service vendor.audiod /vendor/bin/audiod
-    class late_start
-    user system
-    group system
-
 service tlocd /system/bin/tloc_daemon
     class late_start
     user system
