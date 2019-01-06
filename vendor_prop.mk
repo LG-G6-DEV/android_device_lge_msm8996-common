@@ -188,22 +188,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.sensors.hal=e \
-    debug.qualcomm.sns.daemon=e \
-    debug.qualcomm.sns.libsensor1=e \
-    persist.sensors.lgpickup_en=true \
-    persist.sensors.mag_filter_size=8 \
-    persist.sensors.knock_delay=700 \
-    persist.sensors.pocket_delay=350 \
-    persist.sensors.wul_multilevel=6 \
-    persist.sensors.wul_thresh0=2 \
-    persist.sensors.wul_thresh1=10 \
-    persist.sensors.wul_thresh2=15 \
-    persist.sensors.wul_thresh3=1500 \
-    persist.sensors.wul_thresh4=3100 \
-    persist.sensors.wul_thresh5=10000 \
-    persist.sensors.wul_delay=3000 \
-    persist.sensors.onhand.en=0
+    ro.qti.sensors.dev_ori=true \
+    ro.qti.sensors.dpc=true \
+    ro.qti.sensors.pmd=true \
+    ro.qti.sensors.mot_detect=true \
+    ro.qti.sensors.multishake=true \
+    ro.qti.sensors.sta_detect=true
 
 
 # Tethering
