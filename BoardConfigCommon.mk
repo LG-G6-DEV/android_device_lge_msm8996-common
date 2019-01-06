@@ -123,11 +123,8 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 
-# Offmode Charging
-WITH_CM_CHARGER := true
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_CHARGER_ENABLE_SUSPEND := false
-BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Camera
 BOARD_QTI_CAMERA_32BIT_ONLY := true
