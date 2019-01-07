@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -29,11 +29,19 @@
 
 #define LOG_TAG "QCamera3StreamMem"
 
-// System dependencies
-#include "gralloc_priv.h"
+#include <string.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <utils/Log.h>
+#include <utils/Errors.h>
+#include <gralloc_priv.h>
+#include <qdMetaData.h>
+#include "QCamera3Mem.h"
+#include "QCamera3HWI.h"
 
-// Camera dependencies
-#include "QCamera3StreamMem.h"
+extern "C" {
+#include <mm_camera_interface.h>
+}
 
 using namespace android;
 
@@ -414,47 +422,6 @@ int32_t QCamera3StreamMem::markFrameNumber(uint32_t index, uint32_t frameNumber)
 }
 
 /*===========================================================================
- * FUNCTION   : getOldestFrameNumber
- *
- * DESCRIPTION: We use this to fetch the frameNumber expected as per FIFO
- *
- *
- * PARAMETERS :
- *   @index   : index of the buffer
- *
- * RETURN     : int32_t frameNumber
- *              positive/zero  -- success
- *              negative failure
- *==========================================================================*/
-int32_t QCamera3StreamMem::getOldestFrameNumber(uint32_t &bufIdx)
-{
-    Mutex::Autolock lock(mLock);
-    int32_t oldest = INT_MAX;
-    bool empty = true;
-    if (mHeapMem.getCnt()){
-        empty = false;
-        oldest = mHeapMem.getOldestFrameNumber(bufIdx);
-    }
-
-    if (mGrallocMem.getCnt()) {
-        uint32_t grallocBufIdx;
-        int32_t oldestGrallocFrameNumber = mGrallocMem.getOldestFrameNumber(grallocBufIdx);
-
-        if (empty || (!empty && (oldestGrallocFrameNumber < oldest))){
-            oldest = oldestGrallocFrameNumber;
-            bufIdx = grallocBufIdx;
-        }
-        empty = false;
-    }
-
-    if (empty )
-        return -1;
-    else
-        return oldest;
-}
-
-
-/*===========================================================================
  * FUNCTION   : getFrameNumber
  *
  * DESCRIPTION: We use this to fetch the frameNumber for the request with which
@@ -514,31 +481,5 @@ int32_t QCamera3StreamMem::getHeapBufferIndex(uint32_t frameNumber)
     int32_t index = mHeapMem.getBufferIndex(frameNumber);
     return index;
 }
-
-
-/*===========================================================================
- * FUNCTION   : getBufferIndex
- *
- * DESCRIPTION: We use this to fetch the buffer index based on frameNumber
- *
- * PARAMETERS :
- *   @frameNumber : frame Number
- *
- * RETURN     : int32_t buffer index
- *              positive/zero  -- success
- *              negative failure
- *==========================================================================*/
-int32_t QCamera3StreamMem::getBufferIndex(uint32_t frameNumber)
-{
-    Mutex::Autolock lock(mLock);
-    int32_t index = mGrallocMem.getBufferIndex(frameNumber);
-
-    if (index < 0)
-        return mHeapMem.getBufferIndex(frameNumber);
-    else
-        return index;
-}
-
-
 
 }; //namespace qcamera
