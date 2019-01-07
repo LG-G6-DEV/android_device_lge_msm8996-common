@@ -118,6 +118,7 @@ PRODUCT_PACKAGES += \
     libcamera \
     libmmcamera_interface \
     libmmcamera_interface2 \
+    libshim_camera \
     libmmjpeg_interface \
     libqomx_core \
     mm-qcamera-app \
