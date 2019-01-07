@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013-2015, The Linux Foundataion. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -29,11 +29,10 @@
 #ifndef __QCAMERA_HALHEADER_H__
 #define __QCAMERA_HALHEADER_H__
 
-// System dependencies
-#include "hardware/gralloc.h"
-
-// Camera dependencies
-#include "cam_types.h"
+extern "C" {
+#include <mm_camera_interface.h>
+#include <mm_jpeg_interface.h>
+}
 
 using namespace android;
 
@@ -42,9 +41,14 @@ namespace qcamera {
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
+#define IS_USAGE_VIDEO(usage)  (((usage) & (GRALLOC_USAGE_HW_VIDEO_ENCODER)) \
+                         == GRALLOC_USAGE_HW_VIDEO_ENCODER)
+#define IS_USAGE_PREVIEW(usage) (((usage) & (GRALLOC_USAGE_HW_TEXTURE)) \
+                         == GRALLOC_USAGE_HW_TEXTURE)
 #define IS_USAGE_ZSL(usage)  (((usage) & (GRALLOC_USAGE_HW_CAMERA_ZSL)) \
         == (GRALLOC_USAGE_HW_CAMERA_ZSL))
 
+class QCamera3Channel;
 class QCamera3ProcessingChannel;
 
     typedef enum {

@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -30,23 +30,25 @@
 #ifndef __QCamera3_POSTPROC_H__
 #define __QCamera3_POSTPROC_H__
 
-// Camera dependencies
-#include "hardware/camera3.h"
-#include "QCamera3HALHeader.h"
-#include "QCameraCmdThread.h"
-#include "QCameraQueue.h"
-
 extern "C" {
-#include "mm_camera_interface.h"
-#include "mm_jpeg_interface.h"
+#include <mm_camera_interface.h>
+#include <mm_jpeg_interface.h>
 }
+#include <hardware/camera3.h>
+//#include "QCamera3HWI.h"
+#include "QCameraQueue.h"
+#include "QCameraCmdThread.h"
+#include "QCamera3HALHeader.h"
 
 namespace qcamera {
 
 class QCamera3Exif;
+class QCamera3Channel;
 class QCamera3ProcessingChannel;
+class QCamera3PicChannel;
 class QCamera3ReprocessChannel;
 class QCamera3Stream;
+class QCamera3Memory;
 class QCamera3StreamMem;
 
 typedef struct {
@@ -111,14 +113,14 @@ public:
     QCamera3PostProcessor(QCamera3ProcessingChannel *ch_ctrl);
     virtual ~QCamera3PostProcessor();
 
-    int32_t init(QCamera3StreamMem *mMemory);
+    int32_t init(QCamera3StreamMem *mMemory,
+            uint32_t postprocess_mask);
     int32_t initJpeg(jpeg_encode_callback_t jpeg_cb,
             cam_dimension_t *m_max_pic_dim,
             void *user_data);
     int32_t deinit();
     int32_t start(const reprocess_config_t &config);
     int32_t stop();
-    int32_t flush();
     int32_t processData(qcamera_fwk_input_pp_data_t *frame);
     int32_t processData(mm_camera_super_buf_t *input,
             buffer_handle_t *output, uint32_t frameNumber);
@@ -129,8 +131,8 @@ public:
     qcamera_hal3_pp_data_t *dequeuePPJob(uint32_t frameNumber);
     qcamera_hal3_jpeg_data_t *findJpegJobByJobId(uint32_t jobId);
     void releaseJpegJobData(qcamera_hal3_jpeg_data_t *job);
-    int32_t releaseOfflineBuffers(bool all);
     void releasePPJobData(qcamera_hal3_pp_data_t *job);
+    int32_t releaseOfflineBuffers();
 
 private:
     int32_t sendEvtNotify(int32_t msg_type, int32_t ext1, int32_t ext2);
@@ -143,7 +145,7 @@ private:
             qcamera_fwk_input_pp_data_t *frame,
             jpeg_settings_t *jpeg_settings);
     QCamera3Exif * getExifData(metadata_buffer_t *metadata,
-            jpeg_settings_t *jpeg_settings, bool needJpegExifRotation);
+            jpeg_settings_t *jpeg_settings);
     int32_t encodeData(qcamera_hal3_jpeg_data_t *jpeg_job_data,
                        uint8_t &needNewSess);
     int32_t encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_data,
@@ -159,8 +161,6 @@ private:
 
     static void *dataProcessRoutine(void *data);
 
-    bool needsReprocess(qcamera_fwk_input_pp_data_t *frame);
-
 private:
     QCamera3ProcessingChannel  *m_parent;
     jpeg_encode_callback_t     mJpegCB;
@@ -168,7 +168,7 @@ private:
     mm_jpeg_ops_t              mJpegHandle;
     uint32_t                   mJpegClientHandle;
     uint32_t                   mJpegSessionId;
-    cam_jpeg_metadata_t        mJpegMetadata;
+    uint32_t                   mPostProcMask;
 
     uint32_t                   m_bThumbnailNeeded;
     QCamera3StreamMem          *mOutputMem;
