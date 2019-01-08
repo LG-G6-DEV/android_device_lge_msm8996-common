@@ -191,8 +191,7 @@ TARGET_EXFAT_DRIVER := sdfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 BOARD_ROOT_EXTRA_SYMLINKS := \
-    /firmware:/vendor/firmware_mnt \
-    /persist:/mnt/vendor/persist
+    /firmware:/vendor/firmware_mnt
 
 # pdfium
 TARGET_NEEDS_PDFIUM_BIGINT := true
