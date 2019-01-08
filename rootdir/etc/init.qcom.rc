@@ -937,11 +937,11 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     writepid /dev/cpuset/system-background/tasks
 
 # oneshot service that loads fpc tz app in early phase.
-#service fpc_early_loader /vendor/bin/fpc_early_loader
-#    class late_start
-#    user system
-#    group system
-#    oneshot
+service fpc_early_loader /vendor/bin/fpc_early_loader
+    class late_start
+    user system
+    group system
+    oneshot
 
 on configure-cpuset
     # Update foreground and background cpusets
