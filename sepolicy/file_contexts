@@ -79,6 +79,10 @@
 /sys/devices/virtual/graphics/fb0/dci_p3                        u:object_r:sysfs_livedisplay:s0
 /sys/devices/virtual/graphics/fb0/srgb                          u:object_r:sysfs_livedisplay:s0
 
+# MSM camera related
+/dev/media[0-9]+                       u:object_r:camera_device:s0
+/dev/jpeg[0-9]+                        u:object_r:camera_device:s0
+
 # SPI
 /sys/bus/spi/devices                                                u:object_r:sysfs_spi:s0
 
