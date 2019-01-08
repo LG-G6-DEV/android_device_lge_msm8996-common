@@ -29,7 +29,6 @@
 
 on early-init
     mkdir /firmware 0771 system system
-    mkdir /persist 0771 system system
     mkdir /persist-lg 0771 system system
     mkdir /sns 0755 system system
     mkdir /mpt 0755 system system
@@ -53,7 +52,12 @@ on fs
     mount_all /vendor/etc/fstab.qcom
     swapon_all /vendor/etc/fstab.qcom
     restorecon_recursive /sns
-    restorecon_recursive /persist
+    # Set permissions for persist partition
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/bms 0700 root system
+    mkdir /mnt/vendor/persist/data 0700 system system
+    restorecon_recursive /mnt/vendor/persist
     restorecon_recursive /persist-lg
 
 on post-fs
@@ -64,7 +68,6 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /persist/data/qc_senseid 0700 system system
     mkdir /persist/bms 0700 root system
-    restorecon_recursive /persist
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/usf 0700 system system
     mkdir /data/misc/qvop 0660 system system
