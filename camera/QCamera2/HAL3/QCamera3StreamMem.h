@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -30,14 +30,14 @@
 #ifndef __QCAMERA3_STREAMMEM_H__
 #define __QCAMERA3_STREAMMEM_H__
 
-#include <hardware/camera3.h>
+// System dependencies
 #include <utils/Mutex.h>
+
+// Camera dependencies
 #include "QCamera3Mem.h"
 
 extern "C" {
-#include <sys/types.h>
-#include <linux/msm_ion.h>
-#include <mm_camera_interface.h>
+#include "mm_camera_interface.h"
 }
 
 using namespace android;
@@ -81,8 +81,10 @@ public:
     // Frame number getter and setter
     int32_t markFrameNumber(uint32_t index, uint32_t frameNumber);
     int32_t getFrameNumber(uint32_t index);
+    int32_t getOldestFrameNumber(uint32_t &index);
     int32_t getGrallocBufferIndex(uint32_t frameNumber);
     int32_t getHeapBufferIndex(uint32_t frameNumber);
+    int32_t getBufferIndex(uint32_t frameNumber);
 
 private:
     //variables
