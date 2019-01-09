@@ -114,17 +114,14 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8996 \
-    libcamera \
-    libmmcamera_interface \
-    libmmcamera_interface2 \
-    libshim_camera \
-    libmmjpeg_interface \
-    libqomx_core \
-    mm-qcamera-app \
     android.hardware.camera.provider@2.4-impl \
-    camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-service \
+    camera.msm8996 \
     Snap
+
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.camera.device@1.0 \
+    vendor.qti.hardware.camera.device@1.0_vendor
 
 # Charger
 PRODUCT_PACKAGES += \
