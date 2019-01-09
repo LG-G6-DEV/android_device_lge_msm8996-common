@@ -189,9 +189,6 @@ on boot
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/blue/blink
 
-    # Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     # For bridgemgr daemon to inform the USB driver of the correct transport
