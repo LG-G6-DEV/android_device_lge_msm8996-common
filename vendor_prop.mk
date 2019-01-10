@@ -17,20 +17,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=15 \
     audio.offload.video=true \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.bt.enable.splita2dp=false \
     persist.vendor.audio.ras.enabled=false \
-    ro.vendor.audio.sdk.fluencetype=fluencepro \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7 \
+    ro.af.client_heap_size_kbyte=7168 \
+    ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
-    vendor.audio_hal.period_size=192 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.flac.sw.decoder.24bit=true \
+    vendor.audio_hal.period_size=192 \
     vendor.audio.hw.aac.encoder=true \
     vendor.audio.noisy.broadcast.delay=600 \
-    vendor.audio.offload.buffer.size.kb=32 \
+    vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.gapless.enabled=true \
     vendor.audio.offload.multiaac.enable=true \
     vendor.audio.offload.multiple.enabled=false \
@@ -43,6 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.fm.a2dp.conc.disabled=true \
+    vendor.voice.path.for.pcm.voip=true
 
 
 # Bluetooth
