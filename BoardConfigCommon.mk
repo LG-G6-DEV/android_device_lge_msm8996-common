@@ -184,7 +184,7 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # DT2W
-TARGET_TAP_TO_WAKE_NODE := "/sys/class/input/input2/wake_gesture"
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
