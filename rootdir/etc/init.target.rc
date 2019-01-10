@@ -79,6 +79,7 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+    writepid /dev/cpuset/camera-daemon/tasks
 
 service qfp-daemon /system/bin/qfp-daemon
     class late_start
