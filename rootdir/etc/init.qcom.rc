@@ -734,6 +734,8 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
 service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
+    group root system wakelock
+    shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.tftp_server /vendor/bin/tftp_server
@@ -814,8 +816,11 @@ service vendor.sensor-sh /vendor/bin/init.qcom.sensors.sh
 
 service vendor.sensors /vendor/bin/sensors.qcom
     class core
-    user root
-    group root
+    user system
+    group system
+    # Grants the ability for this daemon to bind IPC router ports so it can
+    # register QMI services
+    capabilities NET_BIND_SERVICE
     disabled
     writepid /dev/cpuset/system-background/tasks
 
