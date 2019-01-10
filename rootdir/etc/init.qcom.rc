@@ -512,18 +512,6 @@ on post-fs-data
     mkdir /data/vendor/location/mq 0770 gps gps
     mkdir /data/vendor/location/xtwifi 0770 gps gps
 
-    # SSC/SLPI sensors
-    mkdir /mnt/vendor/persist/sensors 0775 root system
-    chown root system /mnt/vendor/persist/sensors/sensors_settings
-    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
-    chown root system /mnt/vendor/persist/sensors/sns.reg
-    chmod 0664 /mnt/vendor/persist/sensors/sns.reg
-
-    # /dev/sensors only supports an ioctl to get the current SLPI timestamp;
-    # allow the sensors daemon to perform this as non-root
-    chown root system /dev/sensors
-    chmod 0660 /dev/sensors
-
     # Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared
@@ -827,6 +815,11 @@ service vendor.radio-sh /vendor/bin/init.radio.sh
     group root radio
     oneshot
 
+service vendor.sensor-sh /vendor/bin/init.qcom.sensors.sh
+    class core
+    user root
+    oneshot
+
 service vendor.sensors /vendor/bin/sensors.qcom
     class core
     user system
@@ -834,6 +827,7 @@ service vendor.sensors /vendor/bin/sensors.qcom
     # Grants the ability for this daemon to bind IPC router ports so it can
     # register QMI services
     capabilities NET_BIND_SERVICE
+    disabled
     writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
