@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio_amplifier.msm8996 \
     libaudio-resampler \
+    libaudioroute \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -117,11 +118,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.msm8996 \
+    libmm-qcamera \
     Snap
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
 
 # Charger
 PRODUCT_PACKAGES += \
