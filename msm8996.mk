@@ -120,6 +120,7 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     camera.msm8996 \
     libmm-qcamera \
+    camera.device@3.2-impl \
     Snap
 
 # Charger

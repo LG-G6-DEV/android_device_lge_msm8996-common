@@ -247,9 +247,6 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # Enable HAL3 thanks to OSS camera HAL
-    setprop persist.camera.HAL3.enabled 1
-
     # Enable camera read sensors data.
     setprop persist.camera.gyro.disable 0
 
@@ -412,9 +409,6 @@ on post-fs-data
     # Create directory used by media clients
     mkdir /data/vendor/media 0770 mediacodec media
 
-    # Create directory used for camera
-    mkdir /data/vendor/camera 0770 camera camera
-
     #Create directories for Fingerprint
     mkdir /data/vendor/misc/qti_fp 0770 system system
     mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
@@ -429,6 +423,7 @@ on post-fs-data
     mkdir /data/misc/qsee 0770 system system
 
     # Create folder for mm-qcamera-daemon
+    mkdir /data/vendor/camera 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
