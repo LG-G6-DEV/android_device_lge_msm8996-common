@@ -115,12 +115,11 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0 \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    libshim_camera \
-    camera.msm8996 \
-    libmm-qcamera \
     camera.device@3.2-impl \
+    libshim_camera \
     Snap
 
 # Charger

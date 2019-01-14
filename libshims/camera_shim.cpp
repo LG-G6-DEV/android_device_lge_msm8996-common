@@ -49,4 +49,4 @@ extern "C" void _ZN7android20DisplayEventReceiverC1Ev() {
     _ZN7android20DisplayEventReceiverC1ENS_16ISurfaceComposer11VsyncSourceE;
 }
 
-extern "C" void LINK_morphophotosolid_getMergedNumbers();
+extern "C" void _ZN14SeeMoreWrapper11_wM8GQx3FTjEbbfffjjffffffbfffffbbff();
