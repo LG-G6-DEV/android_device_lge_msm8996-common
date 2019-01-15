@@ -116,7 +116,7 @@ AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 # Shims
 TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib/libmmcamera_ppeiscore.so|/system/vendor/lib/libshim_camera.so \
-	/system/vendor/lib/libmmcamera_llvd.so|/system/vendor/lib/libshim_camera.so \
+	/system/vendor/lib/hw/camera.msm8996.so|/system/vendor/lib/libshim_camera.so \
 	/system/lib64/lib-imsvt.so|/system/vendor/lib64/libshim_ims.so
 
 # Bluetooth
@@ -133,6 +133,8 @@ TARGET_NEEDS_LEGACY_MUTEX_HANDLE := true
 
 # Camera
 USE_CAMERA_STUB := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_QTI_CAMERA_DEVICE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /vendor/bin/mm-qcamera-daemon=23
 
