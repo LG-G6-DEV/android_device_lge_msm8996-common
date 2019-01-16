@@ -68,6 +68,7 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /persist/data/qc_senseid 0700 system system
     mkdir /persist/bms 0700 root system
+    restorecon_recursive /persist
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/usf 0700 system system
     mkdir /data/misc/qvop 0660 system system
@@ -79,7 +80,6 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera gps system inet input graphics
-    writepid /dev/cpuset/camera-daemon/tasks
 
 service qfp-daemon /system/bin/qfp-daemon
     class late_start

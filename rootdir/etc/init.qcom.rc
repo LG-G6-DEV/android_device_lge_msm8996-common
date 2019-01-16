@@ -165,6 +165,7 @@ on boot
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
     start vendor.rmt_storage
+    start vendor.rfs_access
     # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
@@ -365,12 +366,23 @@ on boot
     chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
     chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
     chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
-
+-
     # Bluetooth and Wifi
     chmod 0644 /data/misc/wifi/config
     chown system wifi /data/misc/wifi/config
     chmod 0644 /data/misc/bluetooth/bdaddr
     chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
+
+    chown system input /sys/bus/spi/devices/spi8.1/bus_lock
+    chown system input /sys/bus/spi/devices/spi8.1/clk_enable
+    chown system input /sys/bus/spi/devices/spi8.1/fabric_vote
+    chown system input /sys/bus/spi/devices/spi8.1/hw_reset
+    chown system input /sys/bus/spi/devices/spi8.1/irq
+    chown system input /sys/bus/spi/devices/spi8.1/pinctl_set
+    chown system input /sys/bus/spi/devices/spi8.1/spi_prepare
+    chown system input /sys/bus/spi/devices/spi8.1/spi_owner
+    chown system input /sys/bus/spi/devices/spi8.1/regulator_enable
+    chown system input /sys/bus/spi/devices/spi8.1/wakeup_enable
 
     write /proc/sys/net/core/netdev_max_backlog 5000
 
@@ -425,6 +437,7 @@ on post-fs-data
     # Create folder for mm-qcamera-daemon
     mkdir /data/vendor/camera 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
+    mkdir /etc/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -649,8 +662,6 @@ on post-fs-data
     # Thermal Daemon
     chown system system /sys/class/leds/lcd-backlight/thermald_status
     chmod 0644 /sys/class/leds/lcd-backlight/thermald_status
-    
-    start vendor.conn_init
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
@@ -690,6 +701,7 @@ on property:persist.debug.trace=1
 
 on property:vold.decrypt=trigger_restart_framework
     start vendor.qcom-c_main-sh
+    start config_bt_addr
     start config_bluetooth
 
 on property:persist.env.fastdorm.enabled=true
@@ -751,8 +763,14 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.tftp_server /vendor/bin/tftp_server
+service vendor.rfs_access /vendor/bin/rfs_access
     class core
+    user root
+    group system net_raw
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.tftp_server /vendor/bin/tftp_server
+    class main
     user root
     writepid /dev/cpuset/system-background/tasks
 
@@ -822,13 +840,16 @@ service vendor.radio-sh /vendor/bin/init.radio.sh
     group root radio
     oneshot
 
+service vendor.sensor-sh /vendor/bin/init.qcom.sensors.sh
+    class core
+    user root
+    oneshot
+
 service vendor.sensors /vendor/bin/sensors.qcom
     class core
-    user system
-    group system
-    # Grants the ability for this daemon to bind IPC router ports so it can
-    # register QMI services
-    capabilities NET_BIND_SERVICE
+    user root
+    group root
+    disabled
     writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
@@ -954,9 +975,17 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     group system
     writepid /dev/cpuset/system-background/tasks
 
+# oneshot service that loads fpc tz app in early phase.
+service fpc_early_loader /vendor/bin/fpc_early_loader
+    class late_start
+    user system
+    group system
+    oneshot
+
 on configure-cpuset
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-2
+    write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
     write /dev/cpuset/top-app/cpus 0-3
