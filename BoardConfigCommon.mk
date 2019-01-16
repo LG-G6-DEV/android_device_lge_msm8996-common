@@ -136,7 +136,9 @@ USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
-    /vendor/bin/mm-qcamera-daemon=23
+    /system/bin/mediaserver=23 \
+    /system/vendor/bin/mm-qcamera-daemon=23 \
+    /system/vendor/bin/hw/android.hardware.camera.provider@2.4-service=24
 
 # CMHW
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
