@@ -265,12 +265,12 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # NFC
-# PRODUCT_PACKAGES += \
-#     com.android.nfc_extras \
-#     NfcNci \
-#     Tag \
-#     SecureElement \
-#     android.hardware.nfc@1.1-service
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    Tag \
+    SecureElement \
+    android.hardware.nfc@1.1-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
