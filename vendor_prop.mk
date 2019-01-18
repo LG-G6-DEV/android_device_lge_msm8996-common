@@ -64,10 +64,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=all,com.android.camera2,com.google.android.GoogleCameraWide \
     persist.camera.expose.aux=1 \
     ro.camera.notify_nfc=1 \
-    vidc.debug.perf.mode=2 \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.audio.camcorder.stereo=true \
     persist.camera.preview.ubwc=0 \
