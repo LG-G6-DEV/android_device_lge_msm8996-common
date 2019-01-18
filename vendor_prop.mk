@@ -19,12 +19,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.min.duration.secs=15 \
     audio.offload.video=true \
     persist.vendor.audio.speaker.prot.enable=true \
+    persist.audio.dual_audio=ON \
+    persist.audio.handset_rx_type=DEFAULT \
+    persist.audio.twin_headset=DISABLE \
+    persist.audio.twin_headset_on=0 \
+    persist.audio.nsenabled=ON \
+    persist.audio.voice.clarity=off \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.bt.enable.splita2dp=false \
-    persist.vendor.audio.ras.enabled=false \
-    ro.config.media_vol_steps=25 \
     ro.config.vc_call_vol_steps=7 \
     ro.af.client_heap_size_kbyte=7168 \
     ro.vendor.audio.sdk.fluencetype=fluence \
@@ -47,14 +51,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.tunnel.encode=false \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
-    vendor.fm.a2dp.conc.disabled=true \
-    vendor.voice.path.for.pcm.voip=true
+    vendor.voice.path.for.pcm.voip=false
 
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
-    vendor.audio_hal.force_voice_config=wide
+    qcom.bluetooth.soc=rome \
+    bluetooth.chip.vendor=brcm \
+    bluetooth.pan=true \
+    persist.bluetooth.avrcpversion=avrcp15
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
