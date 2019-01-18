@@ -199,6 +199,9 @@ USE_DEVICE_SPECIFIC_THERMAL := true
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
 
+# Telephony
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
 # Wi-Fi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_WLAN_DEVICE           := bcmdhd
