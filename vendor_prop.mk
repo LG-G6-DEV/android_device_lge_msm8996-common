@@ -125,11 +125,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
     hw3d.force=1 \
-    hwui.disable_vsync=false \
+    hwui.disable_vsync=true \
     hwui.render_dirty_regions=false \
     ro.config.disable.hw_accel=false \
     ro.fb.mode=1 \
     ro.product.gpu.driver=1 \
+    com.qc.hardware=true \
+    debug.composition.type=gpu \
+    debug.egl.hw=1 \
+    debug.egl.profiler=1 \
+    debug.enabletr=true \
+    debug.overlayui.enable=1 \
+    debug.qc.hardware=true \
+    debug.qctwa.preservebuf=1 \
+    debug.qctwa.statusbar=1 \
+    ro.config.enable.hw_accel=true \
     ro.sf.compbypass.enable=0
 
 # HWUI
