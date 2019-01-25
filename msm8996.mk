@@ -165,7 +165,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    LGDoze
 
 # Pocket Mode
 PRODUCT_PACKAGES += \

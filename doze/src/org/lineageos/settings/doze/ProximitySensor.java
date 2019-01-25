@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2015 The CyanogenMod Project
+ * Copyright (C) 2015 The CyanogenMod Project
+ *               2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.custom.ambient.display;
+package org.lineageos.settings.doze;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -32,9 +33,10 @@ public class ProximitySensor implements SensorEventListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "ProximitySensor";
 
-//    private static final int POCKET_DELTA_NS = 1000 * 1000 * 1000;
-
+    // Maximum time for the hand to cover the sensor: 1s
     private static final int HANDWAVE_MAX_DELTA_NS = 1000 * 1000 * 1000;
+
+    // Minimum time until the device is considered to have been in the pocket: 2s
     private static final int POCKET_MIN_DELTA_NS = 2000 * 1000 * 1000;
 
     private SensorManager mSensorManager;
@@ -47,9 +49,8 @@ public class ProximitySensor implements SensorEventListener {
 
     public ProximitySensor(Context context) {
         mContext = context;
-        mSensorManager = (SensorManager)
-                mContext.getSystemService(Context.SENSOR_SERVICE);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mSensorManager = mContext.getSystemService(SensorManager.class);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY, false);
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -73,14 +74,11 @@ public class ProximitySensor implements SensorEventListener {
     private boolean shouldPulse(long timestamp) {
         long delta = timestamp - mInPocketTime;
 
-        if (Utils.handwaveGestureEnabled(mContext)
-                    && Utils.pocketGestureEnabled(mContext)) {
+        if (Utils.isHandwaveGestureEnabled(mContext) && Utils.isPocketGestureEnabled(mContext)) {
             return true;
-        } else if (Utils.handwaveGestureEnabled(mContext)
-                    && !Utils.pocketGestureEnabled(mContext)) {
+        } else if (Utils.isHandwaveGestureEnabled(mContext)) {
             return delta < HANDWAVE_MAX_DELTA_NS;
-        } else if (!Utils.handwaveGestureEnabled(mContext)
-                    && Utils.pocketGestureEnabled(mContext)) {
+        } else if (Utils.isPocketGestureEnabled(mContext)) {
             return delta >= POCKET_MIN_DELTA_NS;
         }
         return false;
@@ -94,15 +92,15 @@ public class ProximitySensor implements SensorEventListener {
     protected void enable() {
         if (DEBUG) Log.d(TAG, "Enabling");
         submit(() -> {
-        mSensorManager.registerListener(this, mSensor,
-                SensorManager.SENSOR_DELAY_NORMAL);
+            mSensorManager.registerListener(this, mSensor,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         });
     }
 
     protected void disable() {
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
-        mSensorManager.unregisterListener(this, mSensor);
+            mSensorManager.unregisterListener(this, mSensor);
         });
     }
 }
