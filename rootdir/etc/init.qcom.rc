@@ -1005,5 +1005,3 @@ on property:sys.boot_completed=1
     trigger configure-cpuset
     # Set BFQ I/O scheduler
     setprop sys.io.scheduler "bfq"
-    # Set idle GPU to 133 Mhz
-    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
