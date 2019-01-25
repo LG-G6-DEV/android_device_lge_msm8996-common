@@ -27,7 +27,7 @@
     <bool name="config_swipe_up_gesture_setting_available">true</bool> 
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">8</integer>
+    <integer name="config_screenBrightnessDim">1</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -35,7 +35,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">88</integer>
+    <integer name="config_screenBrightnessSettingDefault">128</integer>
 
      <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -263,11 +263,8 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDoze">12</integer>
 
-    <!-- Specifies whether to decouple the auto-suspend state of the device from the display on/off state. -->
-    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
-
     <!-- Specifies whether to decouple the interactive state of the device from the display on/off state. -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
     <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
@@ -284,7 +281,7 @@
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
     <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
-    <bool name="config_displayBlanksAfterDoze">false</bool>
+    <bool name="config_displayBlanksAfterDoze">true</bool>
 
 
     <!-- Minimum allowable screen brightness to use in a very dark room.
