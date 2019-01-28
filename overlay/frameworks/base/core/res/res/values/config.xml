@@ -165,31 +165,6 @@
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
-    <!-- Default mode to control how Night display is automatically activated.
-      One of the following values (see NightDisplayController.java):
-          0 - AUTO_MODE_DISABLED
-          1 - AUTO_MODE_CUSTOM
-          2 - AUTO_MODE_TWILIGHT
-   -->
-   <integer name="config_defaultNightDisplayAutoMode">0</integer>
-
-   <!-- Default time when Night display is automatically activated.
-      Represented as milliseconds from midnight (e.g. 79200000 == 10pm). -->
-   <integer name="config_defaultNightDisplayCustomStartTime">79200000</integer>
-  
- <!-- Default time when Night display is automatically deactivated.
-      Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
-   <integer name="config_defaultNightDisplayCustomEndTime">21600000</integer>
-
-   <!-- Minimum color temperature, in Kelvin, supported by Night display. -->
-   <integer name="config_nightDisplayColorTemperatureMin">2596</integer>
-
-   <!-- Default color temperature, in Kelvin, to tint the screen when Night display is
-      activated. -->
-   <integer name="config_nightDisplayColorTemperatureDefault">2850</integer>
-
-   <!-- Maximum color temperature, in Kelvin, supported by Night display. -->
-   <integer name="config_nightDisplayColorTemperatureMax">4082</integer>
 
     <!-- Enable Night display, which requires HWC 2.0. -->
     <bool name="config_nightDisplayAvailable">true</bool>
