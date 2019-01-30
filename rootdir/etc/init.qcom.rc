@@ -795,6 +795,12 @@ service qmuxd /system/bin/qmuxd
     disabled
     writepid /dev/cpuset/system-background/tasks
 
+service vendor.atfwd /vendor/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+    writepid /dev/cpuset/system-background/tasks
+
 service vendor.netmgrd /vendor/bin/netmgrd
     class main
     writepid /dev/cpuset/system-background/tasks
