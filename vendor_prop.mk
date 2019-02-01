@@ -140,7 +140,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qctwa.preservebuf=1 \
     debug.qctwa.statusbar=1 \
     ro.config.enable.hw_accel=true \
-    ro.sf.compbypass.enable=0
+    ro.sf.compbypass.enable=0 \
+    debug.hwui.renderer=skiagl
 
 # HWUI
 PRODUCT_PROPERTY_OVERRIDES += \
