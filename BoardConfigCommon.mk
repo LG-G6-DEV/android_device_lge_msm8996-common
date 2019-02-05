@@ -198,9 +198,6 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
 
-# DT2W
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
-
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -214,6 +211,8 @@ TARGET_NEEDS_PDFIUM_BIGINT := true
 
 # Power
 TARGET_HAS_NO_WLAN_STATS := true
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
+TARGET_USES_INTERACTION_BOOST := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
