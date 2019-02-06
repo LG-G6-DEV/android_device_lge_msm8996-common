@@ -1,0 +1,330 @@
+# Copyright (C) 2018, The LineageOS Project. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of The Linux Foundation nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+on early-init
+    mkdir /firmware 0771 system system
+    mkdir /persist-lg 0771 system system
+    mkdir /sns 0755 system system
+    mkdir /mpt 0755 system system
+
+on init
+    # Disable UFS powersaving
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
+    write /sys/devices/soc/${ro.boot.bootdevice}/${ro.boot.bootdevice}:ufs_variant/pm_qos_enable 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled Y
+
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
+on fs
+    restorecon_recursive /sns
+    restorecon_recursive /persist-lg
+
+on late-fs
+    # boot time fs tune
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+
+on post-fs
+    chmod 0660 /dev/lge_dm_tty0
+    chown system system /dev/lge_dm_tty0
+    write /sys/devices/platform/lge-qfprom/sec_read 0
+
+on post-fs-data
+    # Create oemnvitems for RIL
+    mkdir /data/oemnvitems 0771 radio radio
+
+    # NFC local data and nfcee xml storage
+    mkdir /data/vendor/nfc 0770 nfc nfc
+
+    #fingerint, changhua add for fp debug image usage,feature default off
+    mkdir /data/fpc_images 0770 system system
+    mkdir /data/fpc_images/verify 0770 system system
+    mkdir /data/fpc_images/enroll 0770 system system
+    mkdir /data/fpc 0770 system system
+
+    # Persist LG folders
+    mkdir /persist-lg/property 0771 system radio
+    mkdir /persist-lg/autosimlock 0770 system system
+    mkdir /persist-lg/poweron 0775 system system
+    mkdir /persist-lg/tmo 0771 radio radio
+    mkdir /persist-lg/callfw 0770 radio radio
+    mkdir /persist-lg/kmstore 0770 system system
+    mkdir /persist-lg/lgdata 0771 radio radio
+    mkdir /persist-lg/lgdrm 0770 lgdrm lgdrm_acc
+    mkdir /persist-lg/widevine 0770 drm system
+    mkdir /persist-lg/firmware 0771 system system
+    mkdir /persist-lg/secclk 0700 system system
+    mkdir /persist-lg/chargerlogo 0770 system system
+    mkdir /persist-lg/multimedia 0770 media divxdrm
+    mkdir /persist-lg/multimedia/nx 0770 media divxdrm
+    mkdir /persist-lg/multimedia/uma 0770 media divxdrm
+    mkdir /persist-lg/multimedia/scnt 0770 media divxdrm
+    mkdir /persist-lg/multimedia/scnt/sdadf 0770 media divxdrm
+    mkdir /persist-lg/mms 0770 system lgmms
+    mkdir /persist-lg/mmoprt 0771 system system
+    mkdir /persist-lg/encryption 0771 system system
+    mkdir /persist-lg/secureks 0770 system system
+    mkdir /persist-lg/lgdata 0775 radio radio
+    mkdir /persist-lg/audio 0771 system system
+    mkdir /persist-lg/property 0771 system radio
+    chown media media /persist-lg/audio
+
+    chown system system /sys/devices/platform/lg_diag_cmd/diag_enable
+    chmod 0660 /sys/devices/platform/lg_diag_cmd/diag_enable
+
+    # Create folder of camera
+    mkdir /data/misc/camera 0770 camera camera
+    mkdir /etc/camera 0770 camera camera
+
+    # SSC/SLPI sensors
+    mkdir /mnt/vendor/persist/sensors 0775 root system
+    chown root system /mnt/vendor/persist/sensors/sensors_settings
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+    chown root system /mnt/vendor/persist/sensors/sns.reg
+    chmod 0664 /mnt/vendor/persist/sensors/sns.reg
+
+    # /dev/sensors only supports an ioctl to get the current SLPI timestamp;
+    # allow the sensors daemon to perform this as non-root
+    chown root system /dev/sensors
+    chmod 0660 /dev/sensors
+
+on early-boot
+    chown system system /mnt/vendor/persist/sensors/gyro_sensitity_cal
+
+on boot
+    # Update foreground and background cpusets
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/restricted/cpus 0-3
+
+    # Don't reset entire SoC on individual subsystem crash
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level "related"
+
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+
+    # Enable camera read sensors data.
+    setprop persist.camera.gyro.disable 0
+
+    # Touch gestures
+    chown system system /sys/devices/virtual/input/lge_touch/keyguard
+    chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
+    chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
+    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
+    chown system system /sys/devices/virtual/input/lge_touch/lpwg_notify
+    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_notify
+    chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
+    chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
+    chown system system /sys/devices/virtual/input/lge_touch/q_sensitivity
+    chmod 664 /sys/devices/virtual/input/lge_touch/q_sensitivity
+    chown system system /sys/devices/virtual/input/lge_touch/incoming_call
+    chmod 664 /sys/devices/virtual/input/lge_touch/incoming_call
+    chown system system /sys/devices/virtual/input/lge_touch/ime_status
+    chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
+    chown system system /sys/devices/virtual/input/lge_touch/debug_tool
+    chmod 664 /sys/devices/virtual/input/lge_touch/debug_tool
+    chown system system /sys/devices/virtual/input/lge_touch/debug_option
+    chmod 664 /sys/devices/virtual/input/lge_touch/debug_option
+    chown system system /sys/devices/virtual/input/lge_touch/onhand
+    chmod 664 /sys/devices/virtual/input/lge_touch/onhand
+    chown system radio /sys/devices/virtual/input/lge_touch/tap2wake
+    chmod 664 /sys/devices/virtual/input/lge_touch/tap2wake
+
+    # External Display Watch
+    chown system system /sys/devices/virtual/ext_watch/config_fontonoff
+    chmod 664 /sys/devices/virtual/ext_watch/config_fontonoff
+    chown system system /sys/devices/virtual/ext_watch/config_fontdata
+    chmod 664 /sys/devices/virtual/ext_watch/config_fontdata
+    chown system system /sys/devices/virtual/ext_watch/config_fonteffect
+    chmod 664 /sys/devices/virtual/ext_watch/config_fonteffect
+    chown system system /sys/devices/virtual/ext_watch/config_fontproperty
+    chmod 664 /sys/devices/virtual/ext_watch/config_fontproperty
+    chown system system /sys/devices/virtual/ext_watch/config_fontposition
+    chmod 664 /sys/devices/virtual/ext_watch/config_fontposition
+    chown system system /sys/devices/virtual/ext_watch/config_timesync
+    chmod 664 /sys/devices/virtual/ext_watch/config_timesync
+    chown system system /sys/devices/virtual/ext_watch/query_fontdata
+    chmod 664 /sys/devices/virtual/ext_watch/query_fontdata
+    chown system system /sys/devices/virtual/ext_watch/query_fontposition
+    chmod 664 /sys/devices/virtual/ext_watch/query_fontposition
+    chown system system /sys/devices/virtual/ext_watch/query_timesync
+    chmod 664 /sys/devices/virtual/ext_watch/query_timesync
+    chown system system /sys/devices/virtual/ext_watch/query_fontcolor
+    chmod 664 /sys/devices/virtual/ext_watch/query_fontcolor
+    chown system system /sys/devices/virtual/ext_watch/query_fonteffect
+    chmod 664 /sys/devices/virtual/ext_watch/query_fonteffect
+
+    # Always on Display
+    chown system system /sys/class/graphics/fb0/aod
+    chmod 664 /sys/class/graphics/fb0/aod
+    chown system system /sys/class/graphics/fb0/keep_aod
+    chmod 664 /sys/class/graphics/fb0/keep_aod
+    chown system system /sys/class/graphics/fb0/cur_panel_mode
+    chmod 644 /sys/class/graphics/fb0/cur_panel_mode
+    chown system system /sys/class/leds/lcd-backlight-ex/brightness
+    chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
+    chown system system /system/bin/AODLayer
+    chmod 664 /system/bin/AODLayer
+
+    # High Luminance Mode
+    chown system system /sys/devices/virtual/graphics/fb0/hl_mode
+    chmod 664 /sys/devices/virtual/graphics/fb0/hl_mode
+
+    # Thermal BL Max
+    chown system system /sys/devices/virtual/graphics/fb0/thermal_blmax
+    chmod 664 /sys/devices/virtual/graphics/fb0/thermal_blmax
+
+    # Image Tune
+    chown system system /sys/class/panel/img_tune/sharpness
+    chown system system /sys/class/panel/img_tune/color_enhancement
+    chown system system /sys/class/panel/img_tune/image_enhance_set
+    chown system system /sys/class/panel/img_tune/cabc
+    chmod 664 /sys/class/panel/img_tune/sharpness
+    chmod 664 /sys/class/panel/img_tune/color_enhancement
+    chmod 664 /sys/class/panel/img_tune/image_enhance_set
+    chmod 664 /sys/class/panel/img_tune/cabc
+
+    # Vibrator adjustment
+    chown system system /sys/class/timed_output/vibrator/amp
+    chmod 664 /sys/class/timed_output/vibrator/amp
+
+    # Fingerprints
+    chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spitest
+    chown system input /sys/devices/virtual/input/lge_fingerprint/zonetest
+    chown system input /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
+    chown system input /sys/devices/virtual/input/lge_fingerprint/rubbertest
+    chown system input /sys/devices/virtual/input/lge_fingerprint/intstatus
+    chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
+    chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/rubbertest
+    chmod 0440 /sys/devices/virtual/input/lge_fingerprint/intstatus
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
+    chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    # FPC device permission
+    chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
+    chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
+    chown system input /sys/devices/virtual/input/lge_fingerprint/fabric_vote
+    chown system input /sys/devices/virtual/input/lge_fingerprint/hw_reset
+    chown system input /sys/devices/virtual/input/lge_fingerprint/irq
+    chown system input /sys/devices/virtual/input/lge_fingerprint/pinctl_set
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
+    chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
+    chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
+
+    # NFC
+    chmod 0666 /dev/pn544
+    chown nfc nfc /dev/pn544
+    chmod 0666 /dev/p61
+    chown spi spi /dev/p61
+
+    # RGB light
+    chown system system /sys/class/leds/red/pause_lo
+    chown system system /sys/class/leds/blue/pause_lo
+    chown system system /sys/class/leds/green/pause_lo
+
+    chown system system /sys/class/leds/red/pause_hi
+    chown system system /sys/class/leds/blue/pause_hi
+    chown system system /sys/class/leds/green/pause_hi
+
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/green/blink
+
+    chown system system /sys/class/leds/red/ramp_step_ms
+    chown system system /sys/class/leds/blue/ramp_step_ms
+    chown system system /sys/class/leds/green/ramp_step_ms
+
+    chown system system /sys/class/leds/red/duty_pcts
+    chown system system /sys/class/leds/blue/duty_pcts
+    chown system system /sys/class/leds/green/duty_pcts
+
+    chown system system /sys/class/leds/red/start_idx
+    chown system system /sys/class/leds/blue/start_idx
+    chown system system /sys/class/leds/green/start_idx
+
+    chown system system /sys/class/leds/rgb/rgb_blink
+
+on charger
+    # Enable UFS powersaving
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
+    write /sys/devices/soc/${ro.boot.bootdevice}/${ro.boot.bootdevice}:ufs_variant/pm_qos_enable 1
+    start dashd
+
+on property:sys.boot_completed=1
+    # Enable UFS powersaving
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
+    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
+    write /sys/devices/soc/${ro.boot.bootdevice}/${ro.boot.bootdevice}:ufs_variant/pm_qos_enable 1
+
+    setprop sys.io.scheduler "noop"
+
+    # Update foreground and background cpusets
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 2-3
+    write /dev/cpuset/foreground/cpus 0-2
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-2
+
+on property:vendor.post_boot.parsed=*
+    setprop sys.post_boot.parsed ${vendor.post_boot.parsed}
+
+on property:persist.sys.usb.diag_enable=*
+    write /sys/devices/platform/lg_diag_cmd/diag_enable ${persist.sys.usb.diag_enable}
+
+service vendor.radio-sh /vendor/bin/init.radio.sh
+    class late_start
+    user root
+    group root radio
+    oneshot
