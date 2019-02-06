@@ -87,22 +87,28 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
-# DRM and SEE
+# DRM
 vendor/bin/qseecomd
+vendor/lib/libcppf.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib/libStDrvInt.so
+vendor/lib/libqisl.so
+vendor/lib/librpmb.so
+vendor/lib/libssd.so
+vendor/lib64/lib-sec-disp.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
+vendor/lib64/libSecureUILib.so
+vendor/lib64/libStDrvInt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
+vendor/lib64/libsecureui.so
+vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
-vendor/lib/libQSEEComAPI.so
-
-# DRM Widevine - from marlin - PPR2.181005.003
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
-vendor/lib/libwvhidl.so
 
 # DSP
 lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
@@ -496,3 +502,8 @@ vendor/bin/time_daemon
 vendor/lib/libTimeService.so
 -vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
+
+# Widevine
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
