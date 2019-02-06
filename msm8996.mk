@@ -138,9 +138,14 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
     init.qcom.sh \
+    init.class_main.sh \
     init.qcom.sensors.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.usb.sh \
     init.qcom.usb.rc \
     init.target.rc \
+    init.lucye.rc \
     ueventd.qcom.rc
 
 # Display
