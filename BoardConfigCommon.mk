@@ -193,6 +193,7 @@ TARGET_FS_CONFIG_GEN += $(COMMON_PATH)/config.fs
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Media
+BOARD_SECCOMP_POLICY := $(PLATFORM_PATH)/seccomp_policy
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Partitions
@@ -210,6 +211,9 @@ TARGET_NEEDS_PDFIUM_BIGINT := true
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 TARGET_USES_INTERACTION_BOOST := true
+
+# RIL
+TARGET_RIL_VARIANT := caf
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
