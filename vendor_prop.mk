@@ -191,10 +191,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.NO_STAPA=1 \
     persist.radio.VT_HYBRID_ENABLE=1
 
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true
-
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.sensors.hal=e \
