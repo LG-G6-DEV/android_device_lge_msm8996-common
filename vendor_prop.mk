@@ -110,6 +110,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.gralloc.enable_fb_ubwc=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     persist.sys.wfd.virtual=0 \
@@ -182,20 +183,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=1 \
     persist.radio.sib16_support=1 \
     ro.telephony.call_ring.multiple=false
-
-# Radio - Data/RMNet
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.agg.dl_pkt=10 \
-    persist.data.df.agg.dl_size=4096 \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.dl_mode=5 \
-    persist.data.df.iwlan_mux=9 \
-    persist.data.df.mux_count=8 \
-    persist.data.df.ul_mode=5 \
-    persist.data.iwlan.enable=true \
-    persist.data.qmi.adb_logmask=0 \
-    persist.data.wda.enable=true \
-    persist.rmnet.data.enable=true
 
 # Radio - IMS
 PRODUCT_PROPERTY_OVERRIDES += \

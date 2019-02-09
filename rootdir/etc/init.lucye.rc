@@ -31,6 +31,8 @@ on early-init
     mkdir /sns 0755 system system
     mkdir /mpt 0755 system system
 
+    exec u:r:qti_init_shell:s0 -- /vendor/bin/init.lucye.hdmi.sh
+
 on init
     # Disable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
@@ -294,6 +296,12 @@ on boot
     chown system system /sys/class/leds/green/start_idx
 
     chown system system /sys/class/leds/rgb/rgb_blink
+
+    # Bluetooth and Wifi
+    chmod 0644 /data/misc/wifi/config
+    chown system wifi /data/misc/wifi/config
+    chmod 0644 /data/misc/bluetooth/bdaddr
+    chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
 on charger
     # Enable UFS powersaving

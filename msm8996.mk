@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.common@4.0-util \
     android.hardware.audio.effect@4.0 \
     android.hardware.audio.effect@4.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
     audio.a2dp.default \
     audio.primary.msm8996 \
     audio.r_submix.default \
@@ -139,10 +140,10 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.class_main.sh \
+    init.lucye.hdmi.sh \
     init.qcom.sensors.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
-    init.qcom.usb.sh \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
