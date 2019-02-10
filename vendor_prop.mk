@@ -67,7 +67,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.audio.camcorder.stereo=true \
     persist.camera.preview.ubwc=0 \
-    persist.camera.video.ubwc=0
+    persist.camera.video.ubwc=0 \
+    media.settings.xml=/vendor/etc/media_profiles_V1_0.xml
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
