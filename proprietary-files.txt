@@ -1,3 +1,38 @@
+# Audio
+etc/permissions/audiosphere.xml
+framework/audiosphere.jar
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbmapper.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libaudcal.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libmdsprpc.so
+vendor/lib/libqtigef.so
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libshoebox.so
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbmapper.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
+vendor/lib64/libaudioalsa.so
+vendor/lib64/libmdsprpc.so
+vendor/lib64/libqtigef.so
+vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcreverb.so
+vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libshoebox.so
+
+# Audio (acdbloader)
+vendor/lib/libacdbloader.so
+vendor/lib64/libacdbloader.so
+
 # Bluetooth - aptX
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
@@ -62,6 +97,14 @@ lib/liblgkm.so
 lib64/hw/lgkm.default.so
 lib64/hw/lgkm.msm8996.so
 lib64/liblgkm.so
+
+# Listen
+vendor/lib/hw/sound_trigger.primary.msm8996.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libsmwrapper.so
+vendor/lib/vendor.qti.voiceprint@1.0.so
+vendor/lib64/hw/sound_trigger.primary.msm8996.so
+vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Misc firmware
 etc/firmware/leia_pfp_470.fw:vendor/firmware/leia_pfp_470.fw
