@@ -144,6 +144,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
+    init.animation.sh \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
