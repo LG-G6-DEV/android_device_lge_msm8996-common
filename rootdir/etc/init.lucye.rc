@@ -49,10 +49,6 @@ on init
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
-on fs
-    restorecon_recursive /sns
-    restorecon_recursive /persist-lg
-
 on late-fs
     # boot time fs tune
     write /sys/block/sda/queue/iostats 0
