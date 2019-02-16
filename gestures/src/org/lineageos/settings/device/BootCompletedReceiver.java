@@ -23,11 +23,13 @@ package org.lineageos.settings.device;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.UserHandle;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent serviceIntent = new Intent(context, LGGestureService.class);
-        context.startService(serviceIntent);
+        context.startServiceAsUser(serviceIntent,
+            new UserHandle(UserHandle.USER_CURRENT));
     }
 }
