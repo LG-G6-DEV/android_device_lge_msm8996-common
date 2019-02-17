@@ -5,7 +5,6 @@ allow untrusted_app sysfs_battery_supply:lnk_file r_file_perms;
 r_dir_file(untrusted_app, sysfs_usb_supply)
 allow untrusted_app sysfs_usb_supply:lnk_file r_file_perms;
 
-allow untrusted_app adbtcp_prop:file read;
 allow untrusted_app bg_boot_complete_prop:file read;
 allow untrusted_app bg_daemon_prop:file read;
 allow untrusted_app bluetooth_prop:file read;

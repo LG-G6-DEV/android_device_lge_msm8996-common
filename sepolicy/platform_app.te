@@ -1,4 +1,3 @@
-allow platform_app adbtcp_prop:file read;
 allow platform_app bg_boot_complete_prop:file read;
 allow platform_app bg_daemon_prop:file read;
 allow platform_app bluetooth_prop:file read;
