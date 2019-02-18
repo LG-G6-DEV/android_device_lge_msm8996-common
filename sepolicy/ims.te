@@ -1,3 +1,4 @@
 allow ims self:capability net_raw;
 allow ims diag_prop:property_service set;
+allow ims sysfs:file { read open };
 get_prop(ims, diag_prop);

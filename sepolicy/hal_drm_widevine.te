@@ -1,0 +1,2 @@
+allow hal_drm_widevine persist_drm_file:dir search;
+allow hal_drm_widevine persist_drm_file:file { read open };

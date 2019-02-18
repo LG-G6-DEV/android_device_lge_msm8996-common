@@ -2,8 +2,11 @@ allow init debugfs:dir mounton;
 allow init sensors_data_file:dir mounton;
 allow init persist_drm_file:dir mounton;
 allow init proc_kernel_sched:file rw_file_perms;
-allow init vendor_file:file { execute };
+allow init vendor_file:file { execute execute_no_trans };
+
+allow init sysfs:file { setattr };
 
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
 allow init sysfs_mmc_host:file { setattr w_file_perms };
+allow init vendor_toolbox_exec:file execute_no_trans;

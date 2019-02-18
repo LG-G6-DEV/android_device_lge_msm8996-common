@@ -1,2 +1,4 @@
 allow cnd diag_prop:property_service set;
+allow cnd sysfs:file { read open };
 get_prop(cnd, diag_prop);
+allow cnd default_android_hwservice:hwservice_manager add;

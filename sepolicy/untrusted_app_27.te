@@ -9,3 +9,5 @@ allow untrusted_app_27 console_silent_prop:file read;
 allow untrusted_app_27 ctl_LKCore_prop:file read;
 allow untrusted_app_27 proc_vmstat:file { getattr open read };
 allow untrusted_app_27 runtime_event_log_tags_file:file { open read };
+allow untrusted_app_27 proc_zoneinfo:file { read open getattr };
+allow untrusted_app_27 vendor_camera_prop:file read;

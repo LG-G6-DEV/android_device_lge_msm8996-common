@@ -28,9 +28,7 @@
 /sys/devices/virtual/graphics/fb[0-2](/.*)?                         u:object_r:sysfs_graphics:s0
 
 # Init
-/(vendor|system/vendor)/bin/init\.power\.sh                         u:object_r:init_power_exec:s0
-/(vendor|system/vendor)/bin/init\.qcom\.graphics\.sh                u:object_r:init_graphics_exec:s0
-/(vendor|system/vendor)/bin/init\.radio\.sh                         u:object_r:init_radio_exec:s0
+/(vendor|system/vendor)/bin/init\.lucye\.hdmi\.sh                   u:object_r:init_graphics_exec:s0
 
 # IR
 /dev/ttyHSL1                                                        u:object_r:cir_device:s0
