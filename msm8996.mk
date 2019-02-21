@@ -140,6 +140,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.class_main.sh \
+    init.power.sh \
     init.lucye.hdmi.sh \
     init.qcom.sensors.sh \
     init.qcom.early_boot.sh \
@@ -306,7 +307,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power@1.0-service.lge.msm8996
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
