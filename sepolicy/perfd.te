@@ -45,3 +45,5 @@ allow perfd self:capability { net_admin chown dac_override fsetid };
 # Determining if a process exists does not require the kill capability
 # since a permission denied indicates the process exists.
 dontaudit perfd self:capability kill;
+
+allow perfd device:file { read open write };

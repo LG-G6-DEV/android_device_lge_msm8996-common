@@ -1,2 +1,4 @@
 allow location self:capability net_raw;
 allow location location_data_file:{ file sock_file } create_file_perms;
+allow location wifi_prop:file { read open getattr };
+allow location sysfs:file { read open };

@@ -4,3 +4,15 @@ allow untrusted_app sysfs_battery_supply:lnk_file r_file_perms;
 # allow apps to read charging status
 r_dir_file(untrusted_app, sysfs_usb_supply)
 allow untrusted_app sysfs_usb_supply:lnk_file r_file_perms;
+
+allow untrusted_app bg_boot_complete_prop:file read;
+allow untrusted_app bg_daemon_prop:file read;
+allow untrusted_app bluetooth_prop:file read;
+allow untrusted_app bootloader_boot_reason_prop:file read;
+allow untrusted_app boottime_prop:file read;
+allow untrusted_app cnd_vendor_prop:file read;
+allow untrusted_app console_silent_prop:file read;
+allow untrusted_app proc_version:file { getattr open read };
+allow untrusted_app proc_vmstat:file { getattr open read };
+allow untrusted_app runtime_event_log_tags_file:file { open read };
+allow untrusted_app vendor_camera_prop:file { read open getattr };

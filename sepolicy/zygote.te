@@ -1,2 +1,4 @@
 #gcamtest 3
 #allow zygote sda14:file { getattr };
+allow zygote vendor_file:file { read open getattr execute };
+allow webview_zygote zygote:unix_dgram_socket { write };
