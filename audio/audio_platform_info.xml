@@ -40,11 +40,17 @@
     <native_configs>
         <feature name="NATIVE_AUDIO_44.1" codec_support="0"/>
     </native_configs>
+    <pcm_ids>
+        <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="17" />
+        <usecase name="USECASE_AUDIO_PLAYBACK_ULL" type="out" id="17" />
+    </pcm_ids>
     <config_params>
         <param key="spkr_1_tz_name" value="wsatz.13"/>
         <!-- In the below value string, first parameter indicates size -->
         <!-- followed by perf lock options                             -->
         <param key="perf_lock_opts" value="2, 0x101, 0x20F"/>
+        <param key="native_audio_mode" value="src"/>
+        <param key="input_mic_max_count" value="4"/>
     </config_params>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX" />
