@@ -45,9 +45,6 @@ inline const char* BtmGetDefaultName()
 #define BTM_WBS_INCLUDED TRUE /* Enable WBS */
 #define BTIF_HF_WBS_PREFERRED TRUE /* Use WBS */
 
-/* Enable HFP WBS feature */
-#define BTIF_HF_CLIENT_WBS_INCLUDED TRUE
-
 // skips conn update at conn completion
 #define BT_CLEAN_TURN_ON_DISABLED 1
 
