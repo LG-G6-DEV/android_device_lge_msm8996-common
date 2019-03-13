@@ -16,3 +16,16 @@ allow untrusted_app proc_version:file { getattr open read };
 allow untrusted_app proc_vmstat:file { getattr open read };
 allow untrusted_app runtime_event_log_tags_file:file { open read };
 allow untrusted_app vendor_camera_prop:file { read open getattr };
+
+allow untrusted_app ctl_LKCore_prop:file read;
+allow untrusted_app ctl_bootanim_prop:file read;
+allow untrusted_app ctl_bugreport_prop:file read;
+allow untrusted_app ctl_console_prop:file read;
+allow untrusted_app ctl_default_prop:file read;
+allow untrusted_app ctl_vendor_mmid_prop:file read;
+allow untrusted_app lowpan_prop:file read;
+allow untrusted_app mm_parser_prop:file read;
+allow untrusted_app mm_video_prop:file read;
+allow untrusted_app mmc_prop:file read;
+allow untrusted_app msm_irqbalance_prop:file read;
+allow untrusted_app proc_irq:dir search;
