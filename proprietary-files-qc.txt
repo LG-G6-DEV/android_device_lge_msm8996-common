@@ -204,56 +204,6 @@ vendor/lib64/libtinyxml2_1.so
 vendor/lib/hw/vulkan.msm8996.so
 vendor/lib64/hw/vulkan.msm8996.so
 
-# Postprocessing
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/etc/init/vendor.display.color@1.0-service.rc
-vendor/bin/mm-pp-dpps
-# lib/vendor.display.postproc@1.0.so
-# vendor/lib/libdisp-aba.so
-vendor/lib64/libdisp-aba.so
-# lib/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.color@1.1.so
-vendor/lib64/vendor.display.color@1.2.so
-vendor/lib64/vendor.display.postproc@1.0.so
-
-# etc/permissions/com.qti.snapdragon.sdk.display.xml
-# framework/com.qti.snapdragon.sdk.display.jar
-
-
-# lib/libsd_sdk_display.so:vendor/lib/libsd_sdk_display.so
-# lib/libsdm-disp-apis.so:vendor/lib/libsdm-disp-apis.so
-# lib/vendor.qti.hardware.qdutils_disp@1.0.so
-# lib64/libsd_sdk_display.so:vendor/lib64/libsd_sdk_display.so
-# lib64/libsdm-disp-apis.so:vendor/lib64/libsdm-disp-apis.so
-
-
-# lib64/vendor.qti.hardware.qdutils_disp@1.0.so
-
-# vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
-
-# vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
-
-# vendor/lib/libc2d30-a5xx.so
-# vendor/lib/libllvm-qgl.so
-# vendor/lib/libmm-disp-apis.so
-# vendor/lib/libmm-qdcm.so
-# vendor/lib/libqseed3.so
-# vendor/lib/vendor.display.color@1.0_vendor.so
-# vendor/lib/vendor.display.postproc@1.0_vendor.so
-# vendor/lib/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
-
-# vendor/lib64/libc2d30-a5xx.so
-# vendor/lib64/libllvm-qgl.so
-# vendor/lib64/libmm-disp-apis.so
-# vendor/lib64/libmm-qdcm.so
-# vendor/lib64/libqseed3.so
-# vendor/lib64/vendor.display.color@1.0_vendor.so
-# vendor/lib64/vendor.display.postproc@1.0_vendor.so
-# vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
-
-
-
 # Keystore
 -vendor/lib/hw/keystore.msm8996.so
 -vendor/lib64/hw/keystore.msm8996.so
@@ -353,6 +303,16 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
+
+# Postprocessing
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/bin/mm-pp-dpps
+vendor/lib64/libdisp-aba.so
+vendor/lib64/vendor.display.color@1.0.so
+vendor/lib64/vendor.display.color@1.1.so
+vendor/lib64/vendor.display.color@1.2.so
+vendor/lib64/vendor.display.postproc@1.0.so
 
 # Radio
 -app/QtiTelephonyService/QtiTelephonyService.apk
