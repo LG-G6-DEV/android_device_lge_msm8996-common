@@ -120,29 +120,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=1 \
-    debug.gralloc.enable_fb_ubwc=1 \
-    vendor.gralloc.enable_fb_ubwc=1 \
-    debug.sf.enable_hwc_vds=1 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
-    persist.demo.hdmirotationlock=false \
-    persist.hwc.enable_vds=1 \
-    persist.sys.wfd.virtual=0 \
-    ro.persist.qcapb=1 \
-    sdm.debug.disable_rotator_split=1 \
-    sdm.debug.disable_skip_validate=1 \
-    sdm.perf_hint_window=50 \
-    debug.egl.profiler=1 \
-    debug.composition.type=gpu \
-    debug.enabletr=true \
-    debug.overlayui.enable=1 \
-    debug.performance.tuning=1 \
-    hw3d.force=1 \
-    hwui.render_dirty_regions=false \
-    ro.config.enable.hw_accel=true \
-    ro.fb.mode=1 \
-    debug.compbypass.enable=0
+debug.egl.hw=1 \
+debug.gralloc.enable_fb_ubwc=1 \
+debug.sf.hw=1 \
+dev.pm.dyn_samplingrate=1 \
+persist.demo.hdmirotationlock=false \
+persist.hwc.enable_vds=1 \
+persist.sys.wfd.virtual=0 \
+ro.persist.qcapb=1 \
+sdm.debug.disable_rotator_split=1 \
+sdm.debug.disable_skip_validate=1 \
+sdm.perf_hint_window=50
 
 # OpenGLES
 PRODUCT_PROPERTY_OVERRIDES += \
