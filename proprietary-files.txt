@@ -176,6 +176,12 @@ vendor/lib64/libsensor_lge_cal.so
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/SprintHM/SprintHM.apk
 
+# Thermal
+vendor/bin/thermal-engine
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
+
 # Verizon
 -app/VZWAPNLib/VZWAPNLib.apk;PRESIGNED
 -app/vzw_msdc_api/vzw_msdc_api.apk;PRESIGNED
