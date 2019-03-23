@@ -35,7 +35,7 @@ public class ProximitySensor implements SensorEventListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "PocketModeProximity";
 
-    private static final String FP_PROX_NODE = "/sys/devices/soc/soc:fpc_fpc1020/proximity_state";
+    private static final String FP_PROX_NODE = "/sys/class/input/lge_fingerprint/proximity_state";
 
     private SensorManager mSensorManager;
     private Sensor mSensor;

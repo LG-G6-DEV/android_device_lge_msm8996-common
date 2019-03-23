@@ -254,6 +254,7 @@ on boot
     chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
     chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
     chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
@@ -263,6 +264,7 @@ on boot
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
     chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
     # FPC device permission
     chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
     chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
