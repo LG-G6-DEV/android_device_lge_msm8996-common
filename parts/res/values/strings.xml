@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">LGE Settings</string>
+    <string name="app_name" translatable="false">LGE Settings</string>
 
     <string name="screen_gestures_panel_title">Device Extras</string>
     <string name="screen_gestures_panel_summary">Fast charge, Spectrum, Ambient display, KCAL</string>
@@ -27,7 +27,7 @@
 
     <!-- Display -->
     <string name="graphics_title">Display</string>
-    <string name="device_doze_title">Ambient display</string>
+    <string name="device_doze_title" translatable="false">Ambient display</string>
 
 	<string name="dlm_mode_title">Daylight mode</string>
 
@@ -45,7 +45,7 @@
     <string name="kcal_color_temp">Color temperature (K)</string>
 
     <!-- Spectrum Profiles -->
-    <string name="spectrum_category_title">Spectrum</string>
+    <string name="spectrum_category_title" translatable="false">Spectrum</string>
     <string name="spectrum_title">Kernel Power Profile</string>
-    <string name="spectrum_summary">%1$s</string>
+    <string name="spectrum_summary" translatable="false">%1$s</string>
 </resources>

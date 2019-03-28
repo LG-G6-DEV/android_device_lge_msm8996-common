@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="screen_gestures_panel_title">Device Extras</string>
+    <string name="screen_gestures_panel_summary">Szybkie ładowanie, Spectrum, Ambient display, KCAL</string>
+    <string name="battery_summary">Bateria</string>
+    <string name="fast_charge_title">Szybkie ładowanie</string>
+    <string name="fast_charge_summary">Włącz/Wyłącz szybkie ładowanie</string>
+    <string name="graphics_title">Wyświetlacz</string>
+    <string name="kcal_title">Wyświetlane kolory</string>
+    <string name="kcal_summary">Dostosuj wyświetlane kolory używając KCAL</string>
+    <string name="kcal_enabled_title">Włącz KCAL</string>
+    <string name="kcal_enabled_summary">Włącz kalibracje ekranu wykorzystującą KCAL</string>
+    <string name="kcal_red">Czerwony</string>
+    <string name="kcal_green">Zielony</string>
+    <string name="kcal_blue">Niebieski</string>
+    <string name="kcal_saturation">Saturacja</string>
+    <string name="kcal_contrast">Kontrast</string>
+    <string name="dlm_mode_title">Tryb dzienny</string>
+    <string name="menu_reset">Reset</string>
+    <string name="kcal_color_temp">Temperatura barwowa (K)</string>
+    <string name="spectrum_title">Tryb pracy kernela</string>
+</resources>
