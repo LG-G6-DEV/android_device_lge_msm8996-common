@@ -17,16 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="@string/battery_summary">
-
-        <SwitchPreference
-            android:key="fast_charge"
-            android:title="@string/fast_charge_title"
-            android:summary="@string/fast_charge_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="spectrum_category"
         android:title="@string/spectrum_category_title">
 
