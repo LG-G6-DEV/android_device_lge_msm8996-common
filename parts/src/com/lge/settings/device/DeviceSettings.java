@@ -37,7 +37,6 @@ public class DeviceSettings extends NodePreferenceActivity {
     private static final String SPECTRUM_CATEGORY_KEY = "spectrum_category";
     private static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
 
-    private SwitchPreference mFCSwitch;
     private SwitchPreference mDaylightModeSwitch;
     private ListPreference mSpectrum;
     private PreferenceCategory mSpectrumCategory;
@@ -50,11 +49,6 @@ public class DeviceSettings extends NodePreferenceActivity {
         ListView lv = getListView();
         lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
         lv.setDividerHeight(0);
-
-        mFCSwitch = (SwitchPreference) findPreference(Constants.KEY_FAST_CHARGE);
-        mFCSwitch.setEnabled(FastChargeSwitch.isSupported());
-        mFCSwitch.setChecked(FastChargeSwitch.isCurrentlyEnabled(this));
-        mFCSwitch.setOnPreferenceChangeListener(new FastChargeSwitch());
 
         mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
         mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());

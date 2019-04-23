@@ -18,12 +18,7 @@
     <string name="app_name" translatable="false">LGE Settings</string>
 
     <string name="screen_gestures_panel_title">Device Extras</string>
-    <string name="screen_gestures_panel_summary">Fast charge, Spectrum, Ambient display, KCAL</string>
-
-    <!-- Battery -->
-    <string name="battery_summary">Battery</string>
-    <string name="fast_charge_title">Fast charge</string>
-    <string name="fast_charge_summary">Enable/disable force fast charging</string>
+    <string name="screen_gestures_panel_summary">Spectrum, Ambient display, KCAL</string>
 
     <!-- Display -->
     <string name="graphics_title">Display</string>
