@@ -4,4 +4,3 @@ allow netmgrd net_data_file:dir rw_dir_perms;
 get_prop(netmgrd, diag_prop);
 set_prop(netmgrd, vendor_xlat_prop)
 allow netmgrd sysfs:file { read open };
-allow netmgrd netutils_wrapper:process noatsecure;
