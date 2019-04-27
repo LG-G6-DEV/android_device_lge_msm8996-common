@@ -15,3 +15,5 @@ allow hwaddrs persist_file:file create_file_perms;
 allow hwaddrs wifi_data_file:dir { search write add_name };
 allow hwaddrs bluetooth_data_file:dir { search write add_name };
 allow hwaddrs persist_file:dir { search write add_name };
+allow hwaddrs mnt_vendor_file:dir search;
+allow hwaddrs mnt_vendor_file:file { read write };

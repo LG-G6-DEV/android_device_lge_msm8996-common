@@ -7,5 +7,6 @@ allow system_server mpctl_socket:dir search;
 allow system_server mpctl_socket:sock_file write;
 
 allow system_server vendor_file:file { read execute open getattr };
+allow system_server vendor_camera_prop:file { read open getattr };
 allow system_server crash_dump:process { getpgid };
 allow system_server thermal_service:service_manager find;

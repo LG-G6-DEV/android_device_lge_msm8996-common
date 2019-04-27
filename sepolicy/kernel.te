@@ -1,1 +1,2 @@
 allow kernel priv_app:process setsched;
+allow kernel block_device:dir search;

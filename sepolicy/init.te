@@ -10,3 +10,7 @@ allow init sysfs:file { setattr };
 #allow firmware_file rootfs:filesystem associate;
 allow init sysfs_mmc_host:file { setattr w_file_perms };
 allow init vendor_toolbox_exec:file execute_no_trans;
+allow init adbd:process noatsecure;
+allow init hwservicemanager:binder { call transfer };
+allow init default_android_hwservice:hwservice_manager { add find };
+

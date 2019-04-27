@@ -1,1 +1,2 @@
 allow shell runtime_event_log_tags_file:file { open read };
+allow shell kernel:security read_policy;
