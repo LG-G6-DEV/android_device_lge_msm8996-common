@@ -85,6 +85,9 @@
 # SPI
 /sys/bus/spi/devices                                                u:object_r:sysfs_spi:s0
 
+# Sysnode
+/system/vendor/bin/hw/vendor.lge.hardware.sysnode@1.0-service   u:object_r:vendor_file:s0
+
 # WLAN
 /sys/module/bcmdhd/parameters/firmware_path                         u:object_r:sysfs_wlan_fwpath:s0
 
