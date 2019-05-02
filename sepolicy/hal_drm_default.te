@@ -6,3 +6,23 @@ allow hal_drm_default persist_drm_file:file r_file_perms;
 allow hal_drm_default firmware_file:dir search;
 allow hal_drm_default firmware_file:file r_file_perms;
 allow hal_drm_default firmware_file:lnk_file r_file_perms;
+
+#allow hal_drm_default media_data_file:dir create_dir_perms;
+#allow hal_drm_default media_data_file:file create_file_perms;
+r_dir_file(hal_drm_default, media_data_file)
+
+allow hal_drm_default media_data_file:dir read;
+allow hal_drm_default media_data_file:dir write;
+allow hal_drm_default media_data_file:dir add_name;
+allow hal_drm_default media_data_file:dir create;
+allow hal_drm_default media_data_file:dir getattr;
+allow hal_drm_default media_data_file:dir open;
+allow hal_drm_default media_data_file:dir search;
+
+allow hal_drm_default media_data_file:file create;
+allow hal_drm_default media_data_file:file { write open };
+allow hal_drm_default media_data_file:file getattr;
+allow hal_drm_default media_data_file:file read;
+
+allow hal_drm_default media_data_file:dir create_dir_perms;
+allow hal_drm_default media_data_file:file create_file_perms;
