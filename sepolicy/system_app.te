@@ -3,6 +3,7 @@ allow system_app sysfs_fpc_proximity:file { rw_file_perms };
 allow system_app sysfs_fpc_key:file { rw_file_perms };
 allow system_app sysfs_gesture:file rw_file_perms;
 allow system_app sysfs_zram:dir search;
+allow system_app sysfs:file { write read };
 allow system_app time_daemon:unix_stream_socket connectto;
 allow system_app default_prop:property_service set;
 allow system_app default_android_service:service_manager add;
