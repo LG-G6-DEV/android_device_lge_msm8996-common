@@ -244,12 +244,6 @@ on boot
         group system wifi bluetooth
         oneshot
 
-    service loggy /vendor/bin/loggy.sh
-        class core
-        user root
-        disabled
-        oneshot
-
     on property:init.svc.conn_init=stopped
         chmod 0644 /data/misc/wifi/config
         chown system wifi /data/misc/wifi/config

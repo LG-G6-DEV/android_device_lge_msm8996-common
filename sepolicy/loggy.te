@@ -1,3 +1,0 @@
-allow toolbox cache_file:file rw_file_perms;
-allow logpersist cache_file:dir rw_dir_perms;
-allow logpersist self:capability { dac_override };
