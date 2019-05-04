@@ -1,4 +1,3 @@
 allow sensors sensors_data_file:file create_file_perms;
 allow sensors sensors_data_file:dir create_dir_perms;
 allow sensors sysfs:file { read open };
-allow sensors self:capability dac_override;
