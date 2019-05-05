@@ -28,6 +28,11 @@
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
+service charger /charger
+    class charger
+    critical
+    seclabel u:r:healthd:s0
+    
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
@@ -979,11 +984,6 @@ service profiler_daemon /system/bin/profiler_daemon
     user root
     group root
     disabled
-
-service charger /charger
-    class charger
-    group system graphics
-    seclabel u:r:healthd:s0
 
 service vendor.ssr_diag /system/vendor/bin/ssr_diag
     class late_start
