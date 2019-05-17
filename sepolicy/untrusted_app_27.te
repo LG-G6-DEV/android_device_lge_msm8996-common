@@ -30,3 +30,4 @@ allow untrusted_app_27 hal_memtrack_default:binder call;
 allow untrusted_app_27 apk_data_file:file setattr;
 allow untrusted_app_27 proc_version:file read;
 allow untrusted_app_27 vold_exec:file read;
+allow untrusted_app_27 proc_stat:file { open getattr };

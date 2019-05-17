@@ -1,2 +1,0 @@
-allow thermal-engine hwservicemanager_prop:file { read open getattr };
-allow thermal-engine hwservicemanager:binder call;
