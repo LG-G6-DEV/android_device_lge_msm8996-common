@@ -242,7 +242,7 @@ static void agpsDataConnOpen(
 
     if (NULL != gGnssAdapter) {
         gGnssAdapter->dataConnOpenCommand(
-                agpsType, apnName, apnLen, ipType);
+                agpsType, apnName, apnLen, (AGpsBearerType)ipType);
     }
 }
 static void agpsDataConnClosed(AGpsExtType agpsType) {
@@ -267,11 +267,8 @@ static void getDebugReport(GnssDebugReport& report) {
 
 static void updateConnectionStatus(bool connected, int8_t type) {
     if (NULL != gGnssAdapter) {
-        gGnssAdapter->updateConnectionStatusCommand(connected, type);
+        gGnssAdapter->getSystemStatus()->eventConnectionStatus(connected, type);
     }
-
-}
-
 }
 
 static void odcpiInit(const OdcpiRequestCallback& callback)
@@ -287,5 +284,4 @@ static void odcpiInject(const Location& location)
         gGnssAdapter->injectOdcpiCommand(location);
     }
 }
-
 

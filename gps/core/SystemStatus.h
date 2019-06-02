@@ -35,6 +35,7 @@
 #include <loc_pla.h>
 #include <log_util.h>
 #include <MsgTask.h>
+#include <IDataItemCore.h>
 #include <IOsObserver.h>
 #include <DataItemConcreteTypesBase.h>
 #include <SystemStatusOsObserver.h>
@@ -386,8 +387,6 @@ public:
 };
 
 /******************************************************************************
-
-
  SystemStatus report data structure - from DataItem observer
 ******************************************************************************/
 class SystemStatusAirplaneMode : public SystemStatusItemBase,
@@ -733,19 +732,21 @@ public:
 };
 
 /******************************************************************************
-
  SystemStatusReports
 ******************************************************************************/
 class SystemStatusReports
 {
 public:
+    // from QMI_LOC indication
     std::vector<SystemStatusLocation>         mLocation;
 
+    // from ME debug NMEA
     std::vector<SystemStatusTimeAndClock>     mTimeAndClock;
     std::vector<SystemStatusXoState>          mXoState;
     std::vector<SystemStatusRfAndParams>      mRfAndParams;
     std::vector<SystemStatusErrRecovery>      mErrRecovery;
 
+    // from PE debug NMEA
     std::vector<SystemStatusInjectedPosition> mInjectedPosition;
     std::vector<SystemStatusBestPosition>     mBestPosition;
     std::vector<SystemStatusXtra>             mXtra;
@@ -754,9 +755,8 @@ public:
     std::vector<SystemStatusPdr>              mPdr;
     std::vector<SystemStatusNavData>          mNavData;
 
+    // from SM debug NMEA
     std::vector<SystemStatusPositionFailure>  mPositionFailure;
-
-
 
     // from dataitems observer
     std::vector<SystemStatusAirplaneMode>     mAirplaneMode;
@@ -781,7 +781,6 @@ public:
     std::vector<SystemStatusMccMnc>           mMccMnc;
     std::vector<SystemStatusBtDeviceScanDetail> mBtDeviceScanDetail;
     std::vector<SystemStatusBtleDeviceScanDetail> mBtLeDeviceScanDetail;
-
 };
 
 /******************************************************************************
@@ -799,36 +798,7 @@ private:
 
     // Data members
     static pthread_mutex_t                    mMutexSystemStatus;
-
-
-    static const uint32_t                     maxLocation = 5;
-
-    static const uint32_t                     maxTimeAndClock = 5;
-    static const uint32_t                     maxXoState = 5;
-    static const uint32_t                     maxRfAndParams = 5;
-    static const uint32_t                     maxErrRecovery = 5;
-
-    static const uint32_t                     maxInjectedPosition = 5;
-    static const uint32_t                     maxBestPosition = 5;
-    static const uint32_t                     maxXtra = 5;
-    static const uint32_t                     maxEphemeris = 5;
-    static const uint32_t                     maxSvHealth = 5;
-    static const uint32_t                     maxPdr = 5;
-    static const uint32_t                     maxNavData = 5;
-
-    static const uint32_t                     maxPositionFailure = 5;
-
     SystemStatusReports mCache;
-
-    bool setLocation(const UlpLocation& location);
-
-    bool setTimeAndCLock(const SystemStatusPQWM1& nmea);
-    bool setXoState(const SystemStatusPQWM1& nmea);
-    bool setRfAndParams(const SystemStatusPQWM1& nmea);
-    bool setErrRecovery(const SystemStatusPQWM1& nmea);
-
-    SystemStatusReports mCache;
-
 
     template <typename TYPE_REPORT, typename TYPE_ITEM>
     bool setIteminReport(TYPE_REPORT& report, TYPE_ITEM&& s);
@@ -837,11 +807,8 @@ private:
     template <typename TYPE_REPORT, typename TYPE_ITEM>
     void setDefaultIteminReport(TYPE_REPORT& report, const TYPE_ITEM& s);
 
-
-
     template <typename TYPE_REPORT, typename TYPE_ITEM>
     void getIteminReport(TYPE_REPORT& reportout, const TYPE_ITEM& c) const;
-
 
 public:
     // Static methods
@@ -851,14 +818,11 @@ public:
 
     // Helpers
     bool eventPosition(const UlpLocation& location,const GpsLocationExtended& locationEx);
+    bool eventDataItemNotify(IDataItemCore* dataitem);
     bool setNmeaString(const char *data, uint32_t len);
     bool getReport(SystemStatusReports& reports, bool isLatestonly = false) const;
-
-    bool setDefaultReport(void);
-
     bool setDefaultGnssEngineStates(void);
     bool eventConnectionStatus(bool connected, int8_t type);
-
 };
 
 } // namespace loc_core

@@ -203,7 +203,6 @@ PRODUCT_PACKAGES += \
     libcurl \
     libgnss \
     libgnsspps \
-    libcurl
     libsensorndkbridge
 
 

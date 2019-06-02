@@ -23,6 +23,7 @@
 
 #include <android/hardware/gnss/1.0/IAGnss.h>
 #include <hidl/Status.h>
+#include <gps_extended_c.h>
 
 namespace android {
 namespace hardware {
@@ -62,7 +63,7 @@ struct AGnss : public IAGnss {
     void statusIpV4Cb(AGnssExtStatusIpV4 status);
 
     /* Data call setup callback passed down to GNSS HAL implementation */
-    static void agnssStatusIpV4Cb(IAGnssCallback::AGnssStatusIpV4 status);
+    static void agnssStatusIpV4Cb(AGnssExtStatusIpV4 status);
 
  private:
     Gnss* mGnss = nullptr;

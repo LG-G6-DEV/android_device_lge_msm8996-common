@@ -23,7 +23,6 @@
 #include <log_util.h>
 #include "Gnss.h"
 #include "AGnss.h"
-#include <gps_extended_c.h>
 
 namespace android {
 namespace hardware {
@@ -40,11 +39,6 @@ AGnss::AGnss(Gnss* gnss) : mGnss(gnss) {
 AGnss::~AGnss() {
     spAGnss = nullptr;
 }
-
-
-void AGnss::agnssStatusIpV4Cb(IAGnssCallback::AGnssStatusIpV4 status){
-
-    sAGnssCbIface->agnssStatusIpV4Cb(status);
 
 void AGnss::agnssStatusIpV4Cb(AGnssExtStatusIpV4 status){
     if (nullptr != spAGnss) {
@@ -97,7 +91,6 @@ void AGnss::statusIpV4Cb(AGnssExtStatusIpV4 status) {
     } else {
         LOC_LOGw("setCallback has not been called yet");
     }
-
 }
 
 Return<void> AGnss::setCallback(const sp<IAGnssCallback>& callback) {
@@ -156,8 +149,24 @@ Return<bool> AGnss::dataConnOpen(const hidl_string& apn,
 
     LOC_LOGD("dataConnOpen APN name = [%s]", apn.c_str());
 
+    AGpsBearerType bearerType;
+    switch (apnIpType) {
+        case IAGnss::ApnIpType::IPV4:
+            bearerType = AGPS_APN_BEARER_IPV4;
+            break;
+        case IAGnss::ApnIpType::IPV6:
+            bearerType = AGPS_APN_BEARER_IPV6;
+            break;
+        case IAGnss::ApnIpType::IPV4V6:
+            bearerType = AGPS_APN_BEARER_IPV4V6;
+            break;
+        default:
+            bearerType = AGPS_APN_BEARER_IPV4;
+            break;
+    }
+
     mGnss->getGnssInterface()->agpsDataConnOpen(
-            LOC_AGPS_TYPE_SUPL, apn.c_str(), apn.size(), (int)apnIpType);
+            LOC_AGPS_TYPE_SUPL, apn.c_str(), apn.size(), (int)bearerType);
     return true;
 }
 

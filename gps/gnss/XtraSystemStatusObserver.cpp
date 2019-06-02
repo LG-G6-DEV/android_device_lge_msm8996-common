@@ -45,14 +45,10 @@
 #include <sstream>
 #include <XtraSystemStatusObserver.h>
 #include <LocAdapterBase.h>
-
-
 #include <DataItemId.h>
 #include <DataItemsFactoryProxy.h>
 #include <DataItemConcreteTypesBase.h>
 
-
-using namespace std;
 using namespace loc_core;
 
 #ifdef LOG_TAG
@@ -61,9 +57,6 @@ using namespace loc_core;
 #define LOG_TAG "LocSvc_XSSO"
 
 bool XtraSystemStatusObserver::updateLockStatus(uint32_t lock) {
-
-    std::stringstream ss;
-
     mGpsLock = lock;
 
     if (!mReqStatusReceived) {
@@ -71,15 +64,10 @@ bool XtraSystemStatusObserver::updateLockStatus(uint32_t lock) {
     }
 
     stringstream ss;
-
     ss <<  "gpslock";
     ss << " " << lock;
     return ( send(LOC_IPC_XTRA, ss.str()) );
 }
-
-
-bool XtraSystemStatusObserver::updateConnectionStatus(bool connected, uint8_t type) {
-    std::stringstream ss;
 
 bool XtraSystemStatusObserver::updateConnections(uint64_t allConnections) {
     mIsConnectivityStatusKnown = true;
@@ -90,29 +78,10 @@ bool XtraSystemStatusObserver::updateConnections(uint64_t allConnections) {
     }
 
     stringstream ss;
-
     ss <<  "connection";
     ss << " " << mConnections;
     return ( send(LOC_IPC_XTRA, ss.str()) );
 }
-
-
-bool XtraSystemStatusObserver::sendEvent(std::stringstream& event) {
-    int socketFd = createSocket();
-    if (socketFd < 0) {
-        LOC_LOGe("XTRA unreachable. sending failed.");
-        return false;
-    }
-
-    const std::string& data = event.str();
-    int remain = data.length();
-    ssize_t sent = 0;
-
-    while (remain > 0 &&
-          (sent = ::send(socketFd, data.c_str() + (data.length() - remain),
-                       remain, MSG_NOSIGNAL)) > 0) {
-        remain -= sent;
-
 
 bool XtraSystemStatusObserver::updateTac(const string& tac) {
     mTac = tac;
@@ -145,7 +114,6 @@ bool XtraSystemStatusObserver::updateXtraThrottle(const bool enabled) {
 
     if (!mReqStatusReceived) {
         return true;
-
     }
 
     stringstream ss;
@@ -200,8 +168,6 @@ void XtraSystemStatusObserver::onReceive(const std::string& data) {
         LOC_LOGw("unknown event: %s", data.c_str());
     }
 }
-
-
 
 void XtraSystemStatusObserver::subscribe(bool yes)
 {
@@ -293,4 +259,3 @@ void XtraSystemStatusObserver::notify(const list<IDataItemCore*>& dlist)
     };
     mMsgTask->sendMsg(new (nothrow) HandleOsObserverUpdateMsg(this, dlist));
 }
-

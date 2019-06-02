@@ -37,6 +37,7 @@
 #include <loc_pla.h>
 #include <log_util.h>
 #include <loc_nmea.h>
+#include <DataItemsFactoryProxy.h>
 #include <SystemStatus.h>
 #include <SystemStatusOsObserver.h>
 #include <DataItemConcreteTypesBase.h>
@@ -1254,11 +1255,7 @@ IOsObserver* SystemStatus::getOsObserver()
 }
 
 SystemStatus::SystemStatus(const MsgTask* msgTask) :
-
-    mSysStatusObsvr(msgTask)
-
     mSysStatusObsvr(this, msgTask)
-
 {
     int result = 0;
     ENTRY_LOG ();
@@ -1337,41 +1334,11 @@ void SystemStatus::setDefaultIteminReport(TYPE_REPORT& report, const TYPE_ITEM& 
 template <typename TYPE_REPORT, typename TYPE_ITEM>
 void SystemStatus::getIteminReport(TYPE_REPORT& reportout, const TYPE_ITEM& c) const
 {
-
-    SystemStatusNavData s(nmea);
-    if (!mCache.mNavData.empty() && mCache.mNavData.back().equals(s)) {
-        mCache.mNavData.back().mUtcReported = s.mUtcReported;
-    } else {
-        mCache.mNavData.push_back(s);
-        if (mCache.mNavData.size() > maxNavData) {
-            mCache.mNavData.erase(mCache.mNavData.begin());
-        }
-    }
-    return true;
-}
-
-/******************************************************************************
- SystemStatus - Sx functions
-******************************************************************************/
-bool SystemStatus::setPositionFailure(const SystemStatusPQWS1& nmea)
-{
-    SystemStatusPositionFailure s(nmea);
-    if (!mCache.mPositionFailure.empty() && mCache.mPositionFailure.back().equals(s)) {
-        mCache.mPositionFailure.back().mUtcReported = s.mUtcReported;
-    } else {
-        mCache.mPositionFailure.push_back(s);
-        if (mCache.mPositionFailure.size() > maxPositionFailure) {
-            mCache.mPositionFailure.erase(mCache.mPositionFailure.begin());
-        }
-    }
-    return true;
-
     reportout.clear();
     if (c.size() >= 1) {
         reportout.push_back(c.back());
         reportout.back().dump();
     }
-
 }
 
 /******************************************************************************
@@ -1466,8 +1433,6 @@ bool SystemStatus::eventPosition(const UlpLocation& location,
 }
 
 /******************************************************************************
-
-
 @brief      API to set report DataItem event into internal buffer
 
 @param[In]  DataItem
@@ -1576,7 +1541,6 @@ bool SystemStatus::eventDataItemNotify(IDataItemCore* dataitem)
 }
 
 /******************************************************************************
-
 @brief      API to get report data into a given buffer
 
 @param[In]  reference to report buffer
@@ -1711,8 +1675,6 @@ bool SystemStatus::setDefaultGnssEngineStates(void)
     return true;
 }
 
-
-
 /******************************************************************************
 @brief      API to handle connection status update event from GnssRil
 
@@ -1728,7 +1690,6 @@ bool SystemStatus::eventConnectionStatus(bool connected, int8_t type)
 
     return true;
 }
-
 
 } // namespace loc_core
 

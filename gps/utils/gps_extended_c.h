@@ -145,7 +145,7 @@ typedef struct {
 
 
 /** AGPS type */
-typedef int16_t AGpsExtType;
+typedef int8_t AGpsExtType;
 #define LOC_AGPS_TYPE_INVALID       -1
 #define LOC_AGPS_TYPE_ANY           0
 #define LOC_AGPS_TYPE_SUPL          1
@@ -158,10 +158,10 @@ typedef int16_t AGpsExtType;
 #define SSID_BUF_SIZE (32+1)
 
 typedef int16_t AGpsBearerType;
-#define AGPS_APN_BEARER_INVALID    -1
-#define AGPS_APN_BEARER_IPV4        0
-#define AGPS_APN_BEARER_IPV6        1
-#define AGPS_APN_BEARER_IPV4V6      2
+#define AGPS_APN_BEARER_INVALID     0
+#define AGPS_APN_BEARER_IPV4        1
+#define AGPS_APN_BEARER_IPV6        2
+#define AGPS_APN_BEARER_IPV4V6      3
 
 typedef enum {
     AGPS_CB_PRIORITY_LOW  = 1,
@@ -1273,8 +1273,6 @@ typedef struct
     Gnss_Srn_MacAddr_Type  macAddrType; /* SRN AP MAC Address type */
 } GnssSrnDataReq;
 
-
-
 /*
  * Represents the status of AGNSS augmented to support IPv4.
  */
@@ -1336,7 +1334,6 @@ typedef void (*LocAgpsCloseResultCb)(bool isSuccess, AGpsExtType agpsType, void*
 /* Shared resources of LocIpc */
 #define LOC_IPC_HAL "/dev/socket/location/socket_hal"
 #define LOC_IPC_XTRA "/dev/socket/location/xtra/socket_xtra"
-
 
 #ifdef __cplusplus
 }

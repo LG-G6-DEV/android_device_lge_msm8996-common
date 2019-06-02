@@ -29,15 +29,6 @@
 #ifndef XTRA_SYSTEM_STATUS_OBS_H
 #define XTRA_SYSTEM_STATUS_OBS_H
 
-
-#include <stdint.h>
-
-
-class XtraSystemStatusObserver {
-public :
-    // constructor & destructor
-    XtraSystemStatusObserver() {
-
 #include <cinttypes>
 #include <MsgTask.h>
 #include <LocIpc.h>
@@ -63,16 +54,13 @@ public :
     inline virtual ~XtraSystemStatusObserver() {
         subscribe(false);
         stopListening();
-
     }
 
-    virtual ~XtraSystemStatusObserver() {
-    }
+    // IDataItemObserver overrides
+    inline virtual void getName(string& name);
+    virtual void notify(const list<IDataItemCore*>& dlist);
 
     bool updateLockStatus(uint32_t lock);
-
-    bool updateConnectionStatus(bool connected, uint8_t type);
-
     bool updateConnections(uint64_t allConnections);
     bool updateTac(const string& tac);
     bool updateMccMnc(const string& mccmnc);
@@ -80,16 +68,10 @@ public :
     inline const MsgTask* getMsgTask() { return mMsgTask; }
     void subscribe(bool yes);
 
-
 protected:
     void onReceive(const std::string& data) override;
 
 private:
-
-    int createSocket();
-    void closeSocket(const int32_t socketFd);
-    bool sendEvent(std::stringstream& event);
-
     IOsObserver*    mSystemStatusObsrvr;
     const MsgTask* mMsgTask;
     int32_t mGpsLock;
@@ -108,7 +90,6 @@ private:
             mXSSO.send(LOC_IPC_XTRA, "halinit");
         }
     } mDelayLocTimer;
-
 
     bool onStatusRequested(int32_t xtraStatusUpdated);
 };
