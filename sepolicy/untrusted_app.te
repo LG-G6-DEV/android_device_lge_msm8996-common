@@ -26,3 +26,5 @@ allow untrusted_app ctl_fuse_prop:file read;
 allow untrusted_app ctl_interface_restart_prop:file read;
 allow untrusted_app sysfs_net:dir search;
 allow untrusted_app sysfs_net:file { read open getattr };
+allow untrusted_app rootfs:dir { open read getattr };
+allow untrusted_app rootfs:file { open read getattr };
