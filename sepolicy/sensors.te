@@ -1,3 +1,5 @@
 allow sensors sensors_data_file:file create_file_perms;
 allow sensors sensors_data_file:dir create_dir_perms;
 allow sensors sysfs:file { read open };
+allow sensors unlabeled:dir { open getattr read write };
+allow sensors unlabeled:file { open getattr read write };

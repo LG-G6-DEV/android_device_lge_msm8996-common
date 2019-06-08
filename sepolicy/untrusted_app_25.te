@@ -4,3 +4,4 @@ allow untrusted_app_25 sysfs:file read;
 allow untrusted_app_25 sysfs_kgsl:file read;
 allow untrusted_app_25 sysfs_vadc_dev:dir search;
 allow untrusted_app_25 sysfs:dir read;
+allow untrusted_app_25 rootfs:dir read;
