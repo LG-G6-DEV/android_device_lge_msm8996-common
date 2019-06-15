@@ -469,6 +469,9 @@ vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
+# Wifi
+vendor/bin/cnss-daemon
+
 # Wifi Display
 bin/wfdservice
 etc/init/wfdservice.rc
