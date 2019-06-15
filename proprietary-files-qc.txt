@@ -270,8 +270,10 @@ vendor/lib64/hw/vulkan.msm8996.so
 -vendor/lib64/hw/keystore.msm8996.so
 
 # Media
--vendor/lib/libgpustats.so
+vendor/lib/libgpustats.so
+vendor/lib64/libgpustats.so
 vendor/lib/libI420colorconvert.so
+vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAlacDec.so
 vendor/lib/libOmxAlacDecSw.so
@@ -284,26 +286,9 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libmm-color-convertor.so
-vendor/lib/libvpphvx.so
 vendor/lib/libvpplibrary.so
+vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
--vendor/lib64/libgpustats.so
-vendor/lib64/libI420colorconvert.so
-vendor/lib64/libOmxAacDec.so
-vendor/lib64/libOmxAlacDec.so
-vendor/lib64/libOmxAlacDecSw.so
-vendor/lib64/libOmxAmrDec.so
-vendor/lib64/libOmxAmrwbplusDec.so
-vendor/lib64/libOmxApeDec.so
-vendor/lib64/libOmxApeDecSw.so
-vendor/lib64/libOmxEvrcDec.so
-vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libOmxVpp.so
-vendor/lib64/libOmxWmaDec.so
-vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libvpphvx.so
-vendor/lib64/libvpplibrary.so
 
 # Perf
 vendor/bin/perfd
