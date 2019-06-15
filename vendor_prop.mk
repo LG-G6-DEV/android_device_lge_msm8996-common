@@ -69,13 +69,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     Camera.no_navigation_bar=true \
     persist.camera.expose.aux=1 \
     ro.camera.notify_nfc=1 \
-    vidc.enc.dcvs.extra-buff-count=2 \
     persist.audio.camcorder.stereo=true \
     persist.camera.camera2=true \
     persist.camera.is_type=3 \
     persist.camera.preview.ubwc=0 \
     persist.camera.video.ubwc=0 \
-    vendor.vidc.enc.disable.pq=true \
     camera.disable_zsl_mode=1 \
     persist.camera.zsl.mode=0 \
     media.settings.xml=/vendor/etc/media_profiles_V1_0.xml
@@ -121,16 +119,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
 debug.egl.hw=1 \
+debug.gralloc.gfx_ubwc_disable=0 \
+debug.sf.enable_hwc_vds=1 \
 debug.gralloc.enable_fb_ubwc=1 \
 debug.sf.hw=1 \
 dev.pm.dyn_samplingrate=1 \
 persist.demo.hdmirotationlock=false \
 persist.hwc.enable_vds=1 \
-persist.sys.wfd.virtual=0 \
 ro.persist.qcapb=1 \
 sdm.debug.disable_rotator_split=1 \
 sdm.debug.disable_skip_validate=1 \
 sdm.perf_hint_window=50
+
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.vidc.enc.disable.pq=true \
+    vidc.enc.dcvs.extra-buff-count=2 \
+    vendor.video.disable.ubwc=1
 
 # OpenGLES
 PRODUCT_PROPERTY_OVERRIDES += \
