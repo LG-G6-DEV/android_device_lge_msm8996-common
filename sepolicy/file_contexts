@@ -15,6 +15,7 @@
 /data/mediadrm/IDM1013                                              u:object_r:media_data_file:s0
 /data/mediadrm/IDM1013/L3/ay64.dat                                  u:object_r:media_data_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine   	u:object_r:hal_drm_widevine_exec:s0
+/persist-lg/firmware/cppf.mdt                                       u:object_r:persist_drm_file:s0
 
 # Encryption metadata partition
 /dev/block/platform/soc/624000\.ufshc/by-name/encrypt               u:object_r:metadata_block_device:s0
@@ -105,5 +106,7 @@
 /data/misc/perfd(/.*)?                                              u:object_r:perfd_data_file:s0
 /data/system/perfd(/.*)?                                            u:object_r:perfd_data_file:s0
 
+# vmstat
+/proc/vmstat                                                        u:object_r:proc_vmstat:s0
 # CND
 /data/connectivity(/.*)?              u:object_r:cnd_data_file:s0

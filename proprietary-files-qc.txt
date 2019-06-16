@@ -57,7 +57,7 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
-# DRM
+# DRM - from stock H870 v20i
 vendor/bin/qseecomd
 vendor/lib/libcppf.so
 vendor/lib/liboemcrypto.so
@@ -492,10 +492,11 @@ vendor/lib/libTimeService.so
 -vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
 
-# Widevine
-vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/mediadrm/libwvdrmengine.so
+# Widevine - from stock H870 v20i
+vendor/bin/hw/android.hardware.drm@1.0-service.widevine
+vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
+vendor/lib/libwvhidl.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
 
 # Wifi
 vendor/bin/cnss-daemon
