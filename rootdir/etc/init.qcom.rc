@@ -300,6 +300,9 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp system /data/misc/dhcp
 
+    # Create /data/vendor/time folder for time-services
+    mkdir /data/vendor/time 0700 system system
+
     #create port-bridge log dir
     mkdir /data/vendor/port_bridge 0770 radio radio
     chmod 0770 /data/vendor/port_bridge
