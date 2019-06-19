@@ -164,9 +164,6 @@ on boot
     #enable camera read sensors data
     setprop persist.camera.gyro.disable 0
 
-    #Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
@@ -274,8 +271,8 @@ on post-fs-data
     # create QDMA dropbox
     mkdir /data/vendor/qdmastats 0700 system system
     mkdir /data/vendor/qdma 0770 system system
-    mkdir /dev/socket/qdma 0770 system system
-    chmod 2770 /dev/socket/qdma
+    mkdir /dev/socket/qdma 0777 system system
+    chmod 2777 /dev/socket/qdma
 
     # Create /data/vendor/tzstorage directory for SFS listener
     mkdir /data/vendor/tzstorage 0770 system system
@@ -302,8 +299,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp system /data/misc/dhcp
-    mkdir /data/misc/wide-dhcpv6 0770 dhcp dhcp
-    chown dhcp system /data/misc/wide-dhcpv6
 
     #create port-bridge log dir
     mkdir /data/vendor/port_bridge 0770 radio radio
@@ -355,7 +350,6 @@ on post-fs-data
     chown system system /sys/devices/platform/msm_sdcc.4/polling
 
     # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    mkdir /data/system 0775 system system
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
     #Create directories for Location services
@@ -371,33 +365,29 @@ on post-fs-data
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/ehub 0770 gps gps
 
-    #Create directory from IMS services
-    mkdir /data/shared 0755
-    chown system system /data/shared
-
     #Create directory for FOTA
     mkdir /data/fota 0771
     chown system system /data/fota
 
     # Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
+    mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
 
     # Create /data/time folder for time-services
     mkdir /data/vendor/time/ 0700 system system
 
     setprop vold.post_fs_data_done 1
 
-    #Create a folder for SRS to be able to create a usercfg file
-    #mkdir /data/data/media 0770 media media
-
     #Create FM dir for patchdownloader
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
     #Create PERFD deamon related dirs
+    setprop ro.min_freq_0 384000
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
     mkdir /data/vendor/perfd 0770 root system
-    chmod 2770 /data/vendor/perfd
     rm /data/vendor/perfd/default_values
+    chmod 2770 /data/vendor/perfd
 
     mkdir /data/vendor/secure_element 0777 system system
 
@@ -581,6 +571,13 @@ service vendor.cnd /system/vendor/bin/cnd
     user system
     group system wifi inet radio wakelock net_admin
     writepid /dev/cpuset/system-background/tasks
+
+service vendor.dpmd /vendor/bin/dpmd
+    class late_start
+    socket dpmd stream 660 root system
+    group system readproc
+    writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
     class main
