@@ -287,7 +287,7 @@ vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libvpplibrary.so
-vendor/lib/libvpphvx.so
+vendor/lib/libvpphvx.soHostapd
 vendor/lib/libvqzip.so
 
 # Perf - from stock H870 v20i
@@ -484,13 +484,11 @@ vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 
-# Time services
+# Time services - from OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1903190014:user/release-keys
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
--vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
--vendor/lib64/libtime_genoff.so
-vendor/lib64/libTimeService.so
+vendor/lib/libtime_genoff.so
+vendor/lib64/libtime_genoff.so
 
 # Widevine - from stock H870 v20i
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
