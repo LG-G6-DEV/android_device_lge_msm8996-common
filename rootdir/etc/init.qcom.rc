@@ -182,6 +182,9 @@ on boot
 
     setprop net.tcp.2g_init_rwnd 10
 
+    # Make sure the default firmware is loaded
+    write /sys/module/bcmdhd/parameters/firmware_path "/vendor/etc/firmware/fw_bcmdhd.bin"
+
 #   Assign TCP buffer thresholds to be ceiling value of technology maximums
 #   Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  8388608
