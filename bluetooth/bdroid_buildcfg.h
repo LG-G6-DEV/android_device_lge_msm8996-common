@@ -42,7 +42,6 @@ inline const char* BtmGetDefaultName()
 #define MAX_ACL_CONNECTIONS 16
 #define MAX_L2CAP_CHANNELS 16
 #define BLE_VND_INCLUDED  TRUE
-#define BTM_WBS_INCLUDED TRUE /* Enable WBS */
 #define BTIF_HF_WBS_PREFERRED TRUE /* Use WBS */
 
 // skips conn update at conn completion
