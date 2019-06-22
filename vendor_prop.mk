@@ -60,7 +60,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
-    qcom.bluetooth.soc=rome \
+    bluetooth.soc=rome \
     bt.max.hfpclient.connections=1 \
     bluetooth.chip.vendor=brcm
 
