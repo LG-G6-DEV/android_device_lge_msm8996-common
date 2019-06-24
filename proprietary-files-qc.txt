@@ -105,7 +105,7 @@ vendor/lib/libsymphony-1.1.1.so
 -vendor/lib/hw/gatekeeper.msm8996.so
 -vendor/lib64/hw/gatekeeper.msm8996.so
 
-# GPS
+# GPS - From Oneplus 3 Pie
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
@@ -243,21 +243,12 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
-# Perf - from stock H870 v20i
-vendor/bin/msm_irqbalance
-lib/libqti_performance.so
-lib/libqti-at.so
-lib/libqti-perfd-client_system.so
-lib/libqti-util_system.so
-lib/vendor.qti.hardware.perf@1.0.so
-lib64/libqti_performance.so
-lib64/libqti-at.so
-lib64/libqti-perfd-client_system.so
-lib64/libqti-util_system.so
-lib64/vendor.qti.hardware.perf@1.0.so
+# Perf - from LA.UM.7.5.r1-04800-8x96.0
 vendor/bin/energy-awareness
+vendor/bin/msm_irqbalance
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
 vendor/etc/perf/perf-profile2.conf
@@ -265,26 +256,19 @@ vendor/etc/perf/perf-profile3.conf
 vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
-vendor/etc/perf/perf-profile210.conf
-vendor/etc/perf/perf-profile299.conf
-vendor/lib/libfeedbackhandler.so
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqtigef.so
-vendor/lib/libqti-gt-prop.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-util.so
-vendor/lib/libqti-wl.so
-vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
-vendor/lib64/libfeedbackhandler.so
+vendor/etc/perf/perfboostsconfig.xml
+vendor/etc/perf/targetconfig.xml
+vendor/etc/perf/targetresourceconfigs.xml
 vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqtigef.so
-vendor/lib64/libqti-gt-prop.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-util.so
-vendor/lib64/libqti-wl.so
-vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.perf@1.0.so
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-perfd.so
+vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-util.so
+vendor/lib/vendor.qti.hardware.perf@1.0.so
 
 # Peripheral manager
 vendor/bin/pm-proxy
