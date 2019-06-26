@@ -203,7 +203,7 @@ vendor/lib64/vendor.qti.gnss@1.1.so
 vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 
-# Graphics
+# Graphics - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -241,11 +241,11 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/libRSDriver_adreno.so
 
-# Graphics - HDR
+# Graphics - HDR - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics - SDM
+# Graphics - SDM - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib/libscalar.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -259,7 +259,7 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
-# Graphics - Vulkan
+# Graphics - Vulkan - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib/hw/vulkan.msm8996.so
 vendor/lib64/hw/vulkan.msm8996.so
 
@@ -267,7 +267,7 @@ vendor/lib64/hw/vulkan.msm8996.so
 vendor/lib64/hw/keystore.msm8996.so|e4139ac911fd0aafa73bd2901ab273c04c99ccc9
 vendor/lib/hw/keystore.msm8996.so|89131975b593a2d3551808f950905c3b83bb6d73
 
-# Media
+# Media - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib/libgpustats.so
 vendor/lib64/libgpustats.so
 vendor/lib/libI420colorconvert.so
@@ -315,21 +315,35 @@ vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.perf@1.0.so
 
-# Peripheral manager
+# Peripheral manager - from LA.UM.7.5.r1-04800-8x96.0
 vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Postprocessing
+# Postprocessing - from LA.UM.7.5.r1-04800-8x96.0
+lib64/vendor.display.color@1.0.so
+lib64/vendor.display.postproc@1.0.so
+lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+lib/vendor.display.color@1.0.so
+lib/vendor.display.postproc@1.0.so
+lib/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/bin/hw/vendor.display.color@1.0-service
-vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
 vendor/bin/mm-pp-dpps
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
 vendor/lib64/libdisp-aba.so
 vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+vendor/lib/vendor.display.color@1.0.so
+vendor/lib/vendor.display.color@1.1.so
+vendor/lib/vendor.display.color@1.2.so
+vendor/lib/vendor.display.postproc@1.0.so
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # QMI
 etc/permissions/qti_libpermissions.xml
