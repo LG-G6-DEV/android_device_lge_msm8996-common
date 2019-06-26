@@ -129,9 +129,7 @@ PRODUCT_PACKAGES += \
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne \
-    services-ext
+    libcnefeatureconfig
 
 # Device init scripts
 PRODUCT_PACKAGES += \

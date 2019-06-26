@@ -78,10 +78,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.zsl.mode=0 \
     media.settings.xml=/vendor/etc/media_profiles_V1_0.xml
 
-# CNE and DPM
+# CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1 \
-    persist.dpm.feature=0
+    persist.vendor.cne.feature=1
+
+# DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.dpm.feature=5
 
 # Dalvik VM
 PRODUCT_PROPERTY_OVERRIDES += \
