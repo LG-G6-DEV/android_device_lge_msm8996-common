@@ -53,6 +53,9 @@ inline const char* BtmGetDefaultName()
 #define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
 // Some rom invert the logic
 #define BTM_SCO_ENHANCED_SYNC_DISABLED TRUE
+// More BT calling fixes
+#define BTHW_FW_EXTENDED_CONFIGURATION TRUE
+#define BTHW_FW_EXTENDED_CONFIGURATION_ONLY_I2SPCM_CONFIG FALSE
 
 #undef PROPERTY_VALUE_MAX
 #endif
