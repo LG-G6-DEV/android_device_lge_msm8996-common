@@ -63,7 +63,7 @@ public class DLMModeTileService extends TileService {
         super.onClick();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean enabled = DaylightModeSwitch.isCurrentlyEnabled(this);
-        Utils.writeValue(DaylightModeSwitch.getFile(), enabled ? "0" : "2");
+        Utils.writeValue(DaylightModeSwitch.getFile(), enabled ? "0" : "1");
         sharedPrefs.edit().putBoolean(Constants.KEY_DLM_SWITCH, enabled ? false : true).commit();
         Tile tile = getQsTile();
         if(tile.getState() == Tile.STATE_INACTIVE) {
