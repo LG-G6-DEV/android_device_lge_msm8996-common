@@ -20,6 +20,8 @@
     <string name="screen_gestures_panel_title">Device Extras</string>
     <string name="screen_gestures_panel_summary">Spectrum, Ambient display, KCAL</string>
 
+    <string name="toast_restart">Restart phone to apply changes</string>
+
     <!-- Display -->
     <string name="graphics_title">Display</string>
     <string name="device_doze_title" translatable="false">Ambient display</string>
@@ -43,4 +45,5 @@
     <string name="spectrum_category_title" translatable="false">Spectrum</string>
     <string name="spectrum_title">Kernel Power Profile</string>
     <string name="spectrum_summary" translatable="false">%1$s</string>
+    <string name="spectrum_switch">Disable kernel profiles</string>
 </resources>

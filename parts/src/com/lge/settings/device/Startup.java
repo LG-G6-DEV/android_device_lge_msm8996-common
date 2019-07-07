@@ -24,12 +24,14 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.io.File;
 
 import com.lge.settings.device.utils.Constants;
 import com.lge.settings.device.utils.FileUtils;
+import com.lge.settings.device.utils.PreferenceHelper;
 
 public class Startup extends BroadcastReceiver {
 
@@ -57,6 +59,8 @@ public class Startup extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(action)
                 || Intent.ACTION_PRE_BOOT_COMPLETED.equals(action)) {
             enableComponent(context, DeviceSettings.class.getName());
+
+            if(PreferenceHelper.isSpectrumEnabled(context)) { SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1"); }
         }
 
         DisplayCalibration.restore(context);

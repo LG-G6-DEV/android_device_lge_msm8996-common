@@ -16,6 +16,7 @@
 
 package com.lge.settings.device;
 
+import android.content.ComponentName;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -26,20 +27,22 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
+import android.service.quicksettings.TileService;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.lge.settings.device.utils.Constants;
 import com.lge.settings.device.utils.NodePreferenceActivity;
+import com.lge.settings.device.utils.PreferenceHelper;
 
 public class DeviceSettings extends NodePreferenceActivity {
 
-    private static final String SPECTRUM_KEY = "spectrum";
     private static final String SPECTRUM_CATEGORY_KEY = "spectrum_category";
-    private static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
 
     private SwitchPreference mDaylightModeSwitch;
     private ListPreference mSpectrum;
     private PreferenceCategory mSpectrumCategory;
+    private SwitchPreference mSpectrumSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,14 +53,22 @@ public class DeviceSettings extends NodePreferenceActivity {
         lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
         lv.setDividerHeight(0);
 
+        TileService.requestListeningState(getApplicationContext(), new ComponentName("LGESettings", DSTileService.class.getName()));
+
         mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
         mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());
         mDaylightModeSwitch.setChecked(DaylightModeSwitch.isCurrentlyEnabled(this));
         mDaylightModeSwitch.setOnPreferenceChangeListener(new DaylightModeSwitch());
 
-        mSpectrum = (ListPreference) findPreference(SPECTRUM_KEY);
+        mSpectrumSwitch = (SwitchPreference) findPreference(Constants.SPECTRUM_SWITCH_KEY);
+        mSpectrumSwitch.setEnabled(true);
+        mSpectrumSwitch.setChecked(!PreferenceHelper.isSpectrumEnabled(getApplicationContext()));
+        mSpectrumSwitch.setOnPreferenceChangeListener(this);
+
+        mSpectrum = (ListPreference) findPreference(Constants.SPECTRUM_KEY);
         if( mSpectrum != null ) {
-            mSpectrum.setValue(SystemProperties.get(SPECTRUM_SYSTEM_PROPERTY, "0"));
+            mSpectrum.setEnabled(PreferenceHelper.isSpectrumEnabled(getApplicationContext()));
+            mSpectrum.setValue(SystemProperties.get(Constants.SPECTRUM_SYSTEM_PROPERTY, "0"));
             mSpectrum.setOnPreferenceChangeListener(this);
         }
 
@@ -70,10 +81,27 @@ public class DeviceSettings extends NodePreferenceActivity {
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
-        String strvalue;
-        if (SPECTRUM_KEY.equals(key)) {
-            strvalue = (String) newValue;
-            SystemProperties.set(SPECTRUM_SYSTEM_PROPERTY, strvalue);
+        if (Constants.SPECTRUM_KEY.equals(key) && PreferenceHelper.isSpectrumEnabled(getApplicationContext())) {
+            String strvalue = (String) newValue;
+            SystemProperties.set(Constants.SPECTRUM_SYSTEM_PROPERTY, strvalue);
+            return true;
+        } else if(Constants.SPECTRUM_SWITCH_KEY.equals(key)) {
+            Boolean enabled = (Boolean) newValue;
+            TileService.requestListeningState(getApplicationContext(), new ComponentName("LGESettings", DSTileService.class.getName()));
+            if(enabled) {
+                SystemProperties.set(Constants.SPECTRUM_SYSTEM_PROPERTY, "");
+                SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "0");
+                PreferenceHelper.setSpectrumEnabled(getApplicationContext(), false);
+                mSpectrum.setEnabled(false);
+            } else {
+                SystemProperties.set(Constants.SPECTRUM_SYSTEM_PROPERTY, "0");
+                SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1");
+                mSpectrum.setEnabled(true);
+                PreferenceHelper.setSpectrumEnabled(getApplicationContext(), true);
+            }
+
+            Toast.makeText(getApplicationContext(), getString(R.string.toast_restart), Toast.LENGTH_LONG).show();
+
             return true;
         }
         return super.onPreferenceChange(preference, newValue);
