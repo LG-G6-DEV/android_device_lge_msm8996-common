@@ -39,6 +39,7 @@ public class DeviceSettings extends NodePreferenceActivity {
 
     private static final String SPECTRUM_CATEGORY_KEY = "spectrum_category";
 
+    private SwitchPreference mFCSwitch;
     private SwitchPreference mDaylightModeSwitch;
     private ListPreference mSpectrum;
     private PreferenceCategory mSpectrumCategory;
@@ -54,6 +55,11 @@ public class DeviceSettings extends NodePreferenceActivity {
         lv.setDividerHeight(0);
 
         TileService.requestListeningState(getApplicationContext(), new ComponentName("LGESettings", DSTileService.class.getName()));
+
+        mFCSwitch = (SwitchPreference) findPreference(Constants.KEY_FAST_CHARGE);
+        mFCSwitch.setEnabled(FastChargeSwitch.isSupported());
+        mFCSwitch.setChecked(FastChargeSwitch.isCurrentlyEnabled(this));
+        mFCSwitch.setOnPreferenceChangeListener(new FastChargeSwitch());
 
         mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
         mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());

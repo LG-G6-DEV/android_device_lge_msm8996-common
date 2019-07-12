@@ -26,6 +26,9 @@ import android.preference.PreferenceManager;
 
 public class Constants {
 
+    // Fast charge
+    public static final String KEY_FAST_CHARGE = "fast_charge";
+
     // Gestures nodes
     public static final String TOUCHSCREEN_CAMERA_NODE = "/proc/touchpanel/letter_o_enable";
     public static final String TOUCHSCREEN_DOUBLE_SWIPE_NODE = "/proc/touchpanel/double_swipe_enable";
