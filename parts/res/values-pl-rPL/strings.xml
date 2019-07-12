@@ -3,8 +3,8 @@
     <string name="screen_gestures_panel_title">Device Extras</string>
     <string name="screen_gestures_panel_summary">Szybkie ładowanie, Spectrum, Ambient display, KCAL</string>
     <string name="battery_summary">Bateria</string>
-    <string name="fast_charge_title">Szybkie ładowanie</string>
-    <string name="fast_charge_summary">Włącz/Wyłącz szybkie ładowanie</string>
+    <string name="fast_charge_title">USB Szybkie ładowanie</string>
+    <string name="fast_charge_summary">Włącz/Wyłącz USB szybkie ładowanie</string>
     <string name="graphics_title">Wyświetlacz</string>
     <string name="kcal_title">Wyświetlane kolory</string>
     <string name="kcal_summary">Dostosuj wyświetlane kolory używając KCAL</string>
