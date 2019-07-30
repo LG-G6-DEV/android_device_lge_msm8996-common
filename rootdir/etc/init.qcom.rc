@@ -30,7 +30,8 @@ import /vendor/etc/init/hw/init.target.rc
 
 service charger /system/bin/charger
     class charger
-    group system graphics
+    user system
+    group system graphics input
     seclabel u:r:charger:s0
     
 on early-init
