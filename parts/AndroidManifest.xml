@@ -24,8 +24,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
 
-    <uses-sdk
-        android:minSdkVersion="24" />
+    <protected-broadcast android:name="android.service.quicksettings.action.REQUEST_LISTENING" />
 
     <application
         android:icon="@drawable/ic_launcher_settings"
