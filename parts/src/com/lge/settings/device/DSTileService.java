@@ -99,6 +99,7 @@ public class DSTileService extends TileService {
         Tile tile = getQsTile();
 
         if(PreferenceHelper.isSpectrumEnabled(getApplicationContext())) {
+            spectrumProfile = getResources().getStringArray(R.array.spectrum_qs_profiles);
             spectrumProfileID = Integer.parseInt(SystemProperties.get(Constants.SPECTRUM_SYSTEM_PROPERTY, "0"));
 
             if (spectrumProfileID == (spectrumProfile.length - 1)) { spectrumProfileID = 0; }
