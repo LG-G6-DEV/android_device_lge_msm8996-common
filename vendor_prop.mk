@@ -60,8 +60,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
-    bluetooth.soc=rome \
+    vendor.bluetooth.soc=rome \
     bt.max.hfpclient.connections=1 \
+    persist.vendor.btstack.enable.splita2dp=false \
     bluetooth.chip.vendor=brcm
 
 # Camera
@@ -140,6 +141,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.enc.dcvs.extra-buff-count=2 \
     vendor.video.disable.ubwc=1
 
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C
+
 # OpenGLES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
@@ -202,7 +207,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sensors.wul_thresh5=10000 \
     persist.sensors.wul_delay=3000 \
     persist.sensors.onhand.en=0
-
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
