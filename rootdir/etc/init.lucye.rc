@@ -277,17 +277,6 @@ on boot
     chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
     chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
 
-on boot
-    chown system system /sys/devices/virtual/input/lge_fingerprint/clk_enable
-    chown system system /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
-    chown system system /sys/devices/virtual/input/lge_fingerprint/irq
-    chmod 0200 /sys/devices/virtual/input/lge_fingerprint/clk_enable
-    chmod 0200 /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
-    chmod 0644 /sys/devices/virtual/input/lge_fingerprint/irq
-
-on property:ro.vendor.lge.minios.bootstart=1
-    stop vendor.lge-biometrics-fingerprint-hal-2-1
-
     # NFC
     chmod 0666 /dev/pn544
     chown nfc nfc /dev/pn544
