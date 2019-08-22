@@ -28,7 +28,8 @@ vendor/lib64/soundfx/libqcvirt.so
 vendor/lib/libacdbloader.so
 vendor/lib64/libacdbloader.so
 
-# Bluetooth - aptX - from Stock H870 V20I 
+# Bluetooth - aptX - from Stock H870 V29A
+lib/libaptX_encoder.so
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
@@ -128,7 +129,7 @@ vendor/lib/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-client.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 
-# NFC firmware
+# NFC firmware - from Stock H870 V29A
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 vendor/firmware/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw_64.so
 
