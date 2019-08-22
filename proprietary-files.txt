@@ -130,6 +130,7 @@ vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 
 # NFC firmware
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
+vendor/firmware/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw_64.so
 
 # Radio firmware
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/default/default/mcfg_hw.mbn|58df6d1657b77154cc3504220727d936df4a35dc
