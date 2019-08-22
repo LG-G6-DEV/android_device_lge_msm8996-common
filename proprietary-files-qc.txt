@@ -203,7 +203,7 @@ vendor/lib64/vendor.qti.gnss@1.1.so
 vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 
-# Graphics - from LA.UM.7.5.r1-04800-8x96.0
+# Graphics - from Stock H870 V29A
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -243,11 +243,11 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/libRSDriver_adreno.so
 
-# Graphics - HDR - from LA.UM.7.5.r1-04800-8x96.0
+# Graphics - HDR - from Stock H870 V29A
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics - SDM - from LA.UM.7.5.r1-04800-8x96.0
+# Graphics - SDM - from Stock H870 V29A
 vendor/lib/libscalar.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -261,7 +261,7 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
-# Graphics - Vulkan - from LA.UM.7.5.r1-04800-8x96.0
+# Graphics - Vulkan - from Stock H870 V29A
 vendor/lib/hw/vulkan.msm8996.so
 vendor/lib64/hw/vulkan.msm8996.so
 
