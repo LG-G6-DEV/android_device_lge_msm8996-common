@@ -290,7 +290,7 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
-# Perf - from LA.UM.7.5.r1-04800-8x96.0
+# Perf - from Stock H870 V29A
 vendor/bin/energy-awareness
 vendor/bin/msm_irqbalance
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
@@ -306,16 +306,16 @@ vendor/etc/perf/perf-profile6.conf
 vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-perfd.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.hardware.perf@1.0.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.perf@1.0.so
+vendor/lib64/libperfgluelayer.so
+vendor/lib64/libqti-perfd.so
+vendor/lib64/libqti-perfd-client.so
+vendor/lib64/libqti-util.so
+vendor/lib64/vendor.qti.hardware.perf@1.0.so
 
 # Peripheral manager - from LA.UM.7.5.r1-04800-8x96.0
 vendor/bin/pm-proxy
