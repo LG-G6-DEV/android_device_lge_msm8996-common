@@ -394,9 +394,10 @@ on post-fs-data
     setprop ro.min_freq_0 384000
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
-    mkdir /data/vendor/perfd 0770 root system
-    rm /data/vendor/perfd/default_values
-    chmod 2770 /data/vendor/perfd
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
+
+    setprop vendor.post_boot.parsed 1
 
     mkdir /data/vendor/secure_element 0777 system system
 
