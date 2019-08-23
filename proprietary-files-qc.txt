@@ -34,7 +34,7 @@ vendor/lib/libsymphony-1.1.1.so
 -lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
 -lib/rfsa/adsp/libmorpho_video_denoiser_hvx_skel.so
 
-# CNE - from LA.UM.7.5.r1-04800-8x96.0
+# CNE - from Stock H870 V29A
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
 framework/cneapiclient.jar
@@ -271,9 +271,8 @@ vendor/lib64/hw/vulkan.msm8996.so
 vendor/lib/hw/keystore.msm8996.so
 vendor/lib64/hw/keystore.msm8996.so
 
-# Media - from LA.UM.7.5.r1-04800-8x96.0
+# Media - from Stock H870 V29A
 vendor/lib/libgpustats.so
-vendor/lib64/libgpustats.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
@@ -291,6 +290,22 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libvpplibrary.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
+vendor/lib64/libgpustats.so
+vendor/lib64/libI420colorconvert.so
+vendor/lib64/libOmxAacDec.so
+vendor/lib64/libOmxAlacDec.so
+vendor/lib64/libOmxAlacDecSw.so
+vendor/lib64/libOmxAmrDec.so
+vendor/lib64/libOmxAmrwbplusDec.so
+vendor/lib64/libOmxApeDec.so
+vendor/lib64/libOmxApeDecSw.so
+vendor/lib64/libOmxEvrcDec.so
+vendor/lib64/libOmxQcelp13Dec.so
+vendor/lib64/libOmxVpp.so
+vendor/lib64/libOmxWmaDec.so
+vendor/lib64/libmm-color-convertor.so
+vendor/lib64/libvpphvx.so
+vendor/lib64/libvpplibrary.so
 
 # Perf - from Stock H870 V29A
 vendor/bin/energy-awareness
