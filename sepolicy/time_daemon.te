@@ -1,1 +1,2 @@
 allow time_daemon sysfs:file { read open };
+allow time_daemon time_daemon:capability { setgid setuid };

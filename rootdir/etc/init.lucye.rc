@@ -350,3 +350,7 @@ service vendor.radio-sh /vendor/bin/init.radio.sh
     user root
     group root radio
     oneshot
+
+# Dolby
+    chown system system /sys/class/panel/img_tune/dolby_mode
+    chmod 664 /sys/class/panel/img_tune/dolby_mode
