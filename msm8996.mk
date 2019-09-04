@@ -20,7 +20,7 @@ $(call inherit-product-if-exists, vendor/lge/msm8996-common/msm8996-common-vendo
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
@@ -168,16 +168,16 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system
 
 # LGE settings
-PRODUCT_PACKAGES += \
-    LGESettings
+#PRODUCT_PACKAGES += \
+#    LGESettings
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    LGDoze
+#PRODUCT_PACKAGES += \
+#    LGDoze
 
 # Pocket Mode
-PRODUCT_PACKAGES += \
-    XiaomiPocketMode
+#PRODUCT_PACKAGES += \
+#    XiaomiPocketMode
 
 # DRM
 PRODUCT_PACKAGES += \
