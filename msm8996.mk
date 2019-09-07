@@ -425,3 +425,7 @@ PRODUCT_PACKAGES += \
 
 #PRODUCT_BOOT_JARS += \
 #    WfdCommon
+
+# loggy
+PRODUCT_PACKAGES += \
+    loggy.sh
