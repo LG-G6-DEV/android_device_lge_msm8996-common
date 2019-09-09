@@ -148,7 +148,7 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: 0
 
-[firmware/image/*]
+[mpt/]
 mode: 0771
 user: AID_SYSTEM
 group: AID_SYSTEM
@@ -161,6 +161,12 @@ group: AID_SYSTEM
 caps: 0
 
 [persist-lg/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[sns/]
 mode: 0771
 user: AID_SYSTEM
 group: AID_SYSTEM

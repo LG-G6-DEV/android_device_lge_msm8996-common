@@ -26,11 +26,6 @@
 #
 
 on early-init
-    mkdir /firmware 0771 system system
-    mkdir /persist-lg 0771 system system
-    mkdir /sns 0755 system system
-    mkdir /mpt 0755 system system
-
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.lucye.hdmi.sh
 
 on init
