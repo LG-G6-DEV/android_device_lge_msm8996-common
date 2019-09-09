@@ -15,7 +15,8 @@ LOCAL_SHARED_LIBRARIES := \
     libdl \
     liblog \
     libloc_core \
-    libgps.utils
+    libgps.utils \
+    libprocessgroup
 
 LOCAL_SRC_FILES += \
     location_gnss.cpp \
