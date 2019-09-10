@@ -389,7 +389,7 @@ PRODUCT_COPY_FILES += \
 	
 # Telephony
 #PRODUCT_PACKAGES += \
-#    telephony-ext
+    telephony-ext
 
 #PRODUCT_BOOT_JARS += \
 #    telephony-ext
