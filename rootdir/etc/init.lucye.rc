@@ -311,6 +311,9 @@ on boot
     chmod 0644 /data/misc/bluetooth/bdaddr
     chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
+    # Dolby
+    chown system system /sys/class/panel/img_tune/dolby_mode
+    chmod 664 /sys/class/panel/img_tune/dolby_mode
 on charger
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
@@ -345,7 +348,3 @@ service vendor.radio-sh /vendor/bin/init.radio.sh
     user root
     group root radio
     oneshot
-
-# Dolby
-    chown system system /sys/class/panel/img_tune/dolby_mode
-    chmod 664 /sys/class/panel/img_tune/dolby_mode
