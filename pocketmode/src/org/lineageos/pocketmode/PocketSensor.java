@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2016 The CyanogenMod Project
- *               2017 The LineageOS Project
+ *               2018-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,38 +15,39 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.pocketmode;
+package org.lineageos.pocketmode;
 
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.FileUtils;
+import android.text.TextUtils;
 import android.util.Log;
 
-import com.cyanogenmod.pocketmode.utils.FileUtils;
-
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.List;
 
-public class ProximitySensor implements SensorEventListener {
+public class PocketSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "PocketModeProximity";
+    private static final String TAG = "PocketSensor";
 
-    private static final String FP_PROX_NODE = "/sys/class/input/lge_fingerprint/proximity_state";
+    private static final String FPC_FILE = "/sys/class/input/lge_fingerprint/proximity_state";
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private Context mContext;
     private ExecutorService mExecutorService;
 
-    public ProximitySensor(Context context) {
+    public PocketSensor(Context context) {
         mContext = context;
-        mSensorManager = (SensorManager)
-                mContext.getSystemService(Context.SENSOR_SERVICE);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mSensorManager = mContext.getSystemService(SensorManager.class);
+        mSensor = findSensorWithType("com.oneplus.sensor.pocket");
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -56,9 +57,11 @@ public class ProximitySensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] < mSensor.getMaximumRange();
-        if (FileUtils.isFileWritable(FP_PROX_NODE)) {
-            FileUtils.writeLine(FP_PROX_NODE, isNear ? "1" : "0");
+        boolean isNear = event.values[0] == 1;
+        try {
+            FileUtils.stringToFile(FPC_FILE, isNear ? "1" : "0");
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to write to " + FPC_FILE, e);
         }
     }
 
@@ -80,5 +83,18 @@ public class ProximitySensor implements SensorEventListener {
         submit(() -> {
             mSensorManager.unregisterListener(this, mSensor);
         });
+    }
+
+    protected Sensor findSensorWithType(String type) {
+        if (TextUtils.isEmpty(type)) {
+            return null;
+        }
+        List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+        for (Sensor s : sensorList) {
+            if (type.equals(s.getStringType())) {
+                return s;
+            }
+        }
+        return null;
     }
 }
