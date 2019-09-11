@@ -18,11 +18,22 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
+#include <cutils/properties.h>
 #include <string.h>
 
 inline const char* BtmGetDefaultName()
 {
-	return "LG G6";
+	char product_name[PROPERTY_VALUE_MAX];
+	property_get("ro.product.name", product_name, "");
+
+	if (strstr(product_name, "h1"))
+		return "LG G5";
+	if (strstr(product_name, "elsa"))
+		return "LG V20";
+	if (strstr(product_name, "lucye"))
+		return "LG G6";
+
+	return "";
 }
 
 #define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
@@ -53,4 +64,5 @@ inline const char* BtmGetDefaultName()
 #define BTHW_FW_EXTENDED_CONFIGURATION TRUE
 #define BTHW_FW_EXTENDED_CONFIGURATION_ONLY_I2SPCM_CONFIG FALSE
 
+#undef PROPERTY_VALUE_MAX
 #endif
