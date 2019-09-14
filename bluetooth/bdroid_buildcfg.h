@@ -18,6 +18,8 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
+#pragma push_macro("PROPERTY_VALUE_MAX")
+
 #include <cutils/properties.h>
 #include <string.h>
 
@@ -64,5 +66,5 @@ inline const char* BtmGetDefaultName()
 #define BTHW_FW_EXTENDED_CONFIGURATION TRUE
 #define BTHW_FW_EXTENDED_CONFIGURATION_ONLY_I2SPCM_CONFIG FALSE
 
-#undef PROPERTY_VALUE_MAX
+#pragma pop_macro("PROPERTY_VALUE_MAX")
 #endif
