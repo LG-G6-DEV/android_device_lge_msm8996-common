@@ -17,53 +17,56 @@ lib64/libaptXHD_encoder.so
 
 # Camera postprocessing
 vendor/lib/libchromaflash.so
-vendor/lib/liboptizoom.so
-vendor/lib/libseemore.so
-vendor/lib/libtrueportrait.so
-vendor/lib/libubifocus.so
+vendor/lib/libremosaic_daemon.so
 vendor/lib/libSJFingerDetect.so
-vendor/lib64/libseemore.so
-vendor/lib/libsymphony-1.1.2.so
-vendor/lib/libsymphony-1.1.3.so
-vendor/lib/libsymphonypower-1.1.2.so
-vendor/lib/libsymphonypower-1.1.3.so
+vendor/lib/libsdsprpc.so
 vendor/lib64/libsdsprpc.so
-vendor/lib64/libsymphony-1.1.2.so
-vendor/lib64/libsymphony-1.1.3.so
-vendor/lib64/libsymphonypower-1.1.2.so
-vendor/lib64/libsymphonypower-1.1.3.so
+lib/libsdsprpc_system.so
+lib64/libsdsprpc_system.so
+vendor/lib/libsymphony-1.1.1.so
+vendor/lib/libsymphony-1.1.2.so
+lib/libsymphony-1.1.3.so
+vendor/lib/libsymphony-1.1.4.so
+lib64/libsymphony-1.1.3.so
+vendor/lib64/libsymphony-1.1.4.so
+vendor/lib/libsymphonypower-1.1.1.so
+vendor/lib/libsymphonypower-1.1.2.so
+lib/libsymphonypower-1.1.3.so
+vendor/lib/libsymphonypower-1.1.4.so
+lib64/libsymphonypower-1.1.3.so
+vendor/lib64/libsymphonypower-1.1.4.so
 
 # Camera postprocessing - mmcamera
 vendor/lib/libmmcamera_chromaflash_lib.so
-vendor/lib/libmmcamera_llvd.so
-vendor/lib/libmmcamera_optizoom_lib.so
 vendor/lib/libmmcamera_quadracfa.so
-vendor/lib/libmmcamera_stillmore_lib.so
 vendor/lib/libmmcamera_trueportrait_lib.so
-vendor/lib/libmmcamera_ubifocus_lib.so
+vendor/lib/libmmcamera_dummyalgo.so
+vendor/lib/libmmcamera_dbg.so
+vendor/lib64/libmmcamera_dbg.so
 
 # Camera firmware
-etc/camera/film/0_film.dat:vendor/etc/camera/film/0_film.dat
-etc/camera/film/1_film.dat:vendor/etc/camera/film/1_film.dat
-etc/camera/film/2_film.dat:vendor/etc/camera/film/2_film.dat
-etc/camera/film/3_film.dat:vendor/etc/camera/film/3_film.dat
-etc/camera/film/4_film.dat:vendor/etc/camera/film/4_film.dat
-etc/camera/film/5_film.dat:vendor/etc/camera/film/5_film.dat
-etc/camera/film/6_film.dat:vendor/etc/camera/film/6_film.dat
-etc/camera/film/7_film.dat:vendor/etc/camera/film/7_film.dat
-etc/camera/film/8_film.dat:vendor/etc/camera/film/8_film.dat
-etc/camera/film/9_film.dat:vendor/etc/camera/film/9_film.dat
-etc/camera/film/10_film.dat:vendor/etc/camera/film/10_film.dat
-etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_5_0.fw:vendor/firmware/cpp_firmware_v1_5_0.fw
-etc/firmware/cpp_firmware_v1_5_2.fw:vendor/firmware/cpp_firmware_v1_5_2.fw
-etc/firmware/cpp_firmware_v1_6_0.fw:vendor/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw:vendor/firmware/cpp_firmware_v1_8_0.fw
-etc/firmware/cpp_firmware_v1_10_0.fw:vendor/firmware/cpp_firmware_v1_10_0.fw
-etc/firmware/cpp_firmware_v1_12_0.fw:vendor/firmware/cpp_firmware_v1_12_0.fw
+vendor/etc/camera/film/0_film.dat
+vendor/etc/camera/film/1_film.dat
+vendor/etc/camera/film/2_film.dat
+vendor/etc/camera/film/3_film.dat
+vendor/etc/camera/film/4_film.dat
+vendor/etc/camera/film/5_film.dat
+vendor/etc/camera/film/6_film.dat
+vendor/etc/camera/film/7_film.dat
+vendor/etc/camera/film/8_film.dat
+vendor/etc/camera/film/9_film.dat
+vendor/etc/camera/film/10_film.dat
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_5_0.fw
+vendor/firmware/cpp_firmware_v1_5_1.fw
+vendor/firmware/cpp_firmware_v1_5_2.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_10_0.fw
+vendor/firmware/cpp_firmware_v1_12_0.fw
 
 # Hotword Enrollment
 -priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED

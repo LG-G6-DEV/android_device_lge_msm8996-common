@@ -62,6 +62,10 @@ on post-fs-data
     # Create oemnvitems for RIL
     mkdir /data/oemnvitems 0771 radio radio
 
+on post-fs-data
+    #Create camera dir for EEPROM data
+    mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
+
     # NFC local data and nfcee xml storage
     mkdir /data/vendor/nfc 0770 nfc nfc
 
