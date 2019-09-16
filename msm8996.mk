@@ -243,6 +243,10 @@ PRODUCT_PACKAGES += \
     ims-ext-common \
     libshim_ims
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    device/lge/msm8996-common
+
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
