@@ -514,11 +514,10 @@ vendor/bin/time_daemon
 vendor/lib/libtime_genoff.so
 vendor/lib64/libtime_genoff.so
 
-# Widevine - from Stock H870 V20I
+# Widevine - from Marlin qp1a.190711.020
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
 vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
 vendor/lib/libwvhidl.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
 
 # Wifi
 vendor/bin/cnss-daemon
