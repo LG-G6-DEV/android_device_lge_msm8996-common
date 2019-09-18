@@ -55,7 +55,7 @@ framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 framework/vendor.qti.hardware.data.latency-V1.0-java.jar
 framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
 framework/vendor.qti.latency-V2.0-java.jar
--priv-app/CNEService/CNEService.apk
+-priv-app/CNEService/CNEService.apk|a59621ae53f36754c5af7429176e15423be5d588
 vendor/bin/cnd
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
@@ -486,7 +486,7 @@ lib64/vendor.qti.imsrtpservice@1.0.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
-vendor/bin/imsrcsd
+vendor/bin/imsrcsd|5e5b65a13dda4fb04bfabe36b560eb31e706f616
 vendor/framework/qti-vzw-ims-internal.jar
 vendor/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so
 vendor/lib/lib-imscmservice.so
