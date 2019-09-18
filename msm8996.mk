@@ -264,8 +264,8 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # LiveDisplay native
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.livedisplay@2.0-service-sdm
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -392,8 +392,8 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.thermal@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.thermal@1.1.so
 
 # Trust HAL
-#PRODUCT_PACKAGES += \
- #   vendor.lineage.trust@1.0-service
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 	
 # Telephony
 PRODUCT_PACKAGES += \
@@ -431,8 +431,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnl
 
-#PRODUCT_BOOT_JARS += \
-#    WfdCommon
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 # loggy
 PRODUCT_PACKAGES += \
