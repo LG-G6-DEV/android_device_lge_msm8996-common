@@ -19,3 +19,18 @@ allow init thermal_device:chr_file { write };
 allow init hal_thermal_hwservice:hwservice_manager { add };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
+
+allow init diag_device:chr_file { ioctl open read write };
+allow init hal_dpmQmiMgr:binder { call transfer };
+allow init hal_dpmqmi_hwservice:hwservice_manager find;
+allow init hal_light_hwservice:hwservice_manager add;
+allow init netutils_wrapper_exec:file { execute execute_no_trans getattr open read };
+allow init self:netlink_route_socket { bind create nlmsg_read read write };
+allow init self:rawip_socket { create getopt setopt };
+allow init socket_device:sock_file { create setattr };
+allow init sysfs_graphics:file { open write };
+allow init system_file:file execute_no_trans;
+allow init tmp_root_mount_file:dir mounton;
+allow init vfat:dir { open read search };
+allow init vfat:file { getattr open read };
+

@@ -1,5 +1,5 @@
 dontaudit untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
-allow untrusted_app_25 vendor_camera_prop:file { open getattr };
+#allow untrusted_app_25 vendor_camera_prop:file { open getattr };
 allow untrusted_app_25 sysfs:file read;
 allow untrusted_app_25 sysfs_kgsl:file read;
 allow untrusted_app_25 sysfs_vadc_dev:dir search;

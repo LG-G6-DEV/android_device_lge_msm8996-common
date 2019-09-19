@@ -14,3 +14,6 @@ allow system_app boottime_prop:file read;
 allow system_app proc_pagetypeinfo:file read;
 allow system_app ipa_dev:chr_file { read write };
 allow system_app system_app_service:service_manager add;
+allow system_app cnd:binder { call transfer };
+allow system_app cnd_vendor_prop:file { getattr open read };
+allow system_app hal_datafactory_hwservice:hwservice_manager find;
