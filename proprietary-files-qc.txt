@@ -1,7 +1,8 @@
-# ADSP - from from Stock H870 V29A
+# ADSP - from LA.UM.7.5.r1-04800-8x96.0
 vendor/bin/adsprpcd
 vendor/lib64/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libcdsprpc.so|
 vendor/lib64/libfastcvadsp_stub.so
 vendor/lib64/libfastcvopt.so
 vendor/lib64/libmdsprpc.so
@@ -9,11 +10,12 @@ vendor/lib/libadsprpc.so
 vendor/lib/libadsp_default_listener.so
 vendor/lib/libadsp_hvx_callback_skel.so
 vendor/lib/libadsp_hvx_stub.so
+vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/libmdsprpc.so
 
-# DSP - from Stock H870 V29A
+# DSP - from Stock H870 V20I
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so
 vendor/lib/rfsa/adsp/libadsp_hvx_skel.so
@@ -28,11 +30,11 @@ vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libvpp_frc.so
 vendor/lib/rfsa/adsp/libvpp_svc_skel.so
--vendor/lib/rfsa/adsp/us-syncproximity.so
+vendor/lib/rfsa/adsp/us-syncproximity.so
 vendor/lib/libsymphonypower-1.1.1.so
 vendor/lib/libsymphony-1.1.1.so
--lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
--lib/rfsa/adsp/libmorpho_video_denoiser_hvx_skel.so
+lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
+lib/rfsa/adsp/libmorpho_video_denoiser_hvx_skel.so
 
 # CNE - from Stock H870 V29A
 etc/permissions/cneapiclient.xml

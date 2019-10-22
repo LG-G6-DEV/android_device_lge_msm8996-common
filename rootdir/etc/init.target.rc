@@ -68,17 +68,28 @@ on boot
     start rfs_access
     write /proc/sys/kernel/sched_boost 1
 
+   # Add a cpuset for the camera daemon
+   # We want all cores for camera
+   mkdir /dev/cpuset/camera-daemon
+   write /dev/cpuset/camera-daemon/cpus 0-3
+   write /dev/cpuset/camera-daemon/mems 0
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+   chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+#Create folder for mm-qcamera-daemon
+mkdir /data/vendor/camera 0770 camera camera
+
 #USB controller configuration
     write /sys/module/g_android/parameters/mtp_tx_req_len 131072
     write /sys/module/g_android/parameters/mtp_rx_req_len 131072
     write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports BAM2BAM_IPA
 
-# Start camera server as daemon
-service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
-    class late_start
+#start camera server as daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+    class main
     user camera
-    group camera gps system inet input graphics
-    writepid /dev/cpuset/camera-daemon/tasks /dev/stune/top-app/tasks
+    group camera system inet input graphics
 
 #fingerprint service
 service fingerprintd /system/vendor/bin/fingerprintd
