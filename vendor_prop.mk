@@ -206,6 +206,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.lge.sensors.wul_thresh5=10000 \
 	persist.vendor.lge.sensors.lgpickup=true
 
+# Settings app
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true
+
 # Surfaceflinger
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_app_phase_offset_ns=1500000 \
