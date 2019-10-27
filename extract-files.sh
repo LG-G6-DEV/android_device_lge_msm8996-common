@@ -71,11 +71,6 @@ fi
 function blob_fixup() {
     case "${1}" in
 
-    # Correct android.hidl.manager@1.0-java jar name
-    vendor/etc/permissions/qti_libpermissions.xml)
-        sed -i -e 's|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g' "${2}"
-        ;;
-
     # make imsrcsd and lib-uceservice load haxxed libbase
     vendor/lib64/lib-uceservice.so | vendor/bin/imsrcsd)
         patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
