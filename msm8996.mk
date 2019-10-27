@@ -199,6 +199,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.2-service.clearkey \
     move_widevine_data.sh
 
+# Encryption
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.cryptfshw@1.0-service-qti
+
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
