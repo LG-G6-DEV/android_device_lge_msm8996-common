@@ -18,9 +18,6 @@
 # Inherit proprietary blobs
 $(call inherit-product-if-exists, vendor/lge/msm8996-common/msm8996-common-vendor.mk)
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
