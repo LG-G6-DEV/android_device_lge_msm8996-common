@@ -90,9 +90,6 @@ BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
-# APEX image
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-
 # Shims
 TARGET_LD_SHIM_LIBS := \
 	/system/lib64/lib-imsvt.so|/system/vendor/lib64/libshim_ims.so
