@@ -11,3 +11,4 @@ allow mm-qcamerad camera_data_file:dir search;
 allow mm-qcamerad default_prop:property_service set;
 allow mm-qcamerad diag_device:chr_file { open read write ioctl };
 allow mm-qcamerad system_prop:property_service set;
+allow mm-qcamerad vendor_default_prop:property_service { set };

@@ -34,3 +34,4 @@ allow init tmp_root_mount_file:dir mounton;
 allow init vfat:dir { open read search };
 allow init vfat:file { getattr open read };
 
+allow init hal_drm_hwservice:hwservice_manager { add };
