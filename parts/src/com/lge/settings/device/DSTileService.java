@@ -65,31 +65,7 @@ public class DSTileService extends TileService {
     @Override
     public void onStartListening() {
         super.onStartListening();
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-                if (s.equals(Constants.PREF_SPECTRUM_ENABLED)){
-                    Tile tile = getQsTile();
-
-                    if(PreferenceHelper.isSpectrumEnabled(getApplicationContext())) {
-                        spectrumProfile = getResources().getStringArray(R.array.spectrum_qs_profiles);
-                        spectrumProfileID = Integer.parseInt(SystemProperties.get(Constants.SPECTRUM_SYSTEM_PROPERTY, "0"));
-
-                        tile.setLabel(spectrumProfile[spectrumProfileID]);
-                        tile.setState(Tile.STATE_ACTIVE);
-                    } else { tile.setState(Tile.STATE_UNAVAILABLE); }
-
-                    tile.updateTile();
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onStopListening() {
-        super.onStopListening();
+        updateTile();
     }
 
     @Override
@@ -111,5 +87,23 @@ public class DSTileService extends TileService {
             tile.setState(Tile.STATE_ACTIVE);
         } else { tile.setState(Tile.STATE_UNAVAILABLE); }
         tile.updateTile();
+    }
+
+    private void updateTile() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Tile tile = getQsTile();
+        if(tile!=null) {
+            if (PreferenceHelper.isSpectrumEnabled(getApplicationContext())) {
+                spectrumProfile = getResources().getStringArray(R.array.spectrum_qs_profiles);
+                spectrumProfileID = Integer.parseInt(SystemProperties.get(Constants.SPECTRUM_SYSTEM_PROPERTY, "0"));
+
+                tile.setLabel(spectrumProfile[spectrumProfileID]);
+                tile.setState(Tile.STATE_ACTIVE);
+            } else {
+                tile.setState(Tile.STATE_UNAVAILABLE);
+            }
+
+            tile.updateTile();
+        }
     }
 }

@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
+import android.service.quicksettings.TileService;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.util.Log;
@@ -60,7 +61,7 @@ public class Startup extends BroadcastReceiver {
                 || Intent.ACTION_PRE_BOOT_COMPLETED.equals(action)) {
             enableComponent(context, DeviceSettings.class.getName());
 
-            if(PreferenceHelper.isSpectrumEnabled(context)) { SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1"); }
+            if(PreferenceHelper.isSpectrumEnabled(context)) { SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1"); TileService.requestListeningState(context, new ComponentName("QStile", DSTileService.class.getName()));}
         }
 
         DisplayCalibration.restore(context);

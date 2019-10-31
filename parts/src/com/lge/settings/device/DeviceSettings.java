@@ -54,7 +54,7 @@ public class DeviceSettings extends NodePreferenceActivity {
         lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
         lv.setDividerHeight(0);
 
-        TileService.requestListeningState(getApplicationContext(), new ComponentName("LGESettings", DSTileService.class.getName()));
+        TileService.requestListeningState(getApplicationContext(), new ComponentName("QStile", DSTileService.class.getName()));
 
         mFCSwitch = (SwitchPreference) findPreference(Constants.KEY_FAST_CHARGE);
         mFCSwitch.setEnabled(FastChargeSwitch.isSupported());
@@ -93,7 +93,6 @@ public class DeviceSettings extends NodePreferenceActivity {
             return true;
         } else if(Constants.SPECTRUM_SWITCH_KEY.equals(key)) {
             Boolean enabled = (Boolean) newValue;
-            TileService.requestListeningState(getApplicationContext(), new ComponentName("LGESettings", DSTileService.class.getName()));
             if(enabled) {
                 SystemProperties.set(Constants.SPECTRUM_SYSTEM_PROPERTY, "");
                 SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "0");
@@ -107,6 +106,7 @@ public class DeviceSettings extends NodePreferenceActivity {
             }
 
             Toast.makeText(getApplicationContext(), getString(R.string.toast_restart), Toast.LENGTH_LONG).show();
+            TileService.requestListeningState(getApplicationContext(), new ComponentName("QStile", DSTileService.class.getName()));
 
             return true;
         }
