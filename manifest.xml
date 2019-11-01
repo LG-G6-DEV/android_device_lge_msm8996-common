@@ -727,4 +727,60 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+        <!-- LGE -->
+            <hal format="hidl">
+        <name>vendor.lge.hardware.bootproperty</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBootProperty</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IBootProperty/default</fqname>
+    </hal>
+        <hal format="hidl">
+        <name>vendor.lge.hardware.configstore</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICodecParserConfigs</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IConfigStore</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IGlobalConfigs</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IPowerConfigs</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICodecParserConfigs/default</fqname>
+        <fqname>@1.0::IConfigStore/default</fqname>
+        <fqname>@1.0::IGlobalConfigs/default</fqname>
+        <fqname>@1.0::IPowerConfigs/default</fqname>
+    </hal>
+        <hal format="hidl">
+        <name>vendor.lge.hardware.platform</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IPlatform</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IPlatform/default</fqname>
+    </hal>
+        <hal format="hidl">
+        <name>vendor.lge.hardware.property</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IProperty</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.2::IProperty/default</fqname>
+    </hal>
 </manifest>

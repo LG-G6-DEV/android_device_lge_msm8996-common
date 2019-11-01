@@ -793,3 +793,45 @@ vendor/lib/libwfdhaldsmanager.so
 vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdmodulehdcpsession.so
+
+# LGE Bootproperty - from V30B
+lib/vendor.lge.hardware.bootproperty@1.0.so
+lib64/vendor.lge.hardware.bootproperty@1.0.so
+vendor/lib/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
+vendor/lib64/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
+vendor/bin/hw/vendor.lge.hardware.bootproperty@1.0-service
+vendor/etc/init/vendor.lge.hardware.bootproperty@1.0-service.rc
+vendor/etc/init/init.lge.bootproperty_trigger.rc
+framework/vendor.lge.hardware.bootproperty-V1.0-java.jar
+
+# LGE Configstore - from V30B
+lib/vendor.lge.hardware.configstore@1.0.so
+lib64/vendor.lge.hardware.configstore@1.0.so
+vendor/bin/hw/vendor.lge.hardware.configstore@1.0-service
+vendor/etc/init/vendor.lge.hardware.configstore@1.0-service.rc
+framework/vendor.lge.hardware.configstore-V1.0-java.jar
+
+# LGE Platform - from V30B
+lib/vendor.lge.hardware.platform@1.0.so
+lib/vendor.lge.hardware.platform@1.1.so
+lib64/vendor.lge.hardware.platform@1.0.so
+lib64/vendor.lge.hardware.platform@1.1.so
+vendor/bin/hw/vendor.lge.hardware.platform@1.1-service
+vendor/etc/init/vendor.lge.hardware.platform@1.1-service.rc
+framework/vendor.lge.hardware.platform-V1.0-java.jar
+framework/vendor.lge.hardware.platform-V1.1-java.jar
+
+# LGE Property - from V30B
+lib/vendor.lge.hardware.property@1.0.so
+lib/vendor.lge.hardware.property@1.1.so
+lib/vendor.lge.hardware.property@1.2.so
+lib64/vendor.lge.hardware.property@1.0.so
+lib64/vendor.lge.hardware.property@1.1.so
+lib64/vendor.lge.hardware.property@1.2.so
+vendor/bin/hw/vendor.lge.hardware.property@1.2-service
+vendor/etc/init/vendor.lge.hardware.property@1.2-service.rc
+vendor/lib/hw/vendor.lge.hardware.property@1.2-impl.so
+vendor/lib64/hw/vendor.lge.hardware.property@1.2-impl.so
+framework/vendor.lge.hardware.property-V1.0-java.jar
+framework/vendor.lge.hardware.property-V1.1-java.jar
+framework/vendor.lge.hardware.property-V1.2-java.jar
