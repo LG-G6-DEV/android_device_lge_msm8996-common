@@ -67,7 +67,7 @@ on post-fs-data
     mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
 
     # NFC local data and nfcee xml storage
-    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc/ 0770 nfc nfc
 
     #fingerint, changhua add for fp debug image usage,feature default off
     mkdir /data/fpc_images 0770 system system
