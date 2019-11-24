@@ -250,7 +250,8 @@ PRODUCT_PACKAGES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    device/lge/msm8996-common
+    device/lge/msm8996-common \
+    vendor/nxp/opensource/pn5xx
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -292,7 +293,8 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     SecureElement \
-    android.hardware.nfc@1.1-service
+    android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.0-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
