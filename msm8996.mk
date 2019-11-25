@@ -101,6 +101,10 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     tinymix
 
+PRODUCT_PACKAGES += \
+    audio.bluetooth.default \
+    android.hardware.bluetooth.audio@2.0-impl
+    
 -include $(LOCAL_PATH)/audio/config.mk
 
 # APEX
