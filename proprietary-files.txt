@@ -10,10 +10,9 @@ vendor/lib/soundfx/libqcbassboost.so|7c5077685b55a57d9e73e919226186111a54ee25
 vendor/lib/soundfx/libqcreverb.so|1214ae277219a471e2f2d9cc5420ee56ff15a139
 vendor/lib/soundfx/libqcvirt.so|f484f70f34edfe8b304e85a842521841f02738ee
 
-# Bluetooth - aptX - from Stock H870 V29A
-lib/libaptX_encoder.so
-lib64/libaptX_encoder.so
-lib64/libaptXHD_encoder.so
+# Bluetooth - aptX - from crosshatch QP1A.190711.020
+product/lib64/libaptX_encoder.so
+product/lib64/libaptXHD_encoder.so
 
 # Camera postprocessing
 vendor/lib/libchromaflash.so
