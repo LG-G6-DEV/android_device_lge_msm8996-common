@@ -309,6 +309,11 @@ on boot
     # Dolby
     chown system system /sys/class/panel/img_tune/dolby_mode
     chmod 664 /sys/class/panel/img_tune/dolby_mode
+	
+	# RIL Start Daemon
+    start ril-daemon
+    start vendor.ril-daemon
+	
 on charger
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
