@@ -998,11 +998,19 @@ service vendor.ssr_diag /system/vendor/bin/ssr_diag
     group system
     disabled
 
-service hvdcp /system/bin/hvdcp
-    class core
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+    class main
     user root
-    disabled
+    group system wakelock
 
+on charger
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    wait /dev/block/bootdevice/by-name/system
+    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
+    start vendor.hvdcp_opti
+    
 on property:persist.usb.hvdcp.detect=true
     start hvdcp
 

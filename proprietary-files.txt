@@ -157,6 +157,9 @@ vendor/lib64/libsensor_lge_cal.so
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/SprintHM/SprintHM.apk
 
+# Quick charge
+vendor/bin/hvdcp_opti
+
 # Thermal
 vendor/bin/thermal-engine
 -vendor/lib/libthermalclient.so
