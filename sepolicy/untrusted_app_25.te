@@ -6,3 +6,4 @@ allow untrusted_app_25 sysfs_vadc_dev:dir search;
 allow untrusted_app_25 sysfs:dir read;
 allow untrusted_app_25 rootfs:dir { open read };
 allow untrusted_app_25 proc_vmstat:file { open getattr };
+allow untrusted_app_25 net_dns_prop:file { read };

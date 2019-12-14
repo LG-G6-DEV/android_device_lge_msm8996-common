@@ -1,0 +1,3 @@
+allow servicemanager mediaswcodec:dir { search };
+allow servicemanager mediaswcodec:file { read open };
+allow servicemanager mediaswcodec:process { getattr };

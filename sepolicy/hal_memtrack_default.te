@@ -1,1 +1,2 @@
 allow hal_memtrack_default debugfs:file { read open getattr };
+allow hal_memtrack_default sysfs_kgsl:{file lnk_file} r_file_perms;
