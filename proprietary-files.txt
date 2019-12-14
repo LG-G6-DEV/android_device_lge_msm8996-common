@@ -1,15 +1,3 @@
-# Audio - from LA.UM.7.5.r1-04800-8x96.0
-vendor/lib/libacdb-fts.so|4f86d94582dd5134dbcf7b23e3963a5f3e0a680a
-vendor/lib/libacdbloader.so|ef0eff0ed0ee84183a19872a7780230b5f0a7d9b
-vendor/lib/libacdbrtac.so|4ca5d96caf61eb2b4967d1dd3dfde78a19bfbf21
-vendor/lib/libadiertac.so|ec9424b67a596c05286419b9c6e6d7d45d04049b
-vendor/lib/libadm.so|bd574dd1f10937386df3626e2ed9d4de7d5d8ba3
-vendor/lib/libaudcal.so|f8c246cf6247583386ce51f37ee9ed071a93f311
-vendor/lib/libqtigef.so|55712edf0c48a7d0d75e26f46bf61b7e5c6d80d5
-vendor/lib/soundfx/libqcbassboost.so|7c5077685b55a57d9e73e919226186111a54ee25
-vendor/lib/soundfx/libqcreverb.so|1214ae277219a471e2f2d9cc5420ee56ff15a139
-vendor/lib/soundfx/libqcvirt.so|f484f70f34edfe8b304e85a842521841f02738ee
-
 # Bluetooth - aptX - from crosshatch QP1A.190711.020
 product/lib64/libaptX_encoder.so
 product/lib64/libaptXHD_encoder.so
@@ -117,23 +105,6 @@ vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 vendor/firmware/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw_64.so
 
-# Radio firmware
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/default/default/mcfg_hw.mbn|58df6d1657b77154cc3504220727d936df4a35dc
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/mdm9x45/ss/mcfg_hw.mbn|75ee9f6b2f499f1b868df1f0051377f12b3ff8ad
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/mdm9x45_/ss/mcfg_hw.mbn|4d1f168eb68d9fbad42a1b6d812142c3c1733e2a
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/msm8996/la/ss/mcfg_hw.mbn|95c1e2c52f9d0246a39b48bc6c04d766672bc8db
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/msm8996/wp8/ss/mcfg_hw.mbn|a200ac73b2dcc60e9f6ae9155b6109d006823634
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/common/default/default/mcfg_sw.mbn|885ff1f916f12fa18dfb10661ca8ad920e2f20b0
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/common/row/gen_3gpp/mcfg_sw.mbn|136f132599e3308bcf9f761ca0cd2ed760ccaa6c
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/common/us_cellu/commerci/mcfg_sw.mbn|b05bd8ea0f25faa1905462262f7eac6b3f1c2063
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/att/non_volt/mcfg_sw.mbn|a49cdd970c546e8de668106e70348bc855a45bf7
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/att/volte/mcfg_sw.mbn|ab327392c808d1029a280c729eb95d866894de86
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/claro/commerci/mcfg_sw.mbn|4db9fe0e3a91672ed5de64478469b3ae746b97ff
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/sprint/commerci/mcfg_sw.mbn|83918ca8336f528d1d2fb3a1401fe48c142a6532
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/tmo/commerci/mcfg_sw.mbn|286f0878287717c1eaf7550139810c289fcc1a51
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/verizon/cdmaless/mcfg_sw.mbn|2b5341e1444991267317218e02b81fe5580bdea6
-vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/verizon/hvolte/mcfg_sw.mbn|9253d2970e4dc6456b538a0be729b4487da2c6f6
-
 # Sensors
 vendor/bin/sensors.qcom:vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8996.so
@@ -153,9 +124,18 @@ vendor/lib64/sensors.ssc.so
 vendor/lib/libsensor_lge_cal.so
 vendor/lib64/libsensor_lge_cal.so
 
-# Sprint
--priv-app/SprintDM/SprintDM.apk
--priv-app/SprintHM/SprintHM.apk
+# Sprint - from Google Marlin Q
+product/etc/permissions/com.android.omadm.service.xml
+product/etc/permissions/com.android.sdm.plugins.diagmon.xml
+product/etc/permissions/com.android.sdm.plugins.sprintdm.xml
+product/etc/sysconfig/whitelist_com.android.omadm.service.xml
+product/lib/libdmengine.so
+product/lib/libdmjavaplugin.so
+-product/priv-app/DMService/DMService.apk
+-product/priv-app/DiagMon/DiagMon.apk
+-product/priv-app/SprintDM/SprintDM.apk
+-product/priv-app/SprintHM/SprintHM.apk
+
 
 # Quick charge
 vendor/bin/hvdcp_opti

@@ -1,4 +1,13 @@
-# ADSP - from LA.UM.7.5.r1-04800-8x96.0
+# Audio - from H870 V30B
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libaudcal.so
+vendor/lib/libqtigef.so
+
+# ADSP - from H870 V30B
 vendor/bin/adsprpcd
 vendor/lib64/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
@@ -14,27 +23,78 @@ vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/libmdsprpc.so
+vendor/lib/libmmcamera_imglib_faceproc_adspstub
+lib/libmdsprpc_system.so
+lib64/libmdsprpc_system.so
 
-# DSP - from Stock H870 V20I
-vendor/lib/rfsa/adsp/libadsp_fd_skel.so
-vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so
-vendor/lib/rfsa/adsp/libadsp_hvx_skel.so
-vendor/lib/rfsa/adsp/libadsp_hvx_stats.so
-vendor/lib/rfsa/adsp/libadsp_hvx_zzhdr_BGGR.so
-vendor/lib/rfsa/adsp/libadsp_hvx_zzhdr_RGGB.so
-vendor/lib/rfsa/adsp/libapps_mem_heap.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
-vendor/lib/rfsa/adsp/libscveT2T_skel.so
-vendor/lib/rfsa/adsp/libvpp_frc.so
-vendor/lib/rfsa/adsp/libvpp_svc_skel.so
-vendor/lib/rfsa/adsp/us-syncproximity.so
-vendor/lib/libsymphonypower-1.1.1.so
+# AudioFX Modules - from H870 V30B
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libaudiopreprocessing.so
+vendor/lib/soundfx/libbundlewrapper.so
+vendor/lib/soundfx/libdownmix.so
+vendor/lib/soundfx/libdynproc.so
+vendor/lib/soundfx/libeagle.so
+vendor/lib/soundfx/libeffectproxy.so
+vendor/lib/soundfx/libldnhncr.so
+vendor/lib/soundfx/liblgeffectwrapper.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcompostprocbundle.so
+vendor/lib/soundfx/libqcomvisualizer.so
+vendor/lib/soundfx/libqcomvoiceprocessing.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libreverbwrapper.so
+vendor/lib/soundfx/libvisualizer.so
+vendor/lib/soundfx/libvolumelistener.so
+vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libaudiopreprocessing.so
+vendor/lib64/soundfx/libbundlewrapper.so
+vendor/lib64/soundfx/libdownmix.so
+vendor/lib64/soundfx/libdynproc.so
+vendor/lib64/soundfx/libeagle.so
+vendor/lib64/soundfx/libeffectproxy.so
+vendor/lib64/soundfx/libldnhncr.so
+vendor/lib64/soundfx/liblgeffectwrapper.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcompostprocbundle.so
+vendor/lib64/soundfx/libqcomvisualizer.so
+vendor/lib64/soundfx/libqcomvoiceprocessing.so
+vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libreverbwrapper.so
+vendor/lib64/soundfx/libvisualizer.so
+vendor/lib64/soundfx/libvolumelistener.so
+
+# DSP - from Stock H870 V30B
+vendor/lib/rfsa/adsp/AlacDecoderModule.so.1
+vendor/lib/rfsa/adsp/ApeDecoderModule.so.1
+vendor/lib/rfsa/adsp/AudioSphereModule.so.1
+vendor/lib/rfsa/adsp/DTS_HPX_MODULE.so.1
+vendor/lib/rfsa/adsp/DolbyMobileModule.so.1
+vendor/lib/rfsa/adsp/DolbySurroundModule.so.1
+vendor/lib/rfsa/adsp/EtsiEaacPlusEncAndCmnModule.so.1
+vendor/lib/rfsa/adsp/HeaacDecoderModule.so.1
+vendor/lib/rfsa/adsp/SAPlusCmnModule.so.1
+vendor/lib/rfsa/adsp/SrsTruMediaModule.so.1
+vendor/lib/rfsa/adsp/VorbisDecoderModule.so.1
+vendor/lib/rfsa/adsp/WmaProDecoderModule.so.1
+vendor/lib/rfsa/adsp/WmaStdDecoderModule.so.1
+vendor/lib/rfsa/adsp/fastrpc_shell_0
+vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
+vendor/lib/rfsa/adsp/libsysmon_skel.so
 vendor/lib/libsymphony-1.1.1.so
-lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
-lib/rfsa/adsp/libmorpho_video_denoiser_hvx_skel.so
+vendor/lib/libsymphony-1.1.2.so
+vendor/lib/libsymphony-1.1.4.so
+vendor/lib/libsymphonypower-1.1.1.so
+vendor/lib/libsymphonypower-1.1.2.so
+vendor/lib/libsymphonypower-1.1.4.so
+vendor/lib64/libsymphony-1.1.4.so
+vendor/lib64/libsymphonypower-1.1.4.so
+lib/libsymphony-1.1.3.so
+lib/libsymphony-cpu-1.1.3.so
+lib/libsymphonypower-1.1.3.so
+lib64/libsymphony-1.1.3.so
+lib64/libsymphony-cpu-1.1.3.so
+lib64/libsymphonypower-1.1.3.so
 
 # CNE - from Stock H870 V29A
 etc/permissions/cneapiclient.xml
