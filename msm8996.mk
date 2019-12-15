@@ -250,9 +250,9 @@ PRODUCT_PACKAGES += \
     ethertypes
 
 # IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    libshim_ims
+#PRODUCT_PACKAGES += \
+#    ims-ext-common \
+#    libshim_ims
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
@@ -336,6 +336,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Qualcomm
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
@@ -359,6 +362,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     liblge \
     libprotobuf-cpp-full \
+	libandroid_net \
+    librmnetctl \
+	android.hardware.radio@1.2 \
+    android.hardware.radio.config@1.0
+
+# QMI
+PRODUCT_PACKAGES += \
+    libjson
+
+
+# Radio
+PRODUCT_PACKAGES += \
     librmnetctl
 
 # Seccomp policy
