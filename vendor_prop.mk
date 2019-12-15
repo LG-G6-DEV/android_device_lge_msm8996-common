@@ -4,6 +4,7 @@
 
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=9 \
     persist.radio.mode_pref_nv10=1 \
     persist.radio.add_power_save=1
 
@@ -79,11 +80,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.cne.feature=0
+    persist.vendor.cne.feature=1
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.dpm.feature=0
+    persist.vendor.dpm.feature=5
 
 # Dalvik VM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -143,6 +144,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
 
+# IMS / VoLTE
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1 \
+    persist.radio.VT_CAM_INTERFACE=2 \
+    persist.radio.VT_ENABLE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1
+
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C
@@ -152,28 +162,30 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.qti.sys.fw.bg_apps_limit=60
 
-# Radio
+# RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.data.mode=concurrent \
-	persist.data.netmgrd.qos.enable=true \
-	persist.timed.enable=true \
-	persist.radio.VT_CAM_INTERFACE=1 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
-	persist.vendor.radio.apm_sim_not_pwdn=1 \
-	persist.vendor.radio.custom_ecc=1 \
-	persist.vendor.radio.rat_on=combine \
-	persist.vendor.radio.sib16_support=1 \
-	rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
-	vendor.rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
-	ril.subscription.types=NV,RUIM \
-	ro.telephony.default_network=9 \
-	ro.vendor.use_data_netmgrd=true \
-	ro.vendor.wl_library=libqti-wl.so \
-	ro.vendor.gt_library=libqti-gt.so \
-	ro.vendor.at_library=libqti-at.so \
-	persist.net.doxlat=false \
-    DEVICE_PROVISIONED=1 
+    DEVICE_PROVISIONED=1 \
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.call_ring.multiple=false \
+    persist.data.qmi.adb_logmask=0 \
+    persist.net.doxlat=true \
+    persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.csvt.enabled=false \
+    persist.radio.REVERSE_QMI=0 \
+    persist.radio.ROTATION_ENABLE=1 \
+    persist.rcs.supported=1 \
+    persist.vendor.radio.cs_srv_type=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.facnotsup_as_nonw=1 \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.ignore_dom_time=5 \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.mt_sms_ack=20 \
+    persist.vendor.radio.sib16_support=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
