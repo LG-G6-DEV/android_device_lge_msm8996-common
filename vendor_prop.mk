@@ -62,7 +62,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr \
     vendor.bluetooth.soc=rome \
     bt.max.hfpclient.connections=1 \
-    bluetooth.chip.vendor=brcm
+    bluetooth.chip.vendor=brcm \
+	persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+	persist.vendor.btstack.enable.splita2dp=false
+	
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
