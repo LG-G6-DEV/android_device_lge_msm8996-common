@@ -45,13 +45,6 @@ write_headers "$G5_DEVICE_LIST $V20_DEVICE_LIST $G6_DEVICE_LIST"
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt true
-
 cat << EOF >> "$PRODUCTMK"
 endif
 
@@ -95,16 +88,6 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 write_headers
 
 write_makefiles "$MY_DIR/../$DEVICE/proprietary-files.txt" true
-
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-write_makefiles "$MY_DIR/../$DEVICE/proprietary-files-qc.txt" true
-
-printf '\n%s\n' "endif" >> "$PRODUCTMK"
-printf '\n%s\n' "endif" >> "$ANDROIDMK"
 
 # We are done with device
 write_footers
