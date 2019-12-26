@@ -61,7 +61,7 @@ public class Startup extends BroadcastReceiver {
                 || Intent.ACTION_PRE_BOOT_COMPLETED.equals(action)) {
             enableComponent(context, DeviceSettings.class.getName());
 
-            if(PreferenceHelper.isSpectrumEnabled(context)) { SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1"); TileService.requestListeningState(context, new ComponentName("QStile", DSTileService.class.getName()));}
+            if(PreferenceHelper.isSpectrumEnabled(context)) { SystemProperties.set(Constants.SPECTRUM_SUPPORT_SYSTEM_PROPERTY, "1"); }
         }
 
         DisplayCalibration.restore(context);

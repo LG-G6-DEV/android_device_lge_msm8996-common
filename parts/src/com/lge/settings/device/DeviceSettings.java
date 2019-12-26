@@ -27,7 +27,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
-import android.service.quicksettings.TileService;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,8 +52,6 @@ public class DeviceSettings extends NodePreferenceActivity {
         ListView lv = getListView();
         lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
         lv.setDividerHeight(0);
-
-        TileService.requestListeningState(getApplicationContext(), new ComponentName("QStile", DSTileService.class.getName()));
 
         mFCSwitch = (SwitchPreference) findPreference(Constants.KEY_FAST_CHARGE);
         mFCSwitch.setEnabled(FastChargeSwitch.isSupported());
@@ -106,7 +103,6 @@ public class DeviceSettings extends NodePreferenceActivity {
             }
 
             Toast.makeText(getApplicationContext(), getString(R.string.toast_restart), Toast.LENGTH_LONG).show();
-            TileService.requestListeningState(getApplicationContext(), new ComponentName("QStile", DSTileService.class.getName()));
 
             return true;
         }
