@@ -743,6 +743,7 @@ vendor/lib/libwvhidl.so
 
 # Wifi - from Stock H870 V30B
 vendor/bin/cnss-daemon
+vendor/bin/cnss_diag
 
 # Wifi-Display - from LA.UM.7.5.r1-04800-8x96.0
 bin/wfdservice
