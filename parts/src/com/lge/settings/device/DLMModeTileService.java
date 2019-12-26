@@ -35,8 +35,9 @@ public class DLMModeTileService extends TileService {
     @Override
     public void onTileAdded() {
         super.onTileAdded();
+	final boolean enabled = DaylightModeSwitch.isCurrentlyEnabled(this);
         Tile tile = getQsTile();
-        tile.setState(Tile.STATE_INACTIVE);
+        tile.setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         tile.updateTile();
     }
 
@@ -48,8 +49,9 @@ public class DLMModeTileService extends TileService {
     @Override
     public void onStartListening() {
         super.onStartListening();
+	final boolean enabled = DaylightModeSwitch.isCurrentlyEnabled(this);
         Tile tile = getQsTile();
-        tile.setState(Tile.STATE_INACTIVE);
+        tile.setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         tile.updateTile();
     }
 
