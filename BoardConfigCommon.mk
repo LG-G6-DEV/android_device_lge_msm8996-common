@@ -233,9 +233,6 @@ SELINUX_IGNORE_NEVERALLOWS := true
 # Thermal
 USE_DEVICE_SPECIFIC_THERMAL := true
 
-# Use Snapdragon LLVM, if available
-TARGET_USE_SDCLANG := true
-
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
