@@ -24,6 +24,25 @@
             android:title="@string/fast_charge_title"
             android:summary="@string/fast_charge_summary" />
 
+        <EditTextPreference
+            android:key="battery_cycle"
+            android:title="@string/battery_cycle"
+            android:summary="NULL"
+            android:enabled="false" />
+
+        <EditTextPreference
+            android:key="battery_temp"
+            android:title="@string/battery_temp"
+            android:summary="NULL"
+            android:enabled="false" />
+
+        <EditTextPreference
+            android:key="battery_health"
+            android:title="@string/battery_health"
+            android:summary="NULL"
+            android:enabled="false" />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory

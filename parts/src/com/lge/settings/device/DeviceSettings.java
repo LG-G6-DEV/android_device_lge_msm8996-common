@@ -25,11 +25,13 @@ import android.provider.Settings;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
+import android.preference.EditTextPreference;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.lge.settings.device.Battery;
 import com.lge.settings.device.utils.Constants;
 import com.lge.settings.device.utils.NodePreferenceActivity;
 import com.lge.settings.device.utils.PreferenceHelper;
@@ -39,6 +41,9 @@ public class DeviceSettings extends NodePreferenceActivity {
     private static final String SPECTRUM_CATEGORY_KEY = "spectrum_category";
 
     private SwitchPreference mFCSwitch;
+	private EditTextPreference cyclePreference;
+    private EditTextPreference tempPreference;
+    private EditTextPreference healthPreference;
     private SwitchPreference mDaylightModeSwitch;
     private ListPreference mSpectrum;
     private PreferenceCategory mSpectrumCategory;
@@ -57,6 +62,14 @@ public class DeviceSettings extends NodePreferenceActivity {
         mFCSwitch.setEnabled(FastChargeSwitch.isSupported());
         mFCSwitch.setChecked(FastChargeSwitch.isCurrentlyEnabled(this));
         mFCSwitch.setOnPreferenceChangeListener(new FastChargeSwitch());
+
+        cyclePreference = (EditTextPreference) findPreference(Constants.KEY_BATTERY_CYCLE);
+        tempPreference = (EditTextPreference) findPreference(Constants.KEY_BATTERY_TEMP);
+        healthPreference = (EditTextPreference) findPreference(Constants.KEY_BATTERY_HEALTH);
+
+        cyclePreference.setSummary(Battery.getBatteryCycle());
+        tempPreference.setSummary(Battery.getBatteryTemp()+"°C");
+        healthPreference.setSummary(Battery.getBatteryHealth());
 
         mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
         mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());

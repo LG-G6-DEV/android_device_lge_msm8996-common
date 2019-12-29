@@ -32,13 +32,4 @@
         <item>1</item>
         <item>3</item>
     </string-array>
-
-    <string-array name="spectrum_qs_profiles">
-        <item>Zbalansowany</item>
-        <item>Wysoka wydajność</item>
-        <item>Oszczędny</item>
-        <item>Gaming</item>
-        <item>Ultra-Oszczędny</item>
-    </string-array>
-
 </resources>

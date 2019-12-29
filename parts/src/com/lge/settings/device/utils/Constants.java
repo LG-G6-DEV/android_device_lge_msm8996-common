@@ -29,6 +29,17 @@ public class Constants {
     // Fast charge
     public static final String KEY_FAST_CHARGE = "fast_charge";
 
+    //Battery
+    public static final String BATTERY_CYCLE_NODE = "/sys/class/power_supply/bms/battery_cycle";
+    public static final String BATTERY_HEALTH_NODE = "/sys/class/power_supply/battery/health";
+    public static final String BATTERY_TEMP_NODE = "/sys/class/power_supply/bms/temp";
+    public static final String BATTERY_TYPE_NODE = "/sys/class/power_supply/bms/battery_type";
+    public static final String BATTERY_PACK_NAME_NODE = "/sys/class/lge_power/lge_batt_id/batt_pack_name";
+
+    public static final String KEY_BATTERY_CYCLE = "battery_cycle";
+    public static final String KEY_BATTERY_TEMP = "battery_temp";
+    public static final String KEY_BATTERY_HEALTH = "battery_health";
+
     // Gestures nodes
     public static final String TOUCHSCREEN_CAMERA_NODE = "/proc/touchpanel/letter_o_enable";
     public static final String TOUCHSCREEN_DOUBLE_SWIPE_NODE = "/proc/touchpanel/double_swipe_enable";
