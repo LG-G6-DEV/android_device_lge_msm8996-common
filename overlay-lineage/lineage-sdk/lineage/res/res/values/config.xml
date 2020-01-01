@@ -34,7 +34,7 @@
     <integer name="config_nightColorTemperature">3600</integer>
 
     <!-- For high brightness mode -->
-    <integer name="config_outdoorAmbientLux">20000</integer>
+    <integer name="config_outdoorAmbientLux">6000</integer>
 
     <!-- Turn on LiveDisplay auto mode by default -->
     <integer name="config_defaultLiveDisplayMode">2</integer>
