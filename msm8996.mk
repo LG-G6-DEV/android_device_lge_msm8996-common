@@ -358,7 +358,6 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    liblge \
     libprotobuf-cpp-full \
     librmnetctl
 
