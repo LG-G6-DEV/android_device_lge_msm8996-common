@@ -121,28 +121,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-	debug.sf.enable_hwc_vds=1 \
-	debug.sf.hw=1 \
-	debug.sf.latch_unsignaled=1 \
-	debug.egl.hw=1 \
-	debug.gralloc.enable_fb_ubwc=1 \
-	vendor.video.disable.ubwc=1 \
-	sdm.perf_hint_window=50 \
-	persist.demo.hdmirotationlock=false \
-	dev.pm.dyn_samplingrate=1 \
-	debug.sf.recomputecrop=0 \
-	sdm.debug.disable_skip_validate=1 \
-	vendor.gralloc.enable_fb_ubwc=1 \
-	vendor.display.disable_skip_validate=1 \
-	vendor.display.perf_hint_window=50 \
-	persist.hwc.enable_vds=1 \
-	sdm.debug.disable_rotator_split=1
+debug.egl.hw=1 \
+debug.gralloc.gfx_ubwc_disable=0 \
+debug.sf.enable_hwc_vds=1 \
+debug.gralloc.enable_fb_ubwc=1 \
+debug.sf.hw=1 \
+dev.pm.dyn_samplingrate=1 \
+persist.demo.hdmirotationlock=false \
+persist.hwc.enable_vds=1 \
+ro.persist.qcapb=1 \
+sdm.debug.disable_rotator_split=1 \
+sdm.debug.disable_skip_validate=1 \
+sdm.perf_hint_window=50
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.disable.pq=true \
     vidc.enc.dcvs.extra-buff-count=2 \
     vendor.video.disable.ubwc=1
+
+# OpenGLES
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196610
 
 # IMS / VoLTE
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -264,7 +264,7 @@ vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/hw/gatekeeper.msm8996.so
 vendor/lib64/hw/gatekeeper.msm8996.so
 
-# Graphics - from LA.UM.8.6.r1-01900-89xx.0
+# Graphics - from Stock H870 V29A
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -304,11 +304,11 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/libRSDriver_adreno.so
 
-# Graphics - HDR - from LA.UM.8.6.r1-01900-89xx.0
+# Graphics - HDR - from Stock H870 V29A
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics - SDM - from LA.UM.8.6.r1-01900-89xx.0
+# Graphics - SDM - from Stock H870 V29A
 vendor/lib/libscalar.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -322,9 +322,9 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
-# Graphics - Vulkan - from LA.UM.8.6.r1-01900-89xx.0
-vendor/lib/hw/vulkan.msm8953.so:vendor/lib/hw/vulkan.msm8996.so
-vendor/lib64/hw/vulkan.msm8953.so:vendor/lib64/hw/vulkan.msm8996.so
+# Graphics - Vulkan - from Stock H870 V29A
+vendor/lib/hw/vulkan.msm8996.so
+vendor/lib64/hw/vulkan.msm8996.so
 
 # GPS - From OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1903190014:user/release-keys
 etc/permissions/com.qti.location.sdk.xml
