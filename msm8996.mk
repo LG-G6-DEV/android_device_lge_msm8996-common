@@ -357,7 +357,8 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    liblge \
+    android.hardware.radio@1.4 \
+    android.hardware.radio.config@1.0 \
     libprotobuf-cpp-full \
     librmnetctl
 
