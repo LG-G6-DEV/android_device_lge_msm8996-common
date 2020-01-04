@@ -7,3 +7,4 @@ allow mediaprovider cnd_vendor_prop:file read;
 #allow mediaprovider console_silent_prop:file read;
 allow mediaprovider ctl_LKCore_prop:file read;
 allow mediaprovider radio_service:service_manager find;
+allow mediaprovider gpuservice:binder { call };

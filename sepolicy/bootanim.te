@@ -1,1 +1,2 @@
 allow bootanim vendor_file:file { read open execute getattr };
+allow bootanim sysfs_kgsl:dir { search };
