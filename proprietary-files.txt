@@ -695,7 +695,7 @@ vendor/lib/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-client.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 
-# Thermal
+# Thermal - from LA.UM.8.6.r1-01900-89xx.0
 vendor/bin/thermal-engine
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
