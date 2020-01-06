@@ -153,10 +153,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.VT_ENABLE=1 \
     persist.radio.VT_HYBRID_ENABLE=1
 
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C
-
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \

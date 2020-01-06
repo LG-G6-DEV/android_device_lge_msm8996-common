@@ -66,9 +66,6 @@ on post-fs-data
     #Create camera dir for EEPROM data
     mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
 
-    # NFC local data and nfcee xml storage
-    mkdir /data/vendor/nfc/ 0770 nfc nfc
-
     #fingerint, changhua add for fp debug image usage,feature default off
     mkdir /data/fpc_images 0770 system system
     mkdir /data/fpc_images/verify 0770 system system
@@ -275,12 +272,6 @@ on boot
     chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
     chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
     chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
-
-    # NFC
-    chmod 0666 /dev/pn544
-    chown nfc nfc /dev/pn544
-    chmod 0666 /dev/p61
-    chown spi spi /dev/p61
 
     # RGB light
     chown system system /sys/class/leds/red/pause_lo
