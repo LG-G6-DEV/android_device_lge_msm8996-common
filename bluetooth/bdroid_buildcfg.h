@@ -56,15 +56,8 @@ inline const char* BtmGetDefaultName()
 // skips conn update at conn completion
 #define BT_CLEAN_TURN_ON_DISABLED 1
 
-/* Increasing SEPs to 12 from 6 to support SHO/MCast i.e. two streams per codec */
-#define AVDT_NUM_SEPS 12
-
-#define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
-// Some rom invert the logic
-#define BTM_SCO_ENHANCED_SYNC_DISABLED TRUE
 // More BT calling fixes
 #define BTHW_FW_EXTENDED_CONFIGURATION TRUE
-#define BTHW_FW_EXTENDED_CONFIGURATION_ONLY_I2SPCM_CONFIG FALSE
 
 #pragma pop_macro("PROPERTY_VALUE_MAX")
 #endif
