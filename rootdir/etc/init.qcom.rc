@@ -834,16 +834,6 @@ on property:persist.vendor.data.perf_ko_load=1
 on property:persist.vendor.data.perf_ko_load=0
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules rmnet_perf
 
-service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
-    class late_start
-    user system
-    group system inet net_admin wifi
-    capabilities NET_ADMIN
-    writepid /dev/cpuset/system-background/tasks
-
-on property:sys.powerctl=*
-    stop cnss-daemon
-
 service ssgqmigd /vendor/bin/ssgqmigd
     class late_start
     user radio
