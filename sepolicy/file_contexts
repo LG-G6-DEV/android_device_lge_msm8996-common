@@ -8,9 +8,6 @@
 /sys/devices/soc/8c0000\.qcom,msm-cam/video4linux/video0(/.*)?      u:object_r:sysfs_graphics:s0
 /sys/devices/soc/aa4000\.qcom,fd/video4linux/video1(/.*)?           u:object_r:sysfs_graphics:s0
 
-# CPU tunable for EAS
-/sys/devices/system/cpu/cpu[0-3]/cpufreq/schedutil(/.*)?            u:object_r:sysfs_devices_system_cpu:s0
-
 # DRM
 /data/mediadrm/IDM1013                                              u:object_r:media_data_file:s0
 /data/mediadrm/IDM1013/L3/ay64.dat                                  u:object_r:media_data_file:s0
@@ -36,10 +33,6 @@
 
 # Init
 /(vendor|system/vendor)/bin/init\.lucye\.hdmi\.sh                   u:object_r:init_graphics_exec:s0
-
-# IR
-/dev/ttyHSL1                                                        u:object_r:cir_device:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service.lge       u:object_r:hal_ir_default_exec:s0
 
 # Lights
 /sys/devices/virtual/lg_rgb_led/use_patterns/onoff_patterns         u:object_r:sysfs_leds:s0
