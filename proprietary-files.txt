@@ -382,10 +382,6 @@ vendor/lib64/vendor.qti.gnss@2.0.so
 -priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
 -priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
-# IR
--lib/libcir_driver.so
--lib64/libcir_driver.so
-
 # IMS - from oneplus 3
 vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so|d57f8d41f2912f44b2ccfffef60fa851370a0884
 vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so|988680e0414d0d861acf20b43554fa6d1d7a5f24
