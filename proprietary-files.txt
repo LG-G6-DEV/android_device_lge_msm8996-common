@@ -413,7 +413,7 @@ vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib64/hw/sound_trigger.primary.msm8996.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
-# Media - from Stock H870 V29A
+# Media - from Stock H870 V30B
 vendor/lib/libgpustats.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
@@ -432,6 +432,18 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libvpplibrary.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
+vendor/lib/libOmxAacEnc
+vendor/lib/libOmxAmrEnc
+vendor/lib/libOmxCore
+vendor/lib/libOmxDsdDec
+vendor/lib/libOmxEvrcEnc
+vendor/lib/libOmxG711Dec
+vendor/lib/libOmxG711Enc
+vendor/lib/libOmxQcelp13Enc
+vendor/lib/libOmxVdec
+vendor/lib/libOmxVenc
+vendor/lib/libmm-omxcore
+vendor/lib/libmm-qcamera
 vendor/lib64/libgpustats.so
 vendor/lib64/libI420colorconvert.so
 vendor/lib64/libOmxAacDec.so
@@ -448,6 +460,16 @@ vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libvpphvx.so
 vendor/lib64/libvpplibrary.so
+vendor/lib64/libOmxAacEnc
+vendor/lib64/libOmxAmrEnc
+vendor/lib64/libOmxCore
+vendor/lib64/libOmxEvrcEnc
+vendor/lib64/libOmxG711Dec
+vendor/lib64/libOmxG711Enc
+vendor/lib64/libOmxQcelp13Enc
+vendor/lib64/libOmxVdec
+vendor/lib64/libOmxVenc
+vendor/lib64/libmm-omxcore
 
 # Misc firmware - from Stock H870 V30B
 vendor/firmware/leia_pfp_470.fw
@@ -757,6 +779,7 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsink.so
 lib/libwfduibcsrcinterface.so
 lib/libwfduibcsrc.so
+lib64/libOmxMux.so
 lib64/libmmosal.so
 lib64/libwfdclient.so
 lib64/libwfdnative.so
