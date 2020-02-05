@@ -397,14 +397,6 @@ vendor/lib64/vendor.qti.ims.callinfo@1.0.so|523f6054e9d536d197defd66db9211a511a2
 vendor/lib/hw/keystore.msm8996.so
 vendor/lib64/hw/keystore.msm8996.so
 
-# LG Keymaster - from Stock H870 V20I
-lib/hw/lgkm.default.so
-lib/hw/lgkm.msm8996.so
-lib/liblgkm.so
-lib64/hw/lgkm.default.so
-lib64/hw/lgkm.msm8996.so
-lib64/liblgkm.so
-
 # Listen
 vendor/lib/hw/sound_trigger.primary.msm8996.so
 vendor/lib/libadpcmdec.so
