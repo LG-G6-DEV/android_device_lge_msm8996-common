@@ -134,8 +134,17 @@ sdm.debug.disable_rotator_split=1 \
 sdm.debug.disable_skip_validate=1 \
 sdm.perf_hint_window=50
 
-# Media
+# Media - V30B
 PRODUCT_PROPERTY_OVERRIDES += \
+	media.stagefright.enable-player=true \
+	media.stagefright.enable-http=true \
+	media.stagefright.enable-aac=true \
+	media.stagefright.enable-qcp=true \
+	media.stagefright.enable-scan=true \
+	mmp.enable.3g2=true \
+	media.aac_51_output_enabled=true \
+	media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
+	mm.enable.smoothstreaming=true \
     vendor.vidc.enc.disable.pq=true \
     vidc.enc.dcvs.extra-buff-count=2 \
     vendor.video.disable.ubwc=1
