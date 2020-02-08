@@ -149,7 +149,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
-    init.spectrum.rc \
     ueventd.qcom.rc
 
 # Display
@@ -377,10 +376,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
-
-# Spectrum
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.spectrum.profile=0
 
 # Thermal
 PRODUCT_PACKAGES += \

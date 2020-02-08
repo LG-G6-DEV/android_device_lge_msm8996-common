@@ -18,7 +18,7 @@
     <string name="app_name" translatable="false">LGE Settings</string>
 
     <string name="screen_gestures_panel_title">Device Extras</string>
-    <string name="screen_gestures_panel_summary">USB Fast charge, Spectrum, Ambient display, KCAL</string>
+    <string name="screen_gestures_panel_summary">USB Fast charge, Ambient display, KCAL</string>
 
     <!-- Battery -->
     <string name="battery_summary">Battery</string>
@@ -48,10 +48,4 @@
     <string name="kcal_contrast">Contrast</string>
     <string name="menu_reset">Reset</string>
     <string name="kcal_color_temp">Color temperature (K)</string>
-
-    <!-- Spectrum Profiles -->
-    <string name="spectrum_category_title" translatable="false">Spectrum</string>
-    <string name="spectrum_title">Kernel Power Profile</string>
-    <string name="spectrum_summary" translatable="false">%1$s</string>
-    <string name="spectrum_switch">Disable kernel profiles</string>
 </resources>

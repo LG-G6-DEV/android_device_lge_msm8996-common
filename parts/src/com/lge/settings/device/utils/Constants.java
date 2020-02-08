@@ -33,8 +33,6 @@ public class Constants {
     public static final String BATTERY_CYCLE_NODE = "/sys/class/power_supply/bms/battery_cycle";
     public static final String BATTERY_HEALTH_NODE = "/sys/class/power_supply/battery/health";
     public static final String BATTERY_TEMP_NODE = "/sys/class/power_supply/bms/temp";
-    public static final String BATTERY_TYPE_NODE = "/sys/class/power_supply/bms/battery_type";
-    public static final String BATTERY_PACK_NAME_NODE = "/sys/class/lge_power/lge_batt_id/batt_pack_name";
 
     public static final String KEY_BATTERY_CYCLE = "battery_cycle";
     public static final String KEY_BATTERY_TEMP = "battery_temp";
@@ -60,12 +58,6 @@ public class Constants {
     public static final String NOTIF_SLIDER_MIDDLE_NODE = "/proc/tri-state-key/keyCode_middle";
     public static final String NOTIF_SLIDER_BOTTOM_NODE = "/proc/tri-state-key/keyCode_bottom";
 
-    // Spectrum modes
-    public static final String SPECTRUM_KEY = "spectrum";
-    public static final String SPECTRUM_SWITCH_KEY = "spectrum_switch";
-    public static final String SPECTRUM_SUPPORT_SYSTEM_PROPERTY  = "spectrum.support";
-    public static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
-
     // Display modes
     public static final String KEY_DLM_SWITCH = "dlm";
 
@@ -75,9 +67,6 @@ public class Constants {
 
     // Holds <preference_key> -> <default_values> mapping
     public static final Map<String, Object> sNodeDefaultMap = new HashMap<>();
-
-    // Preferences
-    public static final String PREF_SPECTRUM_ENABLED = "spectrum_enabled";
 
     public static boolean isPreferenceEnabled(Context context, String key) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);

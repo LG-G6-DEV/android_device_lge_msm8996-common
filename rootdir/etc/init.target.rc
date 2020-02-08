@@ -28,7 +28,6 @@
 #
 
 import /vendor/etc/init/hw/init.lucye.rc
-import /vendor/etc/init/hw/init.spectrum.rc
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
