@@ -35,3 +35,7 @@ allow init vfat:dir { open read search };
 allow init vfat:file { getattr open read };
 
 allow init hal_drm_hwservice:hwservice_manager { add };
+
+allow init hal_power_hwservice:hwservice_manager { add };
+allow init hal_perf_hwservice:hwservice_manager { find };
+allow init hal_perf_default:binder { call };

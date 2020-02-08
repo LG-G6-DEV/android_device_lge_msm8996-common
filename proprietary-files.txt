@@ -471,12 +471,21 @@ vendor/firmware/leia_pm4_470.fw
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 vendor/firmware/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw_64.so
 
-# Perf - from Stock H870 V29A
+# Perf - from Stock V30B
+lib/libqti_performance.so
+lib/libqti-at.so
+lib/libqti-perfd-client_system.so
+lib/libqti-util_system.so
+lib/vendor.qti.hardware.perf@1.0.so
+lib64/libqti_performance.so
+lib64/libqti-at.so
+lib64/libqti-perfd-client_system.so
+lib64/libqti-util_system.so
+lib64/vendor.qti.hardware.perf@1.0.so
 vendor/bin/energy-awareness
 vendor/bin/msm_irqbalance
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
-vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
 vendor/etc/perf/perf-profile2.conf
@@ -484,19 +493,23 @@ vendor/etc/perf/perf-profile3.conf
 vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
-vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/targetconfig.xml
-vendor/etc/perf/targetresourceconfigs.xml
 vendor/lib/libperfgluelayer.so
+vendor/lib/libqtigef.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-util.so
-vendor/lib/vendor.qti.hardware.perf@1.0.so
+vendor/lib/libqti-wl.so
 vendor/lib64/libperfgluelayer.so
+vendor/lib64/libqtigef.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.hardware.perf@1.0.so
+
+# Power - from Stock V30B
+vendor/bin/hw/android.hardware.power@1.2-service
+vendor/etc/init/android.hardware.power@1.2-service.rc
+vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8998.so
+vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8998.so
 
 # Peripheral manager - from Stock H870 V29A
 vendor/bin/pm-proxy

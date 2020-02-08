@@ -6,3 +6,4 @@ allow vold firmware_file:file { read open getattr };
 allow vold vendor_file:file { getattr };
 allow vold mnt_vendor_file:dir { read open ioctl };
 allow vold sysfs_mmc_host:file write;
+allow vold hal_bootctl_hwservice:hwservice_manager { find };
