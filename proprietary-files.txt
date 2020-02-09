@@ -511,7 +511,7 @@ vendor/etc/init/android.hardware.power@1.2-service.rc
 vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8998.so
 vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8998.so
 
-# Peripheral manager - from Stock H870 V29A
+# Peripheral manager - from Stock H870 V30B
 vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
