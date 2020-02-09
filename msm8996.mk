@@ -89,6 +89,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.common@5.0-util \
     android.hardware.audio.effect@5.0 \
     android.hardware.audio.effect@5.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
     audio.a2dp.default \
     audio.primary.msm8996 \
     audio.r_submix.default \
@@ -162,12 +163,6 @@ PRODUCT_PACKAGES += \
 	init.lge.vendor.on_property.rc \
 	init.lge.vendor.services.rc \
 	vendor.lge.power.rc
-
-
-
-
-
-
 
 # Display
 PRODUCT_PACKAGES += \
@@ -255,9 +250,19 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
-# HotwordEnrollement app permissions
+# Permission - Hotword
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-hotword.xml
+
+# Permission - Qualcomm
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+
+# Permission - Lucye
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
+    $(LOCAL_PATH)/configs/product/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -354,11 +359,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
-
-# Qualcomm
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # RCS
 PRODUCT_PACKAGES += \
