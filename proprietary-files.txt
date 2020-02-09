@@ -688,19 +688,25 @@ vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 
-# Sensors
-vendor/bin/sensors.qcom:vendor/bin/sensors.qti
+# Sensors - from Stock H870 V30B
+framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+lib/vendor.lge.hardware.sensors@1.0.so
+lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+lib64/vendor.lge.hardware.sensors@1.0.so
+lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8996.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
-vendor/lib/libsensor_thresh.so
-vendor/lib/libsensor_user_cal.so
+vendor/lib/libsns_low_lat_stream_stub.so
+vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
-vendor/lib64/hw/activity_recognition.msm8996.so
+vendor/lib64/hw/activity_recognition.msm8998.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
-vendor/lib64/libsensor_thresh.so
-vendor/lib64/libsensor_user_cal.so
+vendor/lib64/libsensorndkbridge.so
+vendor/lib64/libsns_low_lat_stream_stub.so
+vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 
 # Sensors (LGE) - from Stock H870 V30B
@@ -728,7 +734,7 @@ vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
-# Time services - from OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1903190014:user/release-keys
+# Time services - from Stock H870 V30B
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/lib/libtime_genoff.so
