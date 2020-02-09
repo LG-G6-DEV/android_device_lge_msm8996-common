@@ -1,0 +1,197 @@
+# Copyright (c) 2017, LG Eletronics. All rights reserved.
+#
+
+# chargerlogo
+on chargerlogo
+   trigger early-fs
+   trigger fs
+   trigger post-fs
+   trigger post-fs-data
+   trigger load_all_props_action
+   trigger chargerlogo_exec
+
+on chargerlogo_exec
+   trigger chargerlogo_after
+
+on chargerlogo_exec
+   stop bootanim
+   start vendor.hvdcp_opti
+   write /sys/class/android_usb/android0/enable 0
+   write /sys/class/android_usb/android0/idVendor 1004
+   write /sys/class/android_usb/android0/idProduct 6300
+   write /sys/class/android_usb/android0/bDeviceClass 0
+   write /sys/class/android_usb/android0/bDeviceSubClass 0
+   write /sys/class/android_usb/android0/bDeviceProtocol 0
+   write /sys/class/android_usb/android0/functions charge_only
+   write /sys/class/android_usb/android0/enable 1
+
+   chown system system /mnt/vendor/persist-lg/chargerlogo/noautoboot
+   chmod 0666 /mnt/vendor/persist-lg/chargerlogo/noautoboot
+   chown system system /mnt/vendor/persist-lg/chargerlogo/batt_reboot_hist
+   chmod 0666 /mnt/vendor/persist-lg/chargerlogo/batt_reboot_hist
+   write /mnt/vendor/persist-lg/chargerlogo/autoboot_nosound 0
+   chmod 0666 /mnt/vendor/persist-lg/chargerlogo/autoboot_nosound
+   chmod 0771 /mnt/vendor/persist-lg/dqsl
+   chown system system /mnt/vendor/persist-lg/dqsl/charging_count
+   chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_count
+   chown system system /mnt/vendor/persist-lg/dqsl/charging_level
+   chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_level
+
+# Start charger_monitor on chargerlogo
+   chown root system /sys/module/qpnp_charger/parameters/charger_monitor
+   chown root system /sys/module/qpnp_charger/parameters/ext_ovp_isns_online
+   chown root system /sys/module/qpnp_charger/parameters/ext_ovp_isns_present
+   chown root system /sys/module/qpnp_charger/parameters/ext_ovp_isns_r
+   chown root system /sys/module/qpnp_charger/parameters/ext_ovp_isns_ua
+   chown root system /sys/module/qpnp_charger/parameters/ext_ovp_present
+   chown root system /sys/class/power_supply/battery/input_current_max
+   chown root system /sys/class/power_supply/battery/input_current_trim
+   chown root system /sys/class/power_supply/battery/voltage_min
+   chown root system /sys/class/power_supply/battery/input_current_settled
+   chmod 0664 /sys/module/qpnp_charger/parameters/charger_monitor
+   chmod 0644 /sys/module/qpnp_charger/parameters/ext_ovp_isns_online
+   chmod 0644 /sys/module/qpnp_charger/parameters/ext_ovp_isns_present
+   chmod 0644 /sys/module/qpnp_charger/parameters/ext_ovp_isns_r
+   chmod 0644 /sys/module/qpnp_charger/parameters/ext_ovp_isns_ua
+   chmod 0644 /sys/module/qpnp_charger/parameters/ext_ovp_present
+   chmod 0664 /sys/class/power_supply/battery/input_current_max
+   chmod 0664 /sys/class/power_supply/battery/input_current_trim
+   chmod 0664 /sys/class/power_supply/battery/voltage_min
+   chmod 0664 /sys/class/power_supply/battery/input_current_settled
+   start charger_monitor
+
+on chargerlogo_after
+   exec u:r:chargerlogo:s0 -- /vendor/bin/chargerlogo
+   trigger chargerlogo_after
+
+
+#Power_BSP, thermal senario change about LCD brightness
+on post-fs-data
+   chown system system /sys/class/leds/lcd-backlight/thermald_status
+   chmod 0644 /sys/class/leds/lcd-backlight/thermald_status
+
+# LGE gbmd
+service vendor.gbmd /vendor/bin/gbmd
+   class main
+   socket gbm-client stream 660 system system
+   user system
+   group system
+
+# LGE prmd
+service vendor.prmd /vendor/bin/prmd
+   class main
+   socket prm-client stream 660 system system
+   user system
+   group system
+
+# LGE triton
+service vendor.triton /vendor/bin/triton
+   class main
+   user root
+   group system
+   socket triton-client stream 660 system system
+   disabled
+
+# LG Hiddenmenu smpl_count service
+service vendor.smpl_count /vendor/bin/smpl_count
+   class main
+   user root
+   oneshot
+
+on property:sys.boot_completed=1
+   start vendor.triton
+   write /sys/devices/system/cpu/triton/debug 16
+   write /sys/devices/system/cpu/triton/enable 1
+   write /sys/devices/system/cpu/triton/enforce 0
+   write /sys/devices/system/cpu/triton/cur_policy 0
+   chown system system /sys/devices/system/cpu/triton/enable
+   chmod 664 /sys/devices/system/cpu/triton/enable
+   chmod 664 /sys/devices/system/cpu/triton/aevents
+   chmod 664 /sys/devices/system/cpu/triton/bevents
+   chown system system /sys/devices/system/cpu/triton/cur_policy
+   chmod 664 /sys/devices/system/cpu/triton/cur_policy
+   chmod 664 /sys/devices/system/cpu/triton/debug
+
+# image_enhance_set
+   chown system system /sys/class/panel/img_tune/image_enhance_set
+   chmod 664 /sys/class/panel/img_tune/image_enhance_set
+
+on boot
+   chown system system /sys/devices/system/cpu/triton/enable
+   chmod 644 /sys/devices/system/cpu/triton/enable
+
+on boot
+# For quick_charging status
+   chown root system /sys/module/lge_power_class_charging_controller/parameters/restricted_charging
+   chmod 0664 /sys/module/lge_power_class_charging_controller/parameters/restricted_charging
+# setup permissions for fb0 related nodes
+   chown system system /sys/class/graphics/fb0/mdp/vfps
+   chmod 664 /sys/class/graphics/fb0/mdp/vfps
+   chown system system /sys/class/graphics/fb0/mdp/vfps_fcnt
+   chmod 664 /sys/class/graphics/fb0/mdp/vfps_fcnt
+   chown system system /sys/class/graphics/fb0/mdp/vfps_ratio
+   chmod 664 /sys/class/graphics/fb0/mdp/vfps_ratio
+   chown system system /sys/class/graphics/fb0/fbcn_en
+   chmod 644 /sys/class/graphics/fb0/fbcn_en
+   chown system system /sys/class/graphics/fb0/fbcn_interval
+   chmod 644 /sys/class/graphics/fb0/fbcn_interval
+   chown system system /sys/class/graphics/fb0/fbcn_i
+   chmod 644 /sys/class/graphics/fb0/fbcn_i
+# charging fet control nodes
+   chown system system /sys/class/power_supply/battery/input_suspend
+   chmod 664 /sys/class/power_supply/battery/input_suspend
+   chown system system /sys/class/power_supply/battery/battery_charging_enabled
+   chmod 664 /sys/class/power_supply/battery/battery_charging_enabled
+
+# Power_BSP, add hard reset property
+on property:persist.vendor.lge.hardreset=1
+   write /sys/module/msm_poweroff/parameters/hard_reset 1
+on property:persist.vendor.lge.hardreset=0
+   write /sys/module/msm_poweroff/parameters/hard_reset 0
+
+# hard reset mode
+on property:persist.vendor.sys.enable_hardreset=1
+   write /sys/module/qpnp_power_on/parameters/hardreset_mode 1
+on property:persist.vendor.sys.enable_hardreset=0
+   write /sys/module/qpnp_power_on/parameters/hardreset_mode 0
+
+
+# battery fake mode
+on property:persist.vendor.lge.service.fakebatt=1
+   write /sys/class/lge_power/lge_cc/pseudo_batt "1 1 100 40 4100000 80 1"
+on property:persist.vendor.lge.service.fakebatt=0
+   write /sys/class/lge_power/lge_cc/pseudo_batt "0 1 100 40 4100000 80 1"
+
+# usb current max mode property
+on property:persist.vendor.lge.service.usbcurrentmax=1
+   write /sys/class/lge_power/lge_cable_detect/usb_current_max_mode 1
+on property:persist.vendor.lge.service.usbcurrentmax=0
+   write /sys/class/lge_power/lge_cable_detect/usb_current_max_mode 0
+
+# llk mode
+on property:persist.vendor.lge.sys.store_demo_enabled=1
+   write /sys/class/lge_power/lge_sm/store_demo_enabled 1
+on property:persist.vendor.lge.sys.store_demo_enabled=0
+   write /sys/class/lge_power/lge_sm/store_demo_enabled 0
+
+# fuel gauge dumper for debug
+service vendor.fg-dump /vendor/bin/sh /vendor/bin/fg_dump.sh 10 /data/logger/fg.log
+   user root
+   group root system
+   class main
+   disabled
+   oneshot
+
+on property:persist.vendor.lge.service.fg.enable=0
+   stop vendor.fg-dump
+on property:persist.vendor.lge.service.fg.enable=1
+   start vendor.fg-dump
+on property:persist.vendor.lge.service.fg.enable=2
+   start vendor.fg-dump
+on property:persist.vendor.lge.service.fg.enable=3
+   start vendor.fg-dump
+on property:persist.vendor.lge.service.fg.enable=4
+   start vendor.fg-dump
+on property:persist.vendor.lge.service.fg.enable=5
+   restart vendor.fg-dump
+

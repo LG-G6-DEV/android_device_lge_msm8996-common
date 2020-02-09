@@ -28,6 +28,20 @@
 #
 
 import /vendor/etc/init/hw/init.lucye.rc
+import /vendor/etc/init/hw/init.lge.power.rc
+import /vendor/etc/init/hw/init.lge.sensors.rc
+import /vendor/etc/init/hw/init.lge.usb.configfs.rc
+import /vendor/etc/init/hw/init.lge.usb.rc
+import /vendor/etc/init/hw/init.lge.audio.rc
+
+import /vendor/etc/init/init.lge.bootproperty_trigger.rc
+import /vendor/etc/init/init.lge.vendor.on_boot.rc
+import /vendor/etc/init/init.lge.vendor.on_post_fs.rc
+import /vendor/etc/init/init.lge.vendor.on_post_fs_data.rc
+import /vendor/etc/init/init.lge.vendor.on_property.rc
+import /vendor/etc/init/init.lge.vendor.services.rc
+import /vendor/etc/init/vendor.lge.power.rc
+
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}

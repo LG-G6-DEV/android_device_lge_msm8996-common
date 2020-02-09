@@ -149,7 +149,25 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+	init.lge.power.rc \
+	init.lge.sensors.rc \
+	init.lge.usb.configfs.rc \
+	init.lge.usb.rc \
+	init.lge.audio.rc \
+	init.lge.bootproperty_trigger.rc \
+	init.lge.vendor.on_boot.rc \
+	init.lge.vendor.on_post_fs.rc \
+	init.lge.vendor.on_post_fs_data.rc \
+	init.lge.vendor.on_property.rc \
+	init.lge.vendor.services.rc \
+	vendor.lge.power.rc
+
+
+
+
+
+
 
 # Display
 PRODUCT_PACKAGES += \
