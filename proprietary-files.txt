@@ -1,4 +1,7 @@
 # Audio - from H870 V30B
+lib/libaudioroute.so
+lib64/libaudioroute.so
+vendor/lib/libcdsprpc.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -6,12 +9,13 @@ vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libqtigef.so
+vendor/lib64/libcdsprpc.so
 
 # ADSP - from H870 V30B
 vendor/bin/adsprpcd
 vendor/lib64/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libcdsprpc.so|
+vendor/lib64/libcdsprpc.so
 vendor/lib64/libfastcvadsp_stub.so
 vendor/lib64/libfastcvopt.so
 vendor/lib64/libmdsprpc.so
@@ -23,7 +27,6 @@ vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/libmdsprpc.so
-vendor/lib/libmmcamera_imglib_faceproc_adspstub
 lib/libmdsprpc_system.so
 lib64/libmdsprpc_system.so
 
