@@ -381,10 +381,10 @@ vendor/lib64/vendor.qti.gnss@1.1.so
 vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 
-# Hotword Enrollment - from Stock H870 V20I
--priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
--priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
--priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
+# Hotword Enrollment - from Stock H870 V30B
+-product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
+-product/priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
+-product/priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
 # IMS - from oneplus 3
 vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so|d57f8d41f2912f44b2ccfffef60fa851370a0884
@@ -397,7 +397,10 @@ vendor/lib64/vendor.qti.ims.callinfo@1.0.so|523f6054e9d536d197defd66db9211a511a2
 vendor/lib/hw/keystore.msm8996.so
 vendor/lib64/hw/keystore.msm8996.so
 
-# Listen
+# Listen - from Stock H870 V30B
+framework/vendor.qti.voiceprint-V1.0-java.jar
+lib/vendor.qti.voiceprint@1.0.so
+lib64/vendor.qti.voiceprint@1.0.so
 vendor/lib/hw/sound_trigger.primary.msm8996.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libsmwrapper.so
