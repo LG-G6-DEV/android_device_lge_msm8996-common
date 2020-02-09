@@ -518,8 +518,8 @@ vendor/lib64/libqti-util.so
 # Power - from Stock V30B
 vendor/bin/hw/android.hardware.power@1.2-service
 vendor/etc/init/android.hardware.power@1.2-service.rc
-vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8998.so
-vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8998.so
+vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8996.so
+vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8996.so
 
 # Peripheral manager - from Stock H870 V30B
 vendor/bin/pm-proxy
@@ -711,7 +711,7 @@ vendor/lib/libsensor_reg.so
 vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
-vendor/lib64/hw/activity_recognition.msm8998.so
+vendor/lib64/hw/activity_recognition.msm8996.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensorndkbridge.so
