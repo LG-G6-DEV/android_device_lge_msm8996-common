@@ -68,6 +68,8 @@
 /sns                                                                u:object_r:sensors_data_file:s0
 /sns/cal(/.*)?                                                      u:object_r:sensors_data_file:s0
 /persist-lg/sensors(/.*)?                                           u:object_r:sensors_persist_file:s0
+/mnt/vendor/sns/cal(/.*)?											u:object_r:sensors_data_file:s0
+/mnt/vendor/sns/cal/sns.reg											u:object_r:sensors_data_file:s0
 
 # Sys
 /sys/devices/soc/soc:fpc_fpc1020/irq                            u:object_r:sysfs_fpc_irq:s0
