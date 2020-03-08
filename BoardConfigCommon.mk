@@ -69,7 +69,7 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 # Temporary: Use AOSP audio HAL features as advanced features are currently broken
-TARGET_USES_AOSP_FOR_AUDIO := false
+TARGET_USES_AOSP_FOR_AUDIO := true
 ifneq ($(TARGET_USES_AOSP_FOR_AUDIO), true)
 USE_CUSTOM_AUDIO_POLICY := 1
 AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := false
@@ -138,12 +138,7 @@ TARGET_NEEDS_LEGACY_MUTEX_HANDLE := true
 USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
-TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
-    /system/bin/mediaserver=23 \
-    /system/vendor/bin/mm-qcamera-daemon=23 \
-    /system/vendor/bin/hw/android.hardware.camera.provider@2.4-service=24 \
-    /system/vendor/bin/hw/android.hardware.audio@2.0-service=23 \
-    /system/vendor/bin/hw/android.hardware.sensors@1.0-service=22
+BOARD_QTI_CAMERA_32BIT_ONLY := true
 
 # CMHW
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
@@ -205,9 +200,6 @@ TARGET_USES_MKE2FS := true
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := firmware persist persist-lg sns mpt
-
-# pdfium
-TARGET_NEEDS_PDFIUM_BIGINT := true
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
