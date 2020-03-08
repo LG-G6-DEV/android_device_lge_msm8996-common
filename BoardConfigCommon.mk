@@ -212,7 +212,7 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 TARGET_USES_INTERACTION_BOOST := true
 
 # RIL
-TARGET_USES_OLD_MNC_FORMAT := true
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true

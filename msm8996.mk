@@ -380,7 +380,12 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.4 \
     android.hardware.radio.config@1.0 \
     libprotobuf-cpp-full \
-    librmnetctl
+    librmnetctl \
+    libxml2
+
+# Shims
+PRODUCT_PACKAGES += \
+    libui_shim
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -424,9 +429,11 @@ PRODUCT_PACKAGES += \
 	
 # Telephony
 PRODUCT_PACKAGES += \
+    ims-ext-common_system \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
+    ims-ext-common_system \
     telephony-ext
 
 # USB
