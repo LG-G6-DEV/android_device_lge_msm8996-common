@@ -22,3 +22,4 @@ type sensors_data_file, file_type, data_file_type;
 type camera_socket, file_type, data_file_type;
 type wcnss_prop, property_type;
 type tmp_root_mount_file, file_type;
+type thermal_data_file, file_type, data_file_type;
