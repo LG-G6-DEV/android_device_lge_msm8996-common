@@ -67,7 +67,7 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 # Temporary: Use AOSP audio HAL features as advanced features are currently broken
-TARGET_USES_AOSP_FOR_AUDIO := true
+TARGET_USES_AOSP_FOR_AUDIO := false
 ifneq ($(TARGET_USES_AOSP_FOR_AUDIO), true)
 USE_CUSTOM_AUDIO_POLICY := 1
 AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := false
