@@ -8,10 +8,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.mode_pref_nv10=1 \
     persist.radio.add_power_save=1
 
-# Art
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.dex2oat_thread_count=4
-
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
@@ -96,16 +92,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.use_data_netmgrd=true \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.iwlan_mux=9 \
     persist.data.iwlan.enable=true \
     persist.data.mode=concurrent \
-    persist.data.netmgrd.qos.enable=true
+    persist.data.netmgrd.qos.enable=true \
+    ro.vendor.use_data_netmgrd=true
 
-# Display
+# Display (Qualcomm Assertive Display)
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.cabl=2 \
+    ro.qcom.ad=1 \
+    ro.qcom.ad.sensortype=3 \
+    ro.vendor.display.cabl=2 \
     ro.sf.lcd_density=560
 
 # Factory Reset Protection (FRP)
@@ -120,37 +116,30 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-debug.egl.hw=1 \
-debug.gralloc.gfx_ubwc_disable=0 \
-debug.sf.enable_hwc_vds=1 \
-debug.gralloc.enable_fb_ubwc=1 \
-debug.sf.hw=1 \
-dev.pm.dyn_samplingrate=1 \
-persist.demo.hdmirotationlock=false \
-persist.hwc.enable_vds=1 \
-ro.persist.qcapb=1 \
-sdm.debug.disable_rotator_split=1 \
-sdm.debug.disable_skip_validate=1 \
-sdm.perf_hint_window=50
+    debug.egl.hw=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.hw=1 \
+    dev.pm.dyn_samplingrate=1 \
+    persist.debug.wfd.enable=1 \
+    persist.demo.hdmirotationlock=false \
+    persist.hwc.enable_vds=1 \
+    persist.sys.wfd.nohdcp=1 \
+    persist.sys.wfd.virtual=0 \
+    ro.persist.qcapb=1 \
+    vendor.display.disable_rotator_split=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.enable_default_color_mode=1 \
+    vendor.display.perf_hint_window=50 \
+    vendor.gralloc.disable_wb_ubwc=1
 
-# Media - V30B
+# Graphics (OpenGLES)
 PRODUCT_PROPERTY_OVERRIDES += \
-	media.stagefright.enable-player=true \
-	media.stagefright.enable-http=true \
-	media.stagefright.enable-aac=true \
-	media.stagefright.enable-qcp=true \
-	media.stagefright.enable-scan=true \
-	mmp.enable.3g2=true \
-	media.aac_51_output_enabled=true \
-	media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
-	mm.enable.smoothstreaming=true \
-    vendor.vidc.enc.disable.pq=true \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    vendor.video.disable.ubwc=1
+   ro.opengles.version=196610
 
-# OpenGLES
+# Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610
+   vidc.debug.perf.mode=2 \
+   vidc.enc.dcvs.extra-buff-count=2
 
 # IMS / VoLTE
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -163,8 +152,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60
+   ro.vendor.extension_library=libqti-perfd-client.so
 
 # Quick Charge
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -217,20 +205,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.lge.sensors.wul_thresh5=10000 \
 	persist.vendor.lge.sensors.lgpickup=true
 
+# Surfaceflinger
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_phase_offset_ns=1500000
+
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+# Timeservice
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_phase_offset_ns=1500000 \
-    debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000
-
-# Time services
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true \
-    persist.delta_time.enable=true
+    persist.timed.enable=true
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -240,8 +228,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.direct.interface=p2p-dev-wlan0
-
-#enable Apical AD
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qcom.ad=1 \
-    ro.qcom.ad.sensortype=3
