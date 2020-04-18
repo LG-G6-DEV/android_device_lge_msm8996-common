@@ -288,6 +288,8 @@ on post-fs-data
     #Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
+    #Create folder for time services
+    mkdir /persist/time 0770 system system
 
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
@@ -392,6 +394,9 @@ on post-fs-data
     chmod 2770 /data/vendor/perfd
     rm /data/vendor/perfd/default_values
 
+    # Create /data/time folder for time-services
+    mkdir /data/time/ 0700 system system
+
     mkdir /data/vendor/secure_element 0777 system system
 
     #Create IOP  deamon related dirs
@@ -431,9 +436,6 @@ on post-fs-data
 
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
-
-    #Start move time data to /data/vendor once post-fs-data done
-    start vendor.move_time_data
 
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
