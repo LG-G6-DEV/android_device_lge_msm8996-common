@@ -154,10 +154,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.vendor.extension_library=libqti-perfd-client.so
 
-# Quick Charge
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.hvdcp.allow_opti=1
-
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
