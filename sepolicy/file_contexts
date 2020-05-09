@@ -25,6 +25,9 @@
 /sys/devices/soc/75ba000\.spi/spi_master/spi12/spi12\.[0-1](/.*)?   u:object_r:sysfs_devices_fingerprint:s0
 /sys/devices/virtual/input/lge_fingerprint/device_prepare           u:object_r:sysfs_lge_fingerprint_prepare:s0
 
+# FPS Info
+/sys/devices/virtual/graphics/fb0/measured_fps                      u:object_r:sysfs_fps:s0
+
 # FRP partition
 /dev/block/platform/soc/624000\.ufshc/by-name/persistent            u:object_r:frp_block_device:s0
 

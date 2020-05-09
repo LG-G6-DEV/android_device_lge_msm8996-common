@@ -90,6 +90,10 @@ on boot
    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
    chmod 0660 /dev/cpuset/camera-daemon/tasks
 
+# FPS Info
+    chown system graphics /sys/class/graphics/fb0/measured_fps
+    chmod 0666 /sys/class/graphics/fb0/measured_fps
+
 #Create folder for mm-qcamera-daemon
 mkdir /data/vendor/camera 0770 camera camera
 

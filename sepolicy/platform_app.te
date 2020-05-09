@@ -12,3 +12,4 @@ allow platform_app ctl_bugreport_prop:file read;
 allow platform_app ctl_console_prop:file read;
 allow platform_app system_app_data_file:dir getattr;
 allow platform_app time_daemon:unix_stream_socket connectto;
+allow platform_app sysfs_fps:file { getattr open read };
