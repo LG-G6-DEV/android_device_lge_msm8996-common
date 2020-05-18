@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2017-2019 The Lineage Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,52 +18,63 @@
 
 set -e
 
-export INITIAL_COPYRIGHT_YEAR=2016
-export G6_DEVICE_LIST="g6 h870 h872 us997 h870ds"
+INITIAL_COPYRIGHT_YEAR=2016
 
-# Load extract_utils and do some sanity checks
-MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
+# Load extractutils and do some sanity checks
+MY_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+HAVOC_ROOT="${MY_DIR}/../../.."
+CLEANUP="$1"
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
-if [ ! -f "$HELPER" ]; then
-    echo "Unable to find helper script at $HELPER"
+HELPER="${HAVOC_ROOT}/vendor/havoc/build/tools/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
-. "$HELPER"
+source "${HELPER}"
 
-# Initialize the helper for common platform
-setup_vendor "$PLATFORM_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
-
-# Copyright headers and common guards
-write_headers "$G5_DEVICE_LIST $V20_DEVICE_LIST $G6_DEVICE_LIST"
-
-# The standard blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt true
-
-cat << EOF >> "$PRODUCTMK"
-endif
-
--include vendor/extra/devices.mk
-EOF
-
-echo "endif" >> "$ANDROIDMK"
-
-# We are done with platform
-write_footers
-
-# Reinitialize the helper for common device
-setup_vendor "$VENDOR" "$LINEAGE_ROOT" true
-
-# Reinitialize the helper for device
-setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
+# Initialize the helper for common
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${HAVOC_ROOT}" "true" "${CLEANUP}"
 
 # Copyright headers and guards
-write_headers
+write_headers "zl1 x2"
 
-write_makefiles "$MY_DIR/../$DEVICE/proprietary-files.txt" true
+# The standard msm8996-common blobs
+write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
-# We are done with device
+if [ -f "${MY_DIR}/proprietary-files-twrp.txt" ]; then
+	cat >> "${BOARDMK}" <<-EOF
+		ifeq (\$(WITH_TWRP),true)
+		TARGET_RECOVERY_DEVICE_DIRS += vendor/${VENDOR}/${DEVICE_COMMON}/proprietary
+		endif
+	EOF
+fi
+
+# We are done!
 write_footers
+
+# Reinitialize the helper for msm8996-common/${device}
+(
+	INITIAL_COPYRIGHT_YEAR="${DEVICE_BRINGUP_YEAR}"
+	setup_vendor "${DEVICE}" "${VENDOR}" "${HAVOC_ROOT}" false "${CLEANUP}"
+
+	# Copyright headers and guards
+	write_headers
+
+	# $1: The device-specific blobs
+	# $2: Make treble compatible paths and put "$(TARGET_COPY_OUT_VENDOR)"
+	#     in generated makefiles
+	write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
+
+	if [ -f "${MY_DIR}/../${DEVICE}/proprietary-files-twrp.txt" ]; then
+		cat >> "${BOARDMK}" <<-EOF
+			ifeq (\$(WITH_TWRP),true)
+			TARGET_RECOVERY_DEVICE_DIRS += vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE}/proprietary
+			endif
+		EOF
+	fi
+
+	# We are done!
+	write_footers
+)
