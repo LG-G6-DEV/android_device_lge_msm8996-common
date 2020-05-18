@@ -66,7 +66,7 @@ function blob_fixup() {
 		;;
 
 # Initialize the helper for common platform
-setup_vendor "$PLATFORM_COMMON" "$VENDOR" "$LINEAGE_ROOT" true $CLEAN_VENDOR
+setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true $CLEAN_VENDOR
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,8 +19,6 @@
 set -e
 
 export INITIAL_COPYRIGHT_YEAR=2016
-export G5_DEVICE_LIST="g5 h830 h850 rs988"
-export V20_DEVICE_LIST="v20 h910 h915 h918 h990 vs995 us996 ls997"
 export G6_DEVICE_LIST="g6 h870 h872 us997 h870ds"
 
 # Load extract_utils and do some sanity checks
@@ -57,29 +55,7 @@ echo "endif" >> "$ANDROIDMK"
 write_footers
 
 # Reinitialize the helper for common device
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
-
-# Copyright headers and guards
-case "$DEVICE_COMMON" in
-g5-common)
-    write_headers "$G5_DEVICE_LIST"
-;;
-g6-common)
-    write_headers "$G6_DEVICE_LIST"
-;;
-v20-common)
-    write_headers "$V20_DEVICE_LIST"
-;;
-*)
-    printf 'Unknown device common: "%s"\n' "$DEVICE_COMMON"
-    exit 1
-;;
-esac
-
-write_makefiles "$MY_DIR/../$DEVICE_COMMON/proprietary-files.txt" true
-
-# We are done with common
-write_footers
+setup_vendor "$VENDOR" "$LINEAGE_ROOT" true
 
 # Reinitialize the helper for device
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
