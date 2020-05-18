@@ -101,8 +101,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.ad=1 \
     ro.qcom.ad.sensortype=3 \
-    ro.vendor.display.cabl=2 \
-    ro.sf.lcd_density=560
+    ro.vendor.display.cabl=2
 
 # Factory Reset Protection (FRP)
 PRODUCT_PROPERTY_OVERRIDES += \
