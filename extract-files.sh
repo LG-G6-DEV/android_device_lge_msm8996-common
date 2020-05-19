@@ -1,4 +1,3 @@
- 
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
@@ -18,9 +17,6 @@
 #
 
 set -e
-
-export DEVICE_COMMON=msm8996-common
-export VENDOR=lge
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -69,17 +65,25 @@ if [ -z "${SRC}" ]; then
 fi
 
 function blob_fixup() {
-	case "${1}" in
+    case "${1}" in
 
-	# Correct android.hidl.manager@1.0-java jar name
-	vendor/etc/permissions/qti_libpermissions.xml)
-		sed -i -e 's|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g' "${2}"
-		;;
+    # Correct android.hidl.manager@1.0-java jar name
+    vendor/etc/permissions/qti_libpermissions.xml)
+        sed -i -e 's|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g' "${2}"
+        ;;
 
-	# make imsrcsd and lib-uceservice load haxxed libbase
-	vendor/lib64/lib-uceservice.so | vendor/bin/imsrcsd)
-		patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
-		;;
+    # make imsrcsd and lib-uceservice load haxxed libbase
+    vendor/lib64/lib-uceservice.so | vendor/bin/imsrcsd)
+        patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
+        ;;
+
+    # Use vndk-27 android.hardware.gnss@1.0.so
+    lib64/vendor.qti.gnss@1.0.so | vendor/lib64/vendor.qti.gnss@1.0_vendor.so)
+        patchelf --replace-needed "android.hardware.gnss@1.0.so" "android.hardware.gnss@1.0-v27.so" "${2}"
+        ;;
+
+    esac
+}
 
 # Initialize the helper for common device
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${HAVOC_ROOT}" true "${CLEAN_VENDOR}"
@@ -100,8 +104,5 @@ if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt
     extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" \
             "${KANG}" --section "${SECTION}"
 fi
-
-patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $BLOB_ROOT/vendor/lib64/vendor.qti.gnss@1.0_vendor.so
-patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $BLOB_ROOT/lib64/vendor.qti.gnss@1.0.so
 
 "${MY_DIR}/setup-makefiles.sh"
