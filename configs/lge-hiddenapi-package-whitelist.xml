@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This XML file declares which platform apps that need to access internal APIs.
+e.g.:
+    <hidden-api-whitelisted-app package="com.lge.foobar" />
+-->
+<config>
+    <hidden-api-whitelisted-app package="com.android.providers.partnerbookmarks" />
+    <hidden-api-whitelisted-app package="com.lge.camera" />
+    <hidden-api-whitelisted-app package="com.lge.datarestore.calendar" />
+    <hidden-api-whitelisted-app package="com.lge.filemanager" />
+    <hidden-api-whitelisted-app package="com.lge.gallery.aodimagewidget" />
+    <hidden-api-whitelisted-app package="com.lge.gallery.collagewallpaper" />
+    <hidden-api-whitelisted-app package="com.lge.hifirecorder" />
+    <hidden-api-whitelisted-app package="com.lge.ime" />
+    <hidden-api-whitelisted-app package="com.lge.ime.solution.handwriting" />
+    <hidden-api-whitelisted-app package="com.lge.ime.solution.text" />
+    <hidden-api-whitelisted-app package="com.lge.ime.solution.tshanja" />
+    <hidden-api-whitelisted-app package="com.lge.ime.myavatar.default01" />
+    <hidden-api-whitelisted-app package="com.lge.ime.myavatar.default02" />
+    <hidden-api-whitelisted-app package="com.lge.ime.myavatar.default03" />
+    <hidden-api-whitelisted-app package="com.lge.ime.content.special" />
+    <hidden-api-whitelisted-app package="com.lge.ivvm.jansky" />
+    <hidden-api-whitelisted-app package="com.lge.lgmapui" />
+    <hidden-api-whitelisted-app package="com.lge.snappage" />
+    <hidden-api-whitelisted-app package="com.lge.task" />
+    <hidden-api-whitelisted-app package="com.lge.vvm" />
+    <hidden-api-whitelisted-app package="com.lge.cinemagraph" />
+    <hidden-api-whitelisted-app package="com.android.contacts" />
+</config>

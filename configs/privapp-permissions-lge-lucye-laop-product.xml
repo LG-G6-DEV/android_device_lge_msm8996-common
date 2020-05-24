@@ -199,6 +199,11 @@
         <permission name="android.permission.STATUS_BAR"/>
     </privapp-permissions>
 
+    <privapp-permissions package="com.lge.gallery">
+        <permission name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    </privapp-permissions>
+
     <privapp-permissions package="com.lge.gba.android">
         <permission name="android.permission.CONNECTIVITY_INTERNAL"/>
         <permission name="android.permission.MODIFY_PHONE_STATE"/>
