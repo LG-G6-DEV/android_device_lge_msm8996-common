@@ -24,10 +24,10 @@ INITIAL_COPYRIGHT_YEAR=2016
 MY_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-HAVOC_ROOT="${MY_DIR}/../../.."
+LINEAGE_ROOT="${MY_DIR}/../../.."
 CLEANUP="$1"
 
-HELPER="${HAVOC_ROOT}/vendor/havoc/build/tools/extract_utils.sh"
+HELPER="${LINEAGE_ROOT}/vendor/havoc/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -35,7 +35,7 @@ fi
 source "${HELPER}"
 
 # Initialize the helper for common
-setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${HAVOC_ROOT}" "true" "${CLEANUP}"
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" "true" "${CLEANUP}"
 
 # Copyright headers and guards
 write_headers "zl1 x2"
@@ -57,7 +57,7 @@ write_footers
 # Reinitialize the helper for msm8996-common/${device}
 (
 	INITIAL_COPYRIGHT_YEAR="${DEVICE_BRINGUP_YEAR}"
-	setup_vendor "${DEVICE}" "${VENDOR}" "${HAVOC_ROOT}" false "${CLEANUP}"
+	setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" false "${CLEANUP}"
 
 	# Copyright headers and guards
 	write_headers
