@@ -236,20 +236,21 @@ PRODUCT_GMS_CLIENTID_BASE := android-om-lg
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
-    libcurl \
+    android.hardware.gnss@2.0-impl-qti:64 \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
     libgnss \
-    libgnsspps \
-    libsensorndkbridge
+    libwifi-hal-ctrl
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
-    $(LOCAL_PATH)/configs/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
-    $(LOCAL_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
-    $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
+    $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(LOCAL_PATH)/gps/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/gps/etc/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(LOCAL_PATH)/gps/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
+    $(LOCAL_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
+    $(LOCAL_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
 # HDR
 PRODUCT_COPY_FILES += \
@@ -278,7 +279,9 @@ PRODUCT_COPY_FILES += \
 # Permission - Lucye
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
-    $(LOCAL_PATH)/configs/product/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop-product.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
+    $(LOCAL_PATH)/configs/com.lge.lgapps_permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/com.lge.lgapps_permissions.xml \
+    $(LOCAL_PATH)/configs/lge-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/sysconfig/lge-hiddenapi-package-whitelist.xml
 
 # IPACM
 PRODUCT_PACKAGES += \

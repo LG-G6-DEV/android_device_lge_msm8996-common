@@ -320,8 +320,6 @@
 66:4294967295:1001
 /*LTE*/
 70:4294967295:1001
-/*OEM*/
-228:4294967295:1001
 /* Allow Data dpmd to access QMI DFS */
 48:4294967295:1000:3004
 /* DIAG */
@@ -330,5 +328,3 @@
 69:4294967295:1000
 /* <WLPS QMI Service ID - 0x39>:<WLFW QMI Instance ID - all instances>:<Client Group ID> */
 57:4294967295:1000
-/* Allow VSS GNSS service to be used by system and net_raw processes */
-704:4294967295:1000:3004

@@ -18,6 +18,10 @@
 
 set -e
 
+export DEVICE_COMMON=msm8996-common
+export VENDOR=lge
+export DEVICE_BRINGUP_YEAR=2016
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
@@ -75,11 +79,6 @@ function blob_fixup() {
     # make imsrcsd and lib-uceservice load haxxed libbase
     vendor/lib64/lib-uceservice.so | vendor/bin/imsrcsd)
         patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
-        ;;
-
-    # Use vndk-27 android.hardware.gnss@1.0.so
-    lib64/vendor.qti.gnss@1.0.so | vendor/lib64/vendor.qti.gnss@1.0_vendor.so)
-        patchelf --replace-needed "android.hardware.gnss@1.0.so" "android.hardware.gnss@1.0-v27.so" "${2}"
         ;;
 
     esac
