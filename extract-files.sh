@@ -104,6 +104,11 @@ function blob_fixup() {
         sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
         ;;
 
+    # Move ims libs to product
+    product/etc/permissions/com.qualcomm.qti.imscmservice.xml)
+        sed -i -e 's|file="/system/framework/|file="/product/framework/|g' "${2}"
+        ;;
+
     esac
 }
 
