@@ -1153,6 +1153,12 @@ vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|8e1608876dcdd4925999e0f4f3460
 # Postprocessing - from V30B
 vendor/etc/qdcm_calib_data_SW49408_1440_2880_cmd_mode_dsc_dsi_panel.xml
 
+# Power - from V30B
+vendor/bin/hw/android.hardware.power@1.2-service
+vendor/etc/init/android.hardware.power@1.2-service.rc
+vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8996.so
+vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8996.so
+
 # Quick charge - from Stock H870 V30B
 vendor/bin/hvdcp_opti
 
