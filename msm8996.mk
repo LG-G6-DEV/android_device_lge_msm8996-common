@@ -283,6 +283,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/com.lge.lgapps_permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/com.lge.lgapps_permissions.xml \
     $(LOCAL_PATH)/configs/lge-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/sysconfig/lge-hiddenapi-package-whitelist.xml
 
+# Prebuilts
+PRODUCT_PACKAGES += \
+    LGCameraApp
+
 # IPACM
 PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
