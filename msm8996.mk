@@ -240,8 +240,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@2.0-service-qti \
     libbatching \
     libgeofencing \
-    libgnss \
-    libwifi-hal-ctrl
+    libgnss
 
 
 PRODUCT_COPY_FILES += \
