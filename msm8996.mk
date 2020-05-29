@@ -278,9 +278,7 @@ PRODUCT_COPY_FILES += \
 # Permission - Lucye
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
-    $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop-product.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
-    $(LOCAL_PATH)/configs/com.lge.lgapps_permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/com.lge.lgapps_permissions.xml \
-    $(LOCAL_PATH)/configs/lge-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/sysconfig/lge-hiddenapi-package-whitelist.xml
+    $(LOCAL_PATH)/configs/product/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml
 
 # IPACM
 PRODUCT_PACKAGES += \
