@@ -1017,8 +1017,8 @@ vendor/lib64/vendor.qti.gnss@3.0-service.so|6b3c387f31f4cb91c8907362af4daa3f0cad
 vendor/lib64/vendor.qti.gnss@3.0.so|c5ed668d324e7c898ca026fc12dad8829cd8a944
 
 # GPS (libwifi-hal-ctrl) - from leeco x2
-vendor/lib/libwif-hal-ctrl.so
-vendor/lib64/libwif-hal-ctrl.so
+vendor/lib/libwifi-hal-ctrl.so
+vendor/lib64/libwifi-hal-ctrl.so
 
 # Hotword Enrollment - from Stock H870 V30B
 -product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
@@ -1453,3 +1453,49 @@ vendor/lib64/libbase-hax.so|0bdae22ed6c050b13358c91dd332c9ef0c836ae7
 vendor/lib64/libhui.so
 vendor/lib64/libux.so
 vendor/lib64/lib-sec-disp.so
+
+# AOD - H870 V30B
+lib/vendor.lge.hardware.aod.aodview@1.0.so
+lib/vendor.lge.hardware.aod.aodpower@1.0.so
+lib/vendor.lge.hardware.aod.aodcommon@1.0.so
+lib64/vendor.lge.hardware.aod.aodview@1.0.so
+lib64/vendor.lge.hardware.aod.aodpower@1.0.so
+lib64/vendor.lge.hardware.aod.aodcommon@1.0.so
+framework/vendor.lge.hardware.aod.aodview-V1.0-java.jar
+framework/vendor.lge.hardware.aod.aodpower-V1.0-java.jar
+framework/vendor.lge.hardware.aod.aodcommon-V1.0-java.jar
+product/lib/libaodlayer.so
+product/lib64/libaodlayer.so
+vendor/bin/hw/vendor.lge.hardware.aod.aodview@1.0-service
+vendor/bin/hw/vendor.lge.hardware.aod.aodpower@1.0-service
+vendor/bin/hw/vendor.lge.hardware.aod.aodcommon@1.0-service
+vendor/etc/init/vendor.lge.hardware.aod.aodview@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.aod.aodpower@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.aod.aodcommon@1.0-service.rc
+
+# LGE Display - H870 V30B
+lib/vendor.lge.hardware.display.tune@1.0.so
+lib/vendor.lge.hardware.display.uevent@1.0.so
+lib/vendor.lge.hardware.display.general@1.0.so
+lib/vendor.lge.hardware.display.brightness@1.0.so
+lib/vendor.lge.hardware.display.brightness@1.1.so
+lib64/vendor.lge.hardware.display.tune@1.0.so
+lib64/vendor.lge.hardware.display.uevent@1.0.so
+lib64/vendor.lge.hardware.display.general@1.0.so
+lib64/vendor.lge.hardware.display.brightness@1.0.so
+lib64/vendor.lge.hardware.display.brightness@1.1.so
+framework/vendor.lge.hardware.display.tune-V1.0-java.jar
+framework/vendor.lge.hardware.display.uevent-V1.0-java.jar
+framework/vendor.lge.hardware.display.general-V1.0-java.jar
+framework/vendor.lge.hardware.display.brightness-V1.0-java.jar
+framework/vendor.lge.hardware.display.brightness-V1.1-java.jar
+vendor/bin/hw/vendor.lge.hardware.display.tune@1.0-service
+vendor/bin/hw/vendor.lge.hardware.display.uevent@1.0-service
+vendor/bin/hw/vendor.lge.hardware.display.general@1.0-service
+vendor/bin/hw/vendor.lge.hardware.display.brightness@1.0-service
+vendor/etc/init/vendor.lge.hardware.display.tune@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.display.uevent@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.display.general@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.display.brightness@1.0-service.rc
+vendor/lib/hw/vendor.lge.hardware.display.uevent@1.0-impl.so
+vendor/lib64/hw/vendor.lge.hardware.display.uevent@1.0-impl.so

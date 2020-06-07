@@ -206,7 +206,7 @@ on boot
     chown system system /sys/devices/virtual/ext_watch/query_fonteffect
     chmod 664 /sys/devices/virtual/ext_watch/query_fonteffect
 
-    # Always on Display
+    # Begin AOD Display New Feature
     chown system system /sys/class/graphics/fb0/aod
     chmod 664 /sys/class/graphics/fb0/aod
     chown system system /sys/class/graphics/fb0/keep_aod
@@ -215,26 +215,71 @@ on boot
     chmod 644 /sys/class/graphics/fb0/cur_panel_mode
     chown system system /sys/class/leds/lcd-backlight-ex/brightness
     chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
-    chown system system /system/bin/AODLayer
-    chmod 664 /system/bin/AODLayer
+    # End AOD Display new Feature
 
-    # High Luminance Mode
+    # Begin AOD Display font download with mipi
+    chown system system /system/bin/AODLayer
+    chmod 777 /system/bin/AODLayer
+    chown system system /sys/class/graphics/fb0/config_font_download
+    chmod 664 /sys/class/graphics/fb0/config_font_download
+    chown system system /sys/class/graphics/fb0/config_fontonoff
+    chmod 664 /sys/class/graphics/fb0/config_fontonoff
+    chown system system /sys/class/graphics/fb0/config_fontposition
+    chmod 664 /sys/class/graphics/fb0/config_fontposition
+    chown system system /sys/class/graphics/fb0/config_fontproperty
+    chmod 664 /sys/class/graphics/fb0/config_fontproperty
+    chown system system /sys/class/graphics/fb0/config_fonteffect
+    chmod 664 /sys/class/graphics/fb0/config_fonteffect
+    chown system system /sys/class/graphics/fb0/config_timesync
+    chmod 664 /sys/class/graphics/fb0/config_timesync
+    chown system system /sys/class/graphics/fb0/font_type
+    chmod 664 /sys/class/graphics/fb0/font_type
+    chown system system /sys/class/graphics/fb0/scroll
+    chmod 664 /sys/class/graphics/fb0/scroll
+    chown system system /sys/class/graphics/fb0/fade_in_out
+    chmod 664 /sys/class/graphics/fb0/fade_in_out
+    chown system system  /sys/class/graphics/fb0/get_watch
+    chmod 664  /sys/class/graphics/fb0/get_watch
+    chown system system  /sys/class/graphics/fb0/set_watch
+    chmod 664  /sys/class/graphics/fb0/set_watch
+    chown system system  /sys/class/graphics/fb0/set_roi
+    chmod 664  /sys/class/graphics/fb0/set_roi
+    # End AOD Display font download with mipi
+
+    # Begin High Luminance Mode Features
     chown system system /sys/devices/virtual/graphics/fb0/hl_mode
     chmod 664 /sys/devices/virtual/graphics/fb0/hl_mode
+    # End High Luminance Mode Features
 
-    # Thermal BL Max
-    chown system system /sys/devices/virtual/graphics/fb0/thermal_blmax
-    chmod 664 /sys/devices/virtual/graphics/fb0/thermal_blmax
-
-    # Image Tune
+    # Begin Img Tune Features
     chown system system /sys/class/panel/img_tune/sharpness
-    chown system system /sys/class/panel/img_tune/color_enhancement
-    chown system system /sys/class/panel/img_tune/image_enhance_set
-    chown system system /sys/class/panel/img_tune/cabc
     chmod 664 /sys/class/panel/img_tune/sharpness
-    chmod 664 /sys/class/panel/img_tune/color_enhancement
-    chmod 664 /sys/class/panel/img_tune/image_enhance_set
+    chown system system /sys/class/panel/img_tune/cabc
     chmod 664 /sys/class/panel/img_tune/cabc
+    chown system system /sys/class/panel/img_tune/daylight_mode
+    chmod 664 /sys/class/panel/img_tune/daylight_mode
+    chown system system /sys/class/panel/img_tune/dolby_mode
+    chmod 664 /sys/class/panel/img_tune/dolby_mode
+    chown system system /sys/class/panel/img_tune/hdr_mode
+    chmod 664 /sys/class/panel/img_tune/hdr_mode
+    chown system system /sys/class/panel/img_tune/comfort_view
+    chmod 664 /sys/class/panel/img_tune/comfort_view
+    chown system system /sys/class/panel/img_tune/rgb_tune
+    chmod 664 /sys/class/panel/img_tune/rgb_tune
+    chown system system /sys/class/panel/img_tune/screen_mode
+    chmod 664 /sys/class/panel/img_tune/screen_mode
+    chown system system /sys/class/panel/img_tune/screen_tune
+    chmod 664 /sys/class/panel/img_tune/screen_tune
+    # End Img Tune Features
+
+    # Begin Display General Features
+    chown system system /sys/class/graphics/fb0/msm_fb_persist_mode
+    chmod 664 /sys/class/graphics/fb0/msm_fb_persist_mode
+    # End Display General Features
+
+    # Begin system group permission for lcd brightness
+    chmod 664 /sys/class/leds/lcd-backlight/brightness
+    # End system group permission for lcd brightness
 
     # Vibrator adjustment
     chown system system /sys/class/timed_output/vibrator/amp

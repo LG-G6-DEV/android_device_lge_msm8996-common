@@ -118,4 +118,60 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.aod.aodcommon</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAodCommon</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.aod.aodpower</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAodPower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.aod.aodview</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAodView</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.display.brightness</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayBrightness</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.display.general</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayGeneral</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.display.tune</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayTune</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.display.uevent</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayUevent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

@@ -782,4 +782,74 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
         <fqname>@1.2::IProperty/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodcommon</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodCommon</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodCommon/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodpower</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodPower</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodview</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodView</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodView/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.brightness</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayBrightness</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayBrightness/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.general</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayGeneral</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayGeneral/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.tune</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayTune</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayTune/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.uevent</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayUevent</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayUevent/default</fqname>
+    </hal>
 </manifest>
