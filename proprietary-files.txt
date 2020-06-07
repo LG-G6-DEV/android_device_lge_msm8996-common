@@ -1499,3 +1499,32 @@ vendor/etc/init/vendor.lge.hardware.display.general@1.0-service.rc
 vendor/etc/init/vendor.lge.hardware.display.brightness@1.0-service.rc
 vendor/lib/hw/vendor.lge.hardware.display.uevent@1.0-impl.so
 vendor/lib64/hw/vendor.lge.hardware.display.uevent@1.0-impl.so
+
+# LGE Lights - H870 V30B
+lib/vendor.lge.hardware.light@1.0.so
+lib64/vendor.lge.hardware.light@1.0.so
+vendor/bin/hw/vendor.lge.hardware.light@1.0-service
+vendor/etc/init/vendor.lge.hardware.light@1.0-service.rc
+vendor/lib/hw/vendor.lge.hardware.light@1.0-impl.so
+vendor/lib/hw/lights.msm8996.so
+vendor/lib64/hw/vendor.lge.hardware.light@1.0-impl.so
+vendor/lib64/hw/lights.msm8996.so
+
+# LGE Accessory - H870 V30B
+lib/vendor.lge.hardware.accessory@1.0.so
+lib/vendor.lge.hardware.accessory.uevent@1.0.so
+lib64/vendor.lge.hardware.accessory@1.0.so
+lib64/vendor.lge.hardware.accessory.uevent@1.0.so
+framework/vendor.lge.hardware.accessory-V1.0-java.jar
+framework/vendor.lge.hardware.accessory.uevent-V1.0-java.jar
+vendor/bin/hw/vendor.lge.hardware.accessory@1.0-service
+vendor/etc/init/vendor.lge.hardware.accessory@1.0-service.rc
+vendor/lib/hw/vendor.lge.hardware.accessory@1.0-impl.so
+vendor/lib/hw/vendor.lge.hardware.accessory.uevent@1.0-impl.so
+vendor/lib64/hw/vendor.lge.hardware.accessory@1.0-impl.so
+vendor/lib64/hw/vendor.lge.hardware.accessory.uevent@1.0-impl.so
+
+# LGE DualScreen - H870 V30B
+lib/vendor.lge.hardware.dualscreen@1.0.so
+lib64/vendor.lge.hardware.dualscreen@1.0.so
+framework/vendor.lge.hardware.dualscreen-V1.0-java.jar

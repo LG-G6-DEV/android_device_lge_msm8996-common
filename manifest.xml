@@ -852,4 +852,34 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
         <fqname>@1.0::IDisplayUevent/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILightEx</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ILightEx/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.accessory</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAccessory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAccessory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.accessory.uevent</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAccessoryUevent</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAccessoryUevent/default</fqname>
+    </hal>
 </manifest>

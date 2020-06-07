@@ -174,4 +174,28 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.light</name>
+        <version>1.0</version>
+        <interface>
+            <name>ILightEx</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.accessory</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAccessory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lge.hardware.accessory.uevent</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAccessoryUevent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
