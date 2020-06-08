@@ -27,7 +27,7 @@
     <bool name="config_swipe_up_gesture_setting_available">true</bool>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">6</integer>
+    <integer name="config_screenBrightnessDim">1</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -247,7 +247,7 @@
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">17</integer>
+    <integer name="config_screenBrightnessDoze">1</integer>
 
     <!-- Specifies whether to decouple the auto-suspend state of the device from the display on/off state. -->
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
@@ -478,5 +478,51 @@
         <item>376.2</item>
         <item>392.9</item>
     </array>
+
+    <!-- LGE AOD arrays & bools, exctracted from lge-res.apk -->
+    <array name="config_aod_area">
+        <item>420</item>
+        <item>@null</item>
+    </array>
+
+    <array name="config_aod_alc_backlight">
+        <item>9</item>
+        <item>36</item>
+        <item>75</item>
+        <item>115</item>
+        <item>140</item>
+        <item>140</item>
+    </array>
+    <array name="config_aod_alc_backlight_when_pick_up">
+        <item>9</item>
+        <item>36</item>
+        <item>97</item>
+        <item>134</item>
+        <item>159</item>
+        <item>159</item>
+    </array>
+    <array name="config_aod_alc_threshold_level">
+        <item>2</item>
+        <item>10</item>
+        <item>1500</item>
+    </array>
+
+    <array name="config_second_screen_aod_alc_threshold_level">
+        <item>2</item>
+        <item>10</item>
+        <item>1500</item>
+        <item>3100</item>
+        <item>10000</item>
+    </array>
+
+    <bool name="config_aod_blackframe">false</bool>
+    <bool name="config_enable_aod_widget">false</bool>
+    <bool name="config_main_aod_enabled">true</bool>
+    <bool name="config_main_aod_mipi_enabled">true</bool>
+    <bool name="config_enable_aod_service">true</bool>
+    <bool name="config_poled_aod_enabled">false</bool>
+    <bool name="config_supportCoverAod">false</bool>
+    <bool name="config_support_smartaod">true</bool>
+    <bool name="config_support_aod_brighter_display">true</bool>
 
 </resources>

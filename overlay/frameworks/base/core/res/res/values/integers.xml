@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2017, The Android Open Source Project
+** Copyright 2020, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -18,13 +18,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds.  Do not translate. -->
-    <!-- Do not translate. Default access point SSID used for tethering -->
-    <string name="wifi_tether_configure_ssid_default" translatable="false">G6</string>
-
-<!-- LGE AOD strings, exctracted from lge-res.apk -->
-    <string name="permdesc_bind_signboard_aod_update_wake_lock">Allows the application to access the Signboard service and AodUpdateWakeLock callback.</string>
-    <string name="permlab_bind_signboard_aod_update_wake_lock">Access to Signboard AodUpdateWakeLock</string>
+<!-- LGE AOD integers, exctracted from lge-res.apk -->
+    <integer name="aod_screen_wakelock_release_delay_time">0</integer>
+    <integer name="config_aod_big_shift_count">60</integer>
+    <integer name="config_aod_display_type">2</integer>
+    <integer name="config_aod_state">500</integer>
+    <integer name="config_aod_alpha_mask">255</integer>
+    <integer name="main_aod_height_int">800</integer>
+    <integer name="main_aod_width_int">600</integer>
 
 </resources>
