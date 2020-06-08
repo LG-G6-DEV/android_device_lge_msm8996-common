@@ -131,7 +131,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.perf_hint_window=50 \
     vendor.gralloc.disable_wb_ubwc=1 \
     persist.sys.sf.color_saturation=1.1 \
-    debug.hwui.renderer=skiagl
+    debug.hwui.renderer=skiagl \
+    persist.sys.aodstatus_byuser=true
 
 # Graphics (OpenGLES)
 PRODUCT_PROPERTY_OVERRIDES += \
