@@ -42,3 +42,5 @@ allow init hal_perf_default:binder { call };
 
 allow init init:binder { call };
 allow init system_file:file { mounton };
+
+allow init sysfs_graphics:file { open read write };
