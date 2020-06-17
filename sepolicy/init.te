@@ -42,3 +42,4 @@ allow init hal_perf_default:binder { call };
 
 allow init init:binder { call };
 allow init system_file:file { mounton };
+allow init hal_thermal_hwservice:hwservice_manager { find add }; 

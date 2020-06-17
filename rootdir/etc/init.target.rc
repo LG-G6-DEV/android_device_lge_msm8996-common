@@ -208,13 +208,16 @@ service secotad /system/vendor/bin/secotad
 #   group system
 #   disabled
 #
-service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine.conf
-   class hal
+service thermal-engine /system/vendor/bin/thermal-engine
+   class main
    user root
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
    group root system diag
    writepid /dev/cpuset/system-background/tasks
 
