@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2020 The LineageOS Project
+ *               2017-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,18 @@ package org.lineageos.settings.doze;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.hardware.display.AmbientDisplayConfiguration;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.UserHandle;
 import android.support.v7.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 
+import java.util.List;
+
+import static android.provider.Settings.Secure.DOZE_ALWAYS_ON;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 
 public final class Utils {
@@ -56,32 +61,21 @@ public final class Utils {
     }
 
     protected static void checkDozeService(Context context) {
-        if (isDozeEnabled(context) && !isAlwaysOnEnabled(context) && sensorsEnabled(context)
+        if (isDozeEnabled(context) && !isAlwaysOnEnabled(context) && sensorsEnabled(context)) {
             startService(context);
         } else {
             stopService(context);
         }
     }
 
-    protected static boolean getProxCheckBeforePulse(Context context) {
-        try {
-            Context con = context.createPackageContext("com.android.systemui", 0);
-            int id = con.getResources().getIdentifier("doze_proximity_check_before_pulse",
-                    "bool", "com.android.systemui");
-            return con.getResources().getBoolean(id);
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
+    protected static boolean isDozeEnabled(Context context) {
+        return Settings.Secure.getInt(context.getContentResolver(),
+                DOZE_ENABLED, 1) != 0;
     }
 
     protected static boolean enableDoze(Context context, boolean enable) {
         return Settings.Secure.putInt(context.getContentResolver(),
                 DOZE_ENABLED, enable ? 1 : 0);
-    }
-
-    protected static boolean isDozeEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(),
-                DOZE_ENABLED, 1) != 0;
     }
 
     protected static void launchDozePulse(Context context) {
@@ -97,20 +91,15 @@ public final class Utils {
 
     protected static boolean isAlwaysOnEnabled(Context context) {
         final boolean enabledByDefault = context.getResources()
-        .getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnEnabled);
+                .getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnEnabled);
 
         return Settings.Secure.getIntForUser(context.getContentResolver(),
-        DOZE_ALWAYS_ON, alwaysOnDisplayAvailable(context) && enabledByDefault ? 1 : 0,
-        UserHandle.USER_CURRENT) != 0;
+                DOZE_ALWAYS_ON, alwaysOnDisplayAvailable(context) && enabledByDefault ? 1 : 0,
+                UserHandle.USER_CURRENT) != 0;
     }
 
     protected static boolean alwaysOnDisplayAvailable(Context context) {
         return new AmbientDisplayConfiguration(context).alwaysOnAvailable();
-    }
-
-    protected static void enableGesture(Context context, String gesture, boolean enable) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit()
-                .putBoolean(gesture, enable).apply();
     }
 
     protected static boolean isGestureEnabled(Context context, String gesture) {
@@ -133,5 +122,18 @@ public final class Utils {
     protected static boolean sensorsEnabled(Context context) {
         return isPickUpEnabled(context) || isHandwaveGestureEnabled(context)
                 || isPocketGestureEnabled(context);
+    }
+
+    protected static Sensor findSensorWithType(SensorManager sensorManager, String type) {
+        if (TextUtils.isEmpty(type)) {
+            return null;
+        }
+        List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ALL);
+        for (Sensor s : sensorList) {
+            if (type.equals(s.getStringType())) {
+                return s;
+            }
+        }
+        return null;
     }
 }

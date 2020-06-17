@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2020 The LineageOS Project
+ *               2017-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -51,6 +52,8 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPocketPreference;
 
+    private Handler mHandler = new Handler();
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.doze_settings);
@@ -69,7 +72,7 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mAlwaysOnDisplayPreference.setEnabled(dozeEnabled);
         mAlwaysOnDisplayPreference.setChecked(Utils.isAlwaysOnEnabled(getActivity()));
         mAlwaysOnDisplayPreference.setOnPreferenceChangeListener(this);
-        
+
         PreferenceCategory proximitySensorCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(Utils.CATEG_PROX_SENSOR);
 
@@ -85,9 +88,11 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mPocketPreference.setEnabled(dozeEnabled);
         mPocketPreference.setOnPreferenceChangeListener(this);
 
-        // Hide proximity sensor related features if the device doesn't support them
-        if (!Utils.getProxCheckBeforePulse(getActivity())) {
-            getPreferenceScreen().removePreference(proximitySensorCategory);
+        // Hide AOD if not supported and set all its dependents otherwise
+        if (!Utils.alwaysOnDisplayAvailable(getActivity())) {
+            getPreferenceScreen().removePreference(mAlwaysOnDisplayPreference);
+        } else {
+            proximitySensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
         }
     }
 
@@ -124,10 +129,9 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (Utils.ALWAYS_ON_DISPLAY.equals(preference.getKey())) {
             Utils.enableAlwaysOn(getActivity(), (Boolean) newValue);
-        } else {
-            Utils.enableGesture(getActivity(), preference.getKey(), (Boolean) newValue);
         }
-        Utils.checkDozeService(getActivity());
+
+        mHandler.post(() -> Utils.checkDozeService(getActivity()));
 
         return true;
     }
