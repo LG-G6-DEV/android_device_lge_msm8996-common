@@ -15,7 +15,7 @@ import com.lge.settings.device.utils.Constants;
 
 public class AODService extends Service {
     private static final String TAG = "AODService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     @Override
     public void onCreate() {
@@ -57,13 +57,11 @@ public class AODService extends Service {
         
         AmbientDisplayConfiguration mConfig = new AmbientDisplayConfiguration(context);
 
+        Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
+
         if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) {
             if (DEBUG) Log.d(TAG, "AOD Enabled");
-            Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
             Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
-        } else {
-            if (DEBUG) Log.d(TAG, "AOD Disabled");
-            Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
         }
     }
 
