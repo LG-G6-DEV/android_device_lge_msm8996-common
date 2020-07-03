@@ -24,6 +24,7 @@ import android.os.SystemProperties;
 import android.provider.Settings;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.EditTextPreference;
 import android.preference.SwitchPreference;
@@ -33,6 +34,7 @@ import android.widget.Toast;
 
 import com.lge.settings.device.Battery;
 import com.lge.settings.device.utils.Constants;
+import com.lge.settings.device.utils.PreferenceHelper;
 import com.lge.settings.device.utils.NodePreferenceActivity;
 
 public class DeviceSettings extends NodePreferenceActivity {
@@ -41,6 +43,7 @@ public class DeviceSettings extends NodePreferenceActivity {
 	private EditTextPreference cyclePreference;
     private EditTextPreference tempPreference;
     private EditTextPreference healthPreference;
+    private ListPreference mAodBacklight;
     private SwitchPreference mDaylightModeSwitch;
 
     @Override
@@ -65,6 +68,10 @@ public class DeviceSettings extends NodePreferenceActivity {
         tempPreference.setSummary(Battery.getBatteryTemp()+"°C");
         healthPreference.setSummary(Battery.getBatteryHealth());
 
+        mAodBacklight = (ListPreference) findPreference(Constants.AOD_KEY);
+        mAodBacklight.setValue(Integer.toString(PreferenceHelper.getAodBacklightType(this)));
+        mAodBacklight.setOnPreferenceChangeListener(this);
+
         mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
         mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());
         mDaylightModeSwitch.setChecked(DaylightModeSwitch.isCurrentlyEnabled(this));
@@ -80,5 +87,15 @@ public class DeviceSettings extends NodePreferenceActivity {
 
         // mHapticFeedback.setChecked(
         //         Settings.System.getInt(getContentResolver(), KEY_HAPTIC_FEEDBACK, 1) != 0);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mAodBacklight) {
+            int val = Integer.parseInt((String) newValue);
+            PreferenceHelper.setAodBacklightType(this, val);
+            return true;
+        }
+        return false;
     }
 }
