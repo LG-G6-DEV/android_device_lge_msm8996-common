@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="screen_gestures_panel_title">Device Extras</string>
     <string name="screen_gestures_panel_summary">Szybkie ładowanie, Ambient display, KCAL</string>
 
     <!-- Battery -->
     <string name="battery_summary">Bateria</string>
-    <string name="fast_charge_title">USB Szybkie ładowanie</string>
+    <string name="fast_charge_title">Szybkie ładowanie</string>
     <string name="fast_charge_summary">Włącz/Wyłącz szybkie ładowanie</string>
     <string name="battery_cycle">Cykle baterii</string>
     <string name="battery_temp">Temperatura baterii</string>
@@ -29,4 +28,8 @@
     <string name="kcal_color_temp">Temperatura barwowa (K)</string>
 
     <string name="toast_restart">Zrestartuj telefon by zatwierdzić zmiany</string>
+    <string name="device_doze_title">Ekran zgodny z otoczeniem</string>
+    <string name="aod_backlight_title">Typ podświetlenia AOD</string>
+    <string name="aod_backlight_summary">Możesz ustawić preferowany rodzaj podświetlenia</string>
+    <string name="screen_gestures_panel_title">Dodatkowe ustawienia telefonu</string>
 </resources>

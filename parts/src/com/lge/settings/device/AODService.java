@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.lge.settings.device.utils.Constants;
+import com.lge.settings.device.utils.PreferenceHelper;
 
 
 public class AODService extends Service {
@@ -57,11 +58,14 @@ public class AODService extends Service {
         
         AmbientDisplayConfiguration mConfig = new AmbientDisplayConfiguration(context);
 
-        Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
 
-        if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) {
-            if (DEBUG) Log.d(TAG, "AOD Enabled");
-            Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
+        if(PreferenceHelper.getAodBacklightType(context) == 0){
+            Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
+
+            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) {
+                if (DEBUG) Log.d(TAG, "AOD Enabled");
+                Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
+            }
         }
     }
 
