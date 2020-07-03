@@ -32,9 +32,13 @@
 
     <!-- Display -->
     <string name="graphics_title">Display</string>
-    <string name="device_doze_title" translatable="false">Ambient display</string>
+    <string name="device_doze_title">Ambient display</string>
 
     <string name="dlm_mode_title">Daylight mode</string>
+
+    <!-- AOD -->
+    <string name="aod_backlight_title">AOD backlight type</string>
+    <string name="aod_backlight_summary">You can set preferred backlight</string>
 
     <!-- Kcal -->
     <string name="kcal_title">Display color</string>
