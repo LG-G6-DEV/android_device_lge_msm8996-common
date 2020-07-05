@@ -25,6 +25,7 @@ public class AODService extends Service {
         IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        screenStateFilter.setPriority(1000);
         registerReceiver(mScreenStateReceiver, screenStateFilter);
     }
 
