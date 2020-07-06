@@ -7,3 +7,4 @@ r_dir_file(hal_camera_default, proc_sensordata)
 allow hal_camera_default camera_data_file:dir search;
 allow hal_camera_default hal_power_default:binder call;
 allow hal_camera_default hal_power_hwservice:hwservice_manager { find };
+allow hal_camera_default init:binder call;

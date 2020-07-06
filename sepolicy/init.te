@@ -16,7 +16,6 @@ allow init default_android_hwservice:hwservice_manager { add find };
 allow init hidl_base_hwservice:hwservice_manager { add };
 allow init sysfs:file { read };
 allow init thermal_device:chr_file { write };
-allow init hal_thermal_hwservice:hwservice_manager { add };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
 
@@ -42,3 +41,7 @@ allow init hal_perf_default:binder { call };
 
 allow init init:binder { call };
 allow init system_file:file { mounton };
+allow init hal_thermal_hwservice:hwservice_manager { find add }; 
+
+allow init functionfs:dir mounton;
+allow init thermal_service:service_manager add;
