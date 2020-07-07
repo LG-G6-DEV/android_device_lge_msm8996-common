@@ -65,7 +65,7 @@ public class AODService extends Service {
 
             if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) {
                 if (DEBUG) Log.d(TAG, "AOD Enabled");
-                Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
+                Utils.writeValue(Constants.AOD_BLANK_NODE, "1");
             }
         }
     }
