@@ -31,7 +31,7 @@ import java.util.concurrent.Future;
 
 public class TiltSensor implements SensorEventListener {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final String TAG = "TiltSensor";
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;

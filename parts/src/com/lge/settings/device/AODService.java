@@ -16,7 +16,7 @@ import com.lge.settings.device.utils.PreferenceHelper;
 
 public class AODService extends Service {
     private static final String TAG = "AODService";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     @Override
     public void onCreate() {
