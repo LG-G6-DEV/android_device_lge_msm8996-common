@@ -63,8 +63,17 @@ public class AODService extends Service {
         if(PreferenceHelper.getAodBacklightType(context) == 0){
             Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
 
-            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) {
-                if (DEBUG) Log.d(TAG, "AOD Enabled");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                if (DEBUG) e.printStackTrace();
+            }
+
+            if (DEBUG) Log.d(TAG, Utils.readLine(Constants.AOD_CUR_MODE_NODE));
+
+            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())
+                    && !Utils.readLine(Constants.AOD_CUR_MODE_NODE).equals("2")) {
+                if (DEBUG) Log.d(TAG, "BLANK SET");
                 Utils.writeValue(Constants.AOD_BLANK_NODE, "1");
             }
         }
