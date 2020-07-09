@@ -48,6 +48,7 @@ public class Constants {
     // AOD nodes
     public static final String AOD_ENABLE_NODE = "/sys/class/graphics/fb0/aod";
     public static final String AOD_BLANK_NODE = "/sys/class/graphics/fb0/blank";
+    public static final String AOD_KEEP_NODE = "/sys/class/graphics/fb0/keep_aod";
     public static final String AOD_CUR_MODE_NODE = "/sys/class/graphics/fb0/cur_panel_mode";
 
     // AOD settings
