@@ -51,7 +51,7 @@ public class AODService extends Service {
         if (DEBUG) Log.d(TAG, "Display on");
 
         Utils.writeValue(Constants.AOD_ENABLE_NODE, "0");
-        Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
+        Utils.writeValue(Constants.AOD_KEEP_NODE, "0");
     }
 
     private void onDisplayOff(Context context) {
@@ -61,6 +61,7 @@ public class AODService extends Service {
 
 
         if(PreferenceHelper.getAodBacklightType(context) == 0){
+            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
             Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
 
             try {
