@@ -36,10 +36,6 @@
 
     <string name="dlm_mode_title">Daylight mode</string>
 
-    <!-- AOD -->
-    <string name="aod_backlight_title">AOD backlight type</string>
-    <string name="aod_backlight_summary">You can set preferred backlight</string>
-
     <!-- Kcal -->
     <string name="kcal_title">Display color</string>
     <string name="kcal_summary">Display color calibration using KCAL</string>

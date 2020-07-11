@@ -51,10 +51,6 @@ public class Constants {
     public static final String AOD_KEEP_NODE = "/sys/class/graphics/fb0/keep_aod";
     public static final String AOD_CUR_MODE_NODE = "/sys/class/graphics/fb0/cur_panel_mode";
 
-    // AOD settings
-    public static final String AOD_KEY = "aod";
-    public static final String KEY_AOD_DISPLAY = "aod_display";
-
     // Array of music-related gestures
     public static final String[] TOUCHSCREEN_MUSIC_GESTURES_ARRAY = {TOUCHSCREEN_DOUBLE_SWIPE_NODE, TOUCHSCREEN_LEFT_ARROW, TOUCHSCREEN_RIGHT_ARROW};
 
@@ -77,9 +73,6 @@ public class Constants {
 
     // Holds <preference_key> -> <default_values> mapping
     public static final Map<String, Object> sNodeDefaultMap = new HashMap<>();
-
-    //Preferences
-    public static final String PREF_AOD_BACKLIGHT = "aod_backlight_type";
 
     public static boolean isPreferenceEnabled(Context context, String key) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
