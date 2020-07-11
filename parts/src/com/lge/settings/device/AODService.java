@@ -64,16 +64,9 @@ public class AODService extends Service {
             if (mConfig.alwaysOnEnabled(UserHandle.myUserId())) Utils.writeValue(Constants.AOD_BLANK_NODE, "0");
             Utils.writeValue(Constants.AOD_ENABLE_NODE, "2");
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                if (DEBUG) e.printStackTrace();
-            }
-
             if (DEBUG) Log.d(TAG, Utils.readLine(Constants.AOD_CUR_MODE_NODE));
 
-            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())
-                    && Utils.readLine(Constants.AOD_CUR_MODE_NODE).equals("0")) {
+            if (mConfig.alwaysOnEnabled(UserHandle.myUserId())){
                 if (DEBUG) Log.d(TAG, "BLANK SET");
                 Utils.writeValue(Constants.AOD_BLANK_NODE, "1");
             }
