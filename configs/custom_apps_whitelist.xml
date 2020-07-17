@@ -14,7 +14,6 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#ff80868B" android:state_activated="false" />
-    <item android:color="?android:attr/colorAccent" android:state_activated="true" />
-</selector>
+<config>
+    <allow-in-power-save package="com.lge.settings.device" />
+</config>

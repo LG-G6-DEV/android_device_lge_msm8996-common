@@ -17,8 +17,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:sharedUserId="android.uid.system"
           package="com.lge.settings.device"
-          android:versionCode="6"
-          android:versionName="2.4" >
+          android:versionCode="9"
+          android:versionName="2.7" >
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -71,12 +71,14 @@
         </activity>
 
         <receiver android:name=".Startup" >
-            <intent-filter>
+            <intent-filter android:priority="999">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
                 <action android:name="oneplus.intent.action.GESTURE_CAMERA" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".AODService"/>
 
         <service
             android:name="com.lge.settings.device.DLMModeTileService"
