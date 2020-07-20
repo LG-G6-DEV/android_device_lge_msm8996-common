@@ -97,7 +97,9 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libvolumelistener \
-    tinymix
+    tinymix \
+    libaacwrapper \
+    libaudioroute
     
 -include $(LOCAL_PATH)/audio/config.mk
 
