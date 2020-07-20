@@ -45,12 +45,6 @@ public class Constants {
     public static final String TOUCHSCREEN_RIGHT_ARROW = "/proc/touchpanel/right_arrow_enable";
     public static final String TOUCHSCREEN_FLASHLIGHT_NODE = "/proc/touchpanel/down_arrow_enable";
 
-    // AOD nodes
-    public static final String AOD_ENABLE_NODE = "/sys/class/graphics/fb0/aod";
-    public static final String AOD_BLANK_NODE = "/sys/class/graphics/fb0/blank";
-    public static final String AOD_KEEP_NODE = "/sys/class/graphics/fb0/keep_aod";
-    public static final String AOD_CUR_MODE_NODE = "/sys/class/graphics/fb0/cur_panel_mode";
-
     // Array of music-related gestures
     public static final String[] TOUCHSCREEN_MUSIC_GESTURES_ARRAY = {TOUCHSCREEN_DOUBLE_SWIPE_NODE, TOUCHSCREEN_LEFT_ARROW, TOUCHSCREEN_RIGHT_ARROW};
 
