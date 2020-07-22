@@ -78,8 +78,6 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".AODService"/>
-
         <service
             android:name="com.lge.settings.device.DLMModeTileService"
             android:icon="@drawable/ic_dlm_tile"
