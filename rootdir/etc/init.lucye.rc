@@ -213,10 +213,11 @@ on boot
     chmod 664 /sys/class/graphics/fb0/keep_aod
     chown system system /sys/class/graphics/fb0/cur_panel_mode
     chmod 644 /sys/class/graphics/fb0/cur_panel_mode
-    chown system system /sys/class/graphics/fb0/blank
-    chmod 664 /sys/class/graphics/fb0/blank
     chown system system /sys/class/leds/lcd-backlight-ex/brightness
     chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
+
+    # Always on Display for Kernel
+    write /sys/class/graphics/fb0/aod 2
 
     # High Luminance Mode
     chown system system /sys/devices/virtual/graphics/fb0/hl_mode

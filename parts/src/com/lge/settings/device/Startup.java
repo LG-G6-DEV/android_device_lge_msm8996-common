@@ -27,7 +27,6 @@ import android.service.quicksettings.TileService;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.util.Log;
-import android.os.UserHandle;
 
 import java.io.File;
 
@@ -63,8 +62,6 @@ public class Startup extends BroadcastReceiver {
         }
 
         DisplayCalibration.restore(context);
-        
-        context.startServiceAsUser(new Intent(context, AODService.class), UserHandle.CURRENT);
 
         // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         // boolean enabled = sharedPrefs.getBoolean(Constants.KEY_SRGB_SWITCH, false);

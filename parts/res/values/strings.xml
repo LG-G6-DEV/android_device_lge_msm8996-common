@@ -28,8 +28,6 @@
     <string name="battery_temp">Battery temperature</string>
     <string name="battery_health">Battery health</string>
 
-    <string name="toast_restart">Restart phone to apply changes</string>
-
     <!-- Display -->
     <string name="graphics_title">Display</string>
     <string name="device_doze_title">Ambient display</string>
