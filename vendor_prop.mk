@@ -169,6 +169,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.REVERSE_QMI=0 \
     persist.radio.ROTATION_ENABLE=1 \
     persist.rcs.supported=1 \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     persist.vendor.radio.aosp_usr_pref_sel=true \
     persist.vendor.radio.cs_srv_type=1 \
     persist.vendor.radio.custom_ecc=1 \
@@ -206,10 +207,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.lge.sensors.wul_thresh4=3100 \
 	persist.vendor.lge.sensors.wul_thresh5=10000 \
 	persist.vendor.lge.sensors.lgpickup=true
-
-# Settings app
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.fflag.override.settings_network_and_internet_v2=true
 
 # Surfaceflinger
 PRODUCT_PROPERTY_OVERRIDES += \
