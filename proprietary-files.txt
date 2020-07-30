@@ -876,10 +876,21 @@ lib64/libsymphony-1.1.3.so
 lib64/libsymphony-cpu-1.1.3.so
 lib64/libsymphonypower-1.1.3.so
 
-# Fingerprint Sensors - from Stock H870 V20I
-vendor/lib/hw/fingerprint.msm8996.so
+# Fingerprint - from V30B H870
+framework/vendor.lge.hardware.biometrics.fingerprint-V2.1-java.jar
+framework/vendor.lge.hardware.biometrics.fingerprint-V2.2-java.jar
+framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
+lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so
+lib64/vendor.lge.hardware.biometrics.fingerprint@2.2.so
+lib64/vendor.qti.hardware.fingerprint@1.0.so
+lib/vendor.lge.hardware.biometrics.fingerprint@2.1.so
+lib/vendor.lge.hardware.biometrics.fingerprint@2.2.so
+lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/bin/hw/vendor.lge.hardware.biometrics.fingerprint@2.1-service
+vendor/etc/init/hw/init.lge.fingerprints.rc
+vendor/etc/init/vendor.lge.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/permissions/android.hardware.fingerprint.xml
 vendor/lib64/hw/fingerprint.msm8996.so
-framework/vendor.qti.hardware.fingerprint-V1.0-java.jar:vendor/framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
@@ -1166,17 +1177,6 @@ vendor/lib64/hw/sensors.vr.so
 # Sensors (LGE) - from Stock H870 V30B
 vendor/lib/libsensor_lge_cal.so
 vendor/lib64/libsensor_lge_cal.so
-
-# Sysnode from Stock H870 V20I
-framework/vendor.lge.hardware.sysnode-V1.0-java.jar:vendor/framework/vendor.lge.hardware.sysnode-V1.0-java.jar
-lib/vendor.lge.hardware.sysnode@1.0.so:vendor/lib/vendor.lge.hardware.sysnode@1.0.so
-lib64/vendor.lge.hardware.sysnode@1.0.so:vendor/lib64/vendor.lge.hardware.sysnode@1.0.so
-vendor/bin/hw/vendor.lge.hardware.sysnode@1.0-service
-vendor/etc/init/vendor.lge.hardware.sysnode-1.0-service.rc
-vendor/lib/hw/vendor.lge.hardware.sysnode@1.0-client.so
-vendor/lib/hw/vendor.lge.hardware.sysnode@1.0-impl.so
-vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-client.so
-vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 
 # Thermal - from H870 V30B
 vendor/bin/thermal-engine
