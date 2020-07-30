@@ -84,29 +84,10 @@ start_msm_irqbalance_8939()
 {
 	if [ -f /vendor/bin/msm_irqbalance ]; then
 		case "$platformid" in
-		    "239" | "293" | "294" | "295" | "304" | "338" | "313" |"353")
+		    "239" | "293" | "294" | "295" | "304" | "313" |"353")
 			start vendor.msm_irqbalance;;
 		    "349" | "350" )
 			start vendor.msm_irqbal_lb;;
-		esac
-	fi
-}
-
-start_msm_irqbalance_msmnile()
-{
-         if [ -f /vendor/bin/msm_irqbalance ]; then
-                start vendor.msm_irqbalance
-         fi
-}
-
-start_msm_irqbalance660()
-{
-	if [ -f /vendor/bin/msm_irqbalance ]; then
-		case "$platformid" in
-		    "317" | "324" | "325" | "326" | "345" | "346")
-			start vendor.msm_irqbalance;;
-		    "318" | "327" | "385")
-			start vendor.msm_irqbl_sdm630;;
 		esac
 	fi
 }
@@ -116,14 +97,6 @@ start_msm_irqbalance()
 	if [ -f /vendor/bin/msm_irqbalance ]; then
 		start vendor.msm_irqbalance
 	fi
-}
-
-start_copying_prebuilt_qcril_db()
-{
-    if [ -f /vendor/radio/qcril_database/qcril.db -a ! -f /data/vendor/radio/qcril.db ]; then
-        cp /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril.db
-        chown -h radio.radio /data/vendor/radio/qcril.db
-    fi
 }
 
 baseband=`getprop ro.baseband`
@@ -205,7 +178,7 @@ case "$target" in
         fi
 
         case "$soc_id" in
-             "317" | "324" | "325" | "326" | "318" | "327" | "385" )
+             "317" | "324" | "325" | "326" | "318" | "327" )
                   case "$hw_platform" in
                        "Surf")
                                     setprop qemu.hw.mainkeys 0
@@ -222,7 +195,7 @@ case "$target" in
                   esac
                   ;;
        esac
-        start_msm_irqbalance660
+        start_msm_irqbalance
         ;;
     "apq8084")
         platformvalue=`cat /sys/devices/soc0/hw_platform`
@@ -275,7 +248,7 @@ case "$target" in
                   ;;
         esac
         ;;
-    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "sm6150" | "trinket")
+    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "msmnile" | "talos")
         start_msm_irqbalance
         ;;
     "msm8996")
@@ -301,9 +274,6 @@ case "$target" in
         ;;
     "msm8909")
         start_vm_bms
-        ;;
-    "msmnile")
-        start_msm_irqbalance_msmnile
         ;;
     "msm8937")
         start_msm_irqbalance_8939
@@ -384,7 +354,7 @@ case "$target" in
              hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
         fi
         case "$soc_id" in
-             "336" | "337" | "347" | "360" | "393" )
+             "336" | "337" | "347" | "360" )
                   case "$hw_platform" in
                        "Surf")
                                     setprop qemu.hw.mainkeys 0
@@ -405,54 +375,28 @@ case "$target" in
 esac
 
 #
-# Copy qcril.db if needed for RIL
-#
-start_copying_prebuilt_qcril_db
-echo 1 > /data/vendor/radio/db_check_done
-
-#
 # Make modem config folder and copy firmware config to that folder for RIL
 #
-if [ -f /data/vendor/radio/ver_info.txt ]; then
-    prev_version_info=`cat /data/vendor/radio/ver_info.txt`
+if [ -f /data/vendor/modem_config/ver_info.txt ]; then
+    prev_version_info=`cat /data/vendor/modem_config/ver_info.txt`
 else
     prev_version_info=""
 fi
 
-cur_version_info=`cat /firmware/verinfo/ver_info.txt`
-
-# HERE : LG_FW_MCFG_QCRIL_DB_ALWAYS_UPDATE
-
-build_product=`getprop ro.build.product`
-product_name=`getprop ro.product.name`
-
-# START MCFG Operation.
-rm -rf /data/vendor/radio/modem_config
-mkdir /data/vendor/radio/modem_config
-chmod 770 /data/vendor/radio/modem_config
-setprop persist.radio.sw_mbn_loaded 0
-# setprop persist.radio.hw_mbn_loaded 0
-if [ "$build_product" = "lucye" ]; then
-    cp -r /firmware/image/modem_pr/mcfg/configs/cust/* /data/vendor/radio/modem_config
-else
-    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/vendor/radio/modem_config
+cur_version_info=`cat /vendor/firmware_mnt/verinfo/ver_info.txt`
+if [ ! -f /vendor/firmware_mnt/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
+    # add W for group recursively before delete
+    chmod g+w -R /data/vendor/modem_config/*
+    rm -rf /data/vendor/modem_config/*
+    # preserve the read only mode for all subdir and files
+    cp --preserve=m -dr /vendor/firmware_mnt/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
+    cp --preserve=m -d /vendor/firmware_mnt/verinfo/ver_info.txt /data/vendor/modem_config/
+    cp --preserve=m -d /vendor/firmware_mnt/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
+    # the group must be root, otherwise this script could not add "W" for group recursively
+    chown -hR radio.root /data/vendor/modem_config/*
 fi
-
-chown -hR radio.radio /data/vendor/radio/modem_config
-cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
-chown radio.radio /data/vendor/radio/ver_info.txt
-
-# LUCYE, MCFG selection for hidden menu.
-# secheol.pyo@lge.com, 2016-12-19
-if [ "$build_product" = "lucye" ]; then
-    chown -h radio.system /data/vendor/radio/modem_config
-    chmod -R 770 /data/vendor/radio/modem_config/mcfg_sw
-    chown -hR radio.system /data/vendor/radio/modem_config/mcfg_sw
-fi
-cp /firmware/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
-chown radio.radio /data/vendor/radio/modem_config/mbn_ota.txt
-echo 1 > /data/vendor/radio/copy_complete
-# END MCFG Operation.
+chmod g-w /data/vendor/modem_config
+setprop ro.vendor.ril.mbn_copy_completed 1
 
 #check build variant for printk logging
 #current default minimum boot-time-default

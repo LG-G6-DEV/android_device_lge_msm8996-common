@@ -81,6 +81,34 @@ function blob_fixup() {
         patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
         ;;
 
+    # firmware_mnt stuff
+    vendor/lib/libcppf.so)
+        # binhaxxed to load cppf firmware from /vendor/firmware/
+        sed -i -e 's|/system/etc/firmware|/vendor/firmware\x0\x0\x0\x0|g' "${2}"
+        # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+        ;;
+
+    vendor/lib64/hw/fingerprint.msm8996.so)
+        # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+        ;;
+
+    vendor/lib/liboemcrypto.so)
+        # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+        ;;
+
+    vendor/lib64/libSecureUILib.so)
+        # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+        ;;
+
+        # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+    vendor/lib64/hw/gatekeeper.msm8996.so | vendor/lib64/hw/keystore.msm8996.so)
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+        ;;
+
     esac
 }
 
