@@ -271,17 +271,17 @@ PRODUCT_PACKAGES += \
 
 # Permission - Hotword
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-hotword.xml
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-hotword.xml
 
 # Permission - Qualcomm
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 # Permission - Lucye
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
-    $(LOCAL_PATH)/configs/product/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-lge-lucye-laop.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge-lucye-laop.xml \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-lge-lucye-laop-product.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-permissions-lge-lucye-laop.xml
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -329,11 +329,11 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_lge.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_lge.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
-    $(LOCAL_PATH)/configs/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_lge.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_lge.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
@@ -358,8 +358,8 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1-service
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -433,9 +433,6 @@ PRODUCT_PACKAGES += \
     thermal.msm8996 \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service
-
-#PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
 # Tools
 PRODUCT_PACKAGES += \
