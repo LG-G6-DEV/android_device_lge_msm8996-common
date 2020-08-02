@@ -45,3 +45,8 @@ allow init hal_thermal_hwservice:hwservice_manager { find add };
 
 allow init functionfs:dir mounton;
 allow init thermal_service:service_manager add;
+allow init sysfs:file open;
+allow init tee_device:chr_file { ioctl open read write };
+allow init hal_fingerprint_hwservice:hwservice_manager add;
+allow init ion_device:chr_file { ioctl open read write };
+allow init system_server:binder { call };
