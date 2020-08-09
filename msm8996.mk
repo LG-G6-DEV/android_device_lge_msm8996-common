@@ -293,11 +293,6 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    libshim_ims
-
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     device/lge/msm8996-common \
