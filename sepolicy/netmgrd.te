@@ -6,3 +6,4 @@ set_prop(netmgrd, vendor_xlat_prop)
 allow netmgrd sysfs:file { read open };
 allow netmgrd system_prop:property_service set;
 allow netmgrd netutils_wrapper:process noatsecure;
+allow netmgrd system_file:file execute_no_trans;
