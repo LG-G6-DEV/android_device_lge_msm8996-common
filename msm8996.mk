@@ -403,7 +403,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libui_shim
+    libbase_shim
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
