@@ -1,68 +1,31 @@
-# ADSP - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.2.0.QDLMIXM
-vendor/bin/adsprpcd|a5e878691577485c9f7ee33dfe02384a13f0a265
-vendor/lib64/libadsprpc.so|3dd28423f6b786584a1c80b2cdb6e22a1c00b0ae
-vendor/lib64/libadsp_default_listener.so|d7436ae6255671b4c3af533b5c89d91d75d5069e
-vendor/lib64/libcdsprpc.so|cdd9343c8b732a082cb008fedc269d4e4d7e5929
-vendor/lib64/libfastcvadsp_stub.so|f101b66fa4a450b5af2e6aa9f7aaa28f9a876005
-vendor/lib64/libfastcvopt.so|f5e25aa055a57e23530b858bf7dd204a6009effc
-vendor/lib64/libmdsprpc.so|38de6a53d3c2ff60a253c7c6a0d3b46962e8e194
-vendor/lib64/libsdsprpc.so|1e89a33bae491abe4c81bb77c8fabf59bff4b853
-vendor/lib/libadsprpc.so|e00e8dcb88e9b204fd90bb2c32afcc7fa28dbad1
-vendor/lib/libadsp_default_listener.so|c9a1ee00b32a93a9496ec84393afa0625e929eed
-vendor/lib/libcdsprpc.so|ad00bd9a9f8e43403fcaf3101cce2b452a636032
-vendor/lib/libfastcvadsp_stub.so|996345605e1d631151a6b4e9cd9f65b2c7e82dac
-vendor/lib/libfastcvopt.so|2df00c3827fe1db322084cb3935241f17d1532f4
-vendor/lib/libmdsprpc.so|642f74bfec1098397c7ee025e0744badbf14fc39
-vendor/lib/libsdsprpc.so|2963c73745b8b1ccab64260ce93e3679c7c66113
-
-# ADSP - from oneplus3t - OnePlus/OnePlus3/OnePlus3T:9/PKQ1.181203.001/1911042108 - OOS 9.0.6
-vendor/lib/libadsp_hvx_callback_skel.so|b7e47d8d0c011caea30daf974de81eb01bb90268
-vendor/lib/libadsp_hvx_stub.so|5842e47b5929e15c8b63f1aa4795ca3432debebb
-
-# ADSP (modules) - from H870 V30B
-vendor/lib/rfsa/adsp/AlacDecoderModule.so.1
-vendor/lib/rfsa/adsp/ApeDecoderModule.so.1
-vendor/lib/rfsa/adsp/AudioSphereModule.so.1
-vendor/lib/rfsa/adsp/DolbyMobileModule.so.1
-vendor/lib/rfsa/adsp/DolbySurroundModule.so.1
-vendor/lib/rfsa/adsp/DTS_HPX_MODULE.so.1
-vendor/lib/rfsa/adsp/EtsiEaacPlusEncAndCmnModule.so.1
-vendor/lib/rfsa/adsp/fastrpc_shell_0
-vendor/lib/rfsa/adsp/FlacDecoderModule.so.1
-vendor/lib/rfsa/adsp/fluence_voiceplus_module.so.1
-vendor/lib/rfsa/adsp/HeaacDecoderModule.so.1
-vendor/lib/rfsa/adsp/libadsp_fd_skel.so
-vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so
-vendor/lib/rfsa/adsp/libadsp_hvx_skel.so
-vendor/lib/rfsa/adsp/libadsp_hvx_stats.so
-vendor/lib/rfsa/adsp/libadsp_hvx_zzhdr_BGGR.so
-vendor/lib/rfsa/adsp/libadsp_hvx_zzhdr_RGGB.so
-vendor/lib/rfsa/adsp/libapps_mem_heap.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
-vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
-vendor/lib/rfsa/adsp/libscveT2T_skel.so
-vendor/lib/rfsa/adsp/libsysmon_skel.so
-vendor/lib/rfsa/adsp/libvpp_frc.so
-vendor/lib/rfsa/adsp/libvpp_svc_skel.so
-vendor/lib/rfsa/adsp/mmecns_module.so.1
-vendor/lib/rfsa/adsp/SAPlusCmnModule.so.1
-vendor/lib/rfsa/adsp/SrsTruMediaModule.so.1
-vendor/lib/rfsa/adsp/VorbisDecoderModule.so.1
-vendor/lib/rfsa/adsp/WmaProDecoderModule.so.1
-vendor/lib/rfsa/adsp/WmaStdDecoderModule.so.1
-
-# Audio - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.2.0.QDLMIXM
-vendor/lib/libacdb-fts.so|9fb9fe8f1e22e38e41f1517b8f206a50bbb24419
-vendor/lib/libacdbloader.so|f33941720463b3c8215fc644b7d638c6d8ab74c7
-vendor/lib/libacdbrtac.so|f997dfef5413873af88bd8636a501401e9ea9631
-vendor/lib/libadiertac.so|6cfa3c70f01617a944ed2d8512189400ccdec21e
-vendor/lib/libaudcal.so|8c4d9a610c5cce20dee9721feb4864ea2470caf2
-vendor/lib/libaudioalsa.so|1455df26b622c518c04d7f54746683ed96aaa74f
-vendor/lib/libaudioparsers.so|4b980c4392b6e800fb23213a0daaa83b35c04051
-vendor/lib/libqtigef.so|fbedb509c61ff1a7d6e9c4a099af346ca781430a
+# Audio - from H870 V30B
+lib/libaudioroute.so
+lib/libqct_resampler.so
+lib64/libaudioroute.so
+vendor/lib/libhwdaphal.so
+vendor/lib/libcdsprpc.so
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libaudcal.so
+vendor/lib/libqtigef.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libtinycompress_vendor.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libcsd-client.so
+vendor/lib64/libcdsprpc.so
+vendor/lib64/libaudioalsa.so
+vendor/lib64/libtinycompress_vendor.so
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbloader.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
+vendor/lib64/libqtigef.so
+vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libcsd-client.so
 
 # Audio ACBD - from H870 V30B
 vendor/etc/acdbdata/Bluetooth_cal.acdb
@@ -72,6 +35,66 @@ vendor/etc/acdbdata/Handset_cal.acdb
 vendor/etc/acdbdata/Hdmi_cal.acdb
 vendor/etc/acdbdata/Headset_cal.acdb
 vendor/etc/acdbdata/Speaker_cal.acdb
+
+# ADSP - from H870 V30B
+vendor/bin/adsprpcd
+vendor/lib64/libadsprpc.so
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libcdsprpc.so
+vendor/lib64/libfastcvadsp_stub.so
+vendor/lib64/libmdsprpc.so
+vendor/lib/libadsprpc.so
+vendor/lib/libadsp_default_listener.so
+vendor/lib/libadsp_hvx_callback_skel.so
+vendor/lib/libadsp_hvx_stub.so
+vendor/lib/libcdsprpc.so
+vendor/lib/libfastcvadsp_stub.so
+vendor/lib/libmdsprpc.so
+lib/libmdsprpc_system.so
+lib64/libmdsprpc_system.so
+
+# AudioFX Modules - from H870 V30B
+etc/permissions/audiosphere.xml
+framework/audiosphere.jar
+vendor/lib/libeaglecore.so
+vendor/lib/libdts-eagle-shared.so
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libaudiopreprocessing.so
+vendor/lib/soundfx/libbundlewrapper.so
+vendor/lib/soundfx/libdownmix.so
+vendor/lib/soundfx/libdynproc.so
+vendor/lib/soundfx/libeagle.so
+vendor/lib/soundfx/libeffectproxy.so
+vendor/lib/soundfx/libldnhncr.so
+vendor/lib/soundfx/liblgeffectwrapper.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcompostprocbundle.so
+vendor/lib/soundfx/libqcomvisualizer.so
+vendor/lib/soundfx/libqcomvoiceprocessing.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libreverbwrapper.so
+vendor/lib/soundfx/libvisualizer.so
+vendor/lib/soundfx/libvolumelistener.so
+vendor/lib64/libeaglecore.so
+vendor/lib64/libdts-eagle-shared.so
+vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libaudiopreprocessing.so
+vendor/lib64/soundfx/libbundlewrapper.so
+vendor/lib64/soundfx/libdownmix.so
+vendor/lib64/soundfx/libdynproc.so
+vendor/lib64/soundfx/libeagle.so
+vendor/lib64/soundfx/libeffectproxy.so
+vendor/lib64/soundfx/libldnhncr.so
+vendor/lib64/soundfx/liblgeffectwrapper.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcompostprocbundle.so
+vendor/lib64/soundfx/libqcomvisualizer.so
+vendor/lib64/soundfx/libqcomvoiceprocessing.so
+vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libreverbwrapper.so
+vendor/lib64/soundfx/libvisualizer.so
+vendor/lib64/soundfx/libvolumelistener.so
 
 # Bluetooth - aptX - from crosshatch QP1A.190711.020
 product/lib64/libaptX_encoder.so
@@ -994,8 +1017,8 @@ vendor/lib64/vendor.qti.gnss@3.0-service.so|6b3c387f31f4cb91c8907362af4daa3f0cad
 vendor/lib64/vendor.qti.gnss@3.0.so|c5ed668d324e7c898ca026fc12dad8829cd8a944
 
 # GPS (libwifi-hal-ctrl) - from leeco x2
-vendor/lib/libwifi-hal-ctrl.so
-vendor/lib64/libwifi-hal-ctrl.so
+vendor/lib/libwif-hal-ctrl.so
+vendor/lib64/libwif-hal-ctrl.so
 
 # Hotword Enrollment - from Stock H870 V30B
 -product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
