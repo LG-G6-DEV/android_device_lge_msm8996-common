@@ -275,7 +275,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0 \
-    android.hidl.manager@1.0-java
+    libhidltransport \
+    libhwbinder
 
 # Permission - Hotword
 PRODUCT_COPY_FILES += \
