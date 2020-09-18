@@ -1256,7 +1256,7 @@ vendor/etc/init/vendor.lge.hardware.thermal@1.0-service.rc
 framework/vendor.lge.hardware.thermal-V1.0-java.jar
 
 # Time services - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.2.0.QDLMIXM
--vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um|27f9b81621c446baa8c37581d9bfbca2fd67b496
+-vendor/app/TimeService/TimeService.apk|27f9b81621c446baa8c37581d9bfbca2fd67b496
 vendor/bin/time_daemon|75b8a6a14cfb4424499ccb2bf1cad011df295d0e
 vendor/lib/libtime_genoff.so|a574d287e7e73649685b702f4fe497eb7c6ba727
 vendor/lib64/libtime_genoff.so|06df52867790cdbbcc674a3a28d7ad7c8cc161ac
