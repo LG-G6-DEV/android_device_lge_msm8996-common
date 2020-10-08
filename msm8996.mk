@@ -238,8 +238,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_GMS_CLIENTID_BASE := android-om-lg
 
 # GPS
-$(call inherit-product, hardware/qcom/gps/gps_vendor_board.mk)
-$(call inherit-product, hardware/qcom/gps/gps_vendor_product.mk)
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-service-qti \
+    android.hardware.gnss@1.1-impl-qti \
+    android.hardware.gnss@1.1-service-qti \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    gps.conf \
+    libloc_core \
+    libgnss \
+    liblocation_api \
+    libgps.utils \
+    libbatching \
+    libgeofencing
 
 PRODUCT_PACKAGES += \
     libsensorndkbridge
