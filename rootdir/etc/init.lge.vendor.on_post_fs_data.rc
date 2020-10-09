@@ -15,9 +15,6 @@ on post-fs-data
     mkdir /mnt/vendor/persist-lg/thermal 0771 root shell
 
 
-    #Kill-Switch
-    mkdir /vendor/persist-lg/mms 0770 system vendor_lgmms
-
     #MM Proxy
     mkdir /vendor/persist-lg/mmoprt 0771 system system
 
