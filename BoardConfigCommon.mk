@@ -17,6 +17,8 @@
 
 COMMON_PATH := device/lge/msm8996-common
 
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+
 # inherit from common lge
 -include device/lge/common/BoardConfigCommon.mk
 
@@ -58,6 +60,7 @@ TARGET_KERNEL_SOURCE := kernel/lge/msm8996
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 USE_LIB_PROCESS_GROUP := true
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Dup rules
 BUILD_BROKEN_DUP_RULES := true
@@ -127,9 +130,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BTHW_FW_EXTENDED_CONFIGURATION := true
 BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
-
-# Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Bionic
 TARGET_NEEDS_LEGACY_MUTEX_HANDLE := true
@@ -213,6 +213,7 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
@@ -240,5 +241,6 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/etc/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_MFG     := "/vendor/etc/firmware/fw_bcmdhd_mfg.bin"
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 # inherit from the proprietary version
 -include vendor/lge/msm8996-common/BoardConfigVendor.mk

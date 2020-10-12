@@ -25,7 +25,6 @@ on boot
 	chmod 664 /sys/devices/virtual/input/lge_touch/pen_support
 	chown system system /sys/devices/virtual/input/lge_touch/glove_support
 	chmod 664 /sys/devices/virtual/input/lge_touch/glove_support
-	chown system lgkeyguard /sys/devices/virtual/input/lge_touch/keyguard
 	chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
 	chown system system /sys/devices/virtual/input/lge_touch/debug_tool
 	chmod 664 /sys/devices/virtual/input/lge_touch/debug_tool
