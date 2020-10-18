@@ -73,6 +73,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.zsl.mode=0 \
     media.settings.xml=/vendor/etc/media_profiles_V1_0.xml
 
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1

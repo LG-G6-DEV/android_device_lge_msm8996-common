@@ -17,6 +17,8 @@
 
 COMMON_PATH := device/lge/msm8996-common
 
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+
 # inherit from common lge
 -include device/lge/common/BoardConfigCommon.mk
 
@@ -48,7 +50,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7
 BOARD_KERNEL_CMDLINE += sched_enable_hmp=1 sched_enable_power_aware=1 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.wificountrycode=US
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
@@ -56,6 +58,7 @@ BOARD_RAMDISK_OFFSET     := 0x02200000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/lge/msm8996
 TARGET_KERNEL_CLANG_COMPILE := true
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Dup rules
 BUILD_BROKEN_DUP_RULES := true
@@ -126,9 +129,6 @@ BTHW_FW_EXTENDED_CONFIGURATION := true
 BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 
-# Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
-
 # Bionic
 TARGET_NEEDS_LEGACY_MUTEX_HANDLE := true
 
@@ -173,9 +173,7 @@ TARGET_USES_COLOR_METADATA := true
 TARGET_HW_DISK_ENCRYPTION := true
 
 # GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 3.0
-USE_DEVICE_SPECIFIC_GPS := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
@@ -219,11 +217,12 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
 # SELinux policies
-include device/qcom/sepolicy-legacy-um/sepolicy.mk
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
@@ -246,5 +245,6 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/etc/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_MFG     := "/vendor/etc/firmware/fw_bcmdhd_mfg.bin"
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 # inherit from the proprietary version
 -include vendor/lge/msm8996-common/BoardConfigVendor.mk
