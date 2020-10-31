@@ -9,7 +9,6 @@ ifndef BOARD_VNDK_VERSION
 # libs will be copied to vndk-sp directory.
 # However, some of those libs need FWK-ONLY libs, which must be listed here
 # manually.
-
 VNDK_SP_LIBRARIES := \
     libdexfile_support \
 
@@ -61,12 +60,12 @@ VNDK_SP_LIBRARIES := $(filter-out libz,$(VNDK_SP_LIBRARIES))
 $(foreach lib,$(VNDK_SP_LIBRARIES),\
     $(eval $(call define-vndk-sp-lib,$(lib))))
 
-install_in_hw_dir :=
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := vndk-sp
-LOCAL_MODULE_OWNER := google
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := $(addsuffix .vndk-sp-gen,$(VNDK_SP_LIBRARIES))
 include $(BUILD_PHONY_PACKAGE)
+
+install_in_hw_dir :=
+vndk_sp_dir :=
 endif
