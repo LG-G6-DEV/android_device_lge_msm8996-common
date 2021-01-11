@@ -13,3 +13,4 @@ allow hal_fingerprint_default sysfs:file write;
 allow hal_fingerprint_default fingerprintd_data_file:dir { write search add_name remove_name };
 allow hal_fingerprint_default fingerprintd_data_file:file { open getattr unlink rename };
 allow hal_fingerprint_default system_data_file:dir { add_name write create };
+allow hal_fingerprint_default system_data_file:file write;
